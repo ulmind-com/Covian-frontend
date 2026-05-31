@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://project-for-prem-backend.onrender.com/api/v1';
+const API_URL = 'https://project-for-prem-backend.onrender.com/api/v1';
 
 export const api = axios.create({
   baseURL: API_URL,
