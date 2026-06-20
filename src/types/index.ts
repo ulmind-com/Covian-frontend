@@ -35,6 +35,7 @@ export interface Job {
   status: JobStatus;
   pipeline_stages: string[];
   salary_range: string;
+  company?: string;
   location?: string;
   industry?: string;
   job_type?: string;

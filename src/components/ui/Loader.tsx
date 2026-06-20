@@ -44,7 +44,7 @@ export const Loader = ({ message = "Loading data..." }: { message?: string }) =>
         transition={{ delay: 0.2, duration: 0.5 }}
         className="flex flex-col items-center gap-2"
       >
-        <h3 className="text-lg font-black text-[#042B6B] tracking-tight">CoreVita</h3>
+        <h3 className="text-lg font-black text-[#042B6B] tracking-tight">Covian</h3>
         <div className="flex items-center gap-1.5 text-sm font-bold text-[#007BFF] opacity-80 uppercase tracking-widest">
           <motion.span
             animate={{ opacity: [0, 1, 0] }}

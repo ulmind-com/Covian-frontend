@@ -1,257 +1,179 @@
 "use client";
+/* eslint-disable */
+import { PageLoader } from "@/components/ui/PageLoader";
+import { triggerLottie } from "@/components/ui/GlobalLottie";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus, Edit2, Trash2, X, Save, Loader2, MapPin, Briefcase, FileText } from "lucide-react";
+import { getJobs, createJob, updateJob, deleteJob } from "@/services/admin-api";
+import Link from "next/link";
 
-import { useState } from "react";
-import { useJobs, useCreateJob, useUpdateJob, useDeleteJob, useCompanies } from "@/services/queries";
-import { Search, Filter, Plus, ChevronDown, Download, Briefcase, MapPin, DollarSign, Clock, Users, Target, Edit, Trash2 } from "lucide-react";
-import { Job } from "@/types";
-import { motion } from "framer-motion";
-import { Loader } from "@/components/ui/Loader";
-import { Modal } from "@/components/ui/Modal";
-import { toast } from "sonner";
+const card = "bg-white rounded-2xl border border-slate-100 shadow-sm";
+const input = "w-full px-3 py-2 rounded-xl border border-slate-200 text-sm font-medium text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400 transition-all";
+
+const emptyForm = {
+  title: "", description: "", company_id: "", recruiter_id: "", status: "OPEN",
+  salary_range: "", location: "", industry: "", job_type: "Full-time",
+  experience_level: "Mid", pipeline_stages: ["Applied","Screened","Interviewing","Offer","Rejected","Hired"]
+};
+
+const statusColor: Record<string, string> = {
+  OPEN: "bg-emerald-50 text-emerald-700 border-emerald-200",
+  CLOSED: "bg-slate-100 text-slate-500 border-slate-200",
+  DRAFT: "bg-amber-50 text-amber-700 border-amber-200",
+};
 
 export default function JobsPage() {
-  const { data: jobs, isLoading: isJobsLoading, error } = useJobs();
-  const { data: companies, isLoading: isCompaniesLoading } = useCompanies();
-  
-  const { mutate: createJob, isPending: isCreating } = useCreateJob();
-  const { mutate: updateJob, isPending: isUpdating } = useUpdateJob();
-  const { mutate: deleteJob, isPending: isDeleting } = useDeleteJob();
+  const [jobs, setJobs] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [modal, setModal] = useState<"create" | "edit" | null>(null);
+  const [editing, setEditing] = useState<any>(null);
+  const [form, setForm] = useState(emptyForm);
 
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const [selectedJob, setSelectedJob] = useState<Job | null>(null);
+  const load = () => getJobs().then(setJobs).catch(() => {}).finally(() => setLoading(false));
+  useEffect(() => { load(); }, []);
 
-  const [formData, setFormData] = useState({
-    title: "", description: "", company_id: "", recruiter_id: "", status: "OPEN" as "OPEN" | "CLOSED" | "DRAFT", salary_range: ""
-  });
+  const openCreate = () => { setForm(emptyForm); setEditing(null); setModal("create"); };
+  const openEdit = (j: any) => { setEditing(j); setForm({ ...j }); setModal("edit"); };
 
-  if (isJobsLoading || isCompaniesLoading) {
-    return (
-      <div className="h-[600px] flex items-center justify-center">
-        <Loader message="Loading job listings..." />
-      </div>
-    );
-  }
-
-  if (error || !jobs) {
-    return (
-      <div className="flex items-center justify-center h-64 bg-white/60 backdrop-blur-lg rounded-3xl shadow-xl text-red-500 font-bold border border-red-500/20 p-6">
-        <div className="flex flex-col items-center gap-3">
-          <Briefcase className="w-10 h-10 text-red-500" />
-          <span>Failed to load jobs. Ensure backend is running.</span>
-        </div>
-      </div>
-    );
-  }
-
-  const handleAddSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    createJob(formData, {
-      onSuccess: () => {
-        toast.success("Job created successfully!");
-        setIsAddModalOpen(false);
-        setFormData({ title: "", description: "", company_id: "", recruiter_id: "", status: "OPEN", salary_range: "" });
-      },
-      onError: () => toast.error("Failed to create job.")
-    });
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      if (modal === "create") await createJob(form);
+      else await updateJob(editing._id || editing.id, form);
+      setModal(null);
+      load();
+      triggerLottie('success');
+    } catch (e: any) { alert(e.message); }
+    finally { setSaving(false); }
   };
 
-  const handleEditSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!selectedJob) return;
-    updateJob({ id: selectedJob.id, ...formData }, {
-      onSuccess: () => {
-        toast.success("Job updated successfully!");
-        setIsEditModalOpen(false);
-      },
-      onError: () => toast.error("Failed to update job.")
-    });
+  const handleDelete = async (id: string) => {
+    if (!confirm("Delete this job?")) return;
+    await deleteJob(id).catch(() => {});
+    triggerLottie('error');
+    load();
   };
 
-  const handleDelete = (id: string) => {
-    if (confirm("Are you sure you want to delete this job posting?")) {
-      deleteJob(id, {
-        onSuccess: () => toast.success("Job deleted successfully!"),
-        onError: () => toast.error("Failed to delete job.")
-      });
-    }
-  };
-
-  const openEditModal = (job: Job) => {
-    setSelectedJob(job);
-    setFormData({ 
-      title: job.title, 
-      description: job.description, 
-      company_id: job.company_id, 
-      recruiter_id: job.recruiter_id || "", 
-      status: job.status,
-      salary_range: job.salary_range || ""
-    });
-    setIsEditModalOpen(true);
-  };
-
-  const getStatusBadge = (status: string) => {
-    const styles: Record<string, string> = {
-      "OPEN": "bg-[#00B388]/10 text-[#00B388] border-[#00B388]/20 shadow-[#00B388]/10",
-      "CLOSED": "bg-gray-100/50 text-gray-500 border-gray-200/50 shadow-gray-200/10",
-      "DRAFT": "bg-amber-500/10 text-amber-600 border-amber-500/20 shadow-amber-500/10",
-    };
-    return (
-      <span className={`px-3 py-1.5 rounded-full text-[10px] font-black border uppercase tracking-[0.15em] shadow-sm backdrop-blur-sm ${styles[status] || "bg-gray-100 text-gray-700 border-gray-200"}`}>
-        {status}
-      </span>
-    );
-  };
-
-  const getCompanyName = (companyId: string) => {
-    return companies?.find(c => c.id === companyId)?.name || "Unknown Company";
+  const toggleStatus = async (j: any) => {
+    const newStatus = j.status === "OPEN" ? "CLOSED" : "OPEN";
+    await updateJob(j._id || j.id, { status: newStatus }).catch(() => {});
+    load();
   };
 
   return (
-    <div className="space-y-8 pb-10 relative z-10">
-      
-      {/* Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative">
-        <div className="relative">
-          <motion.h1 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="text-4xl font-black tracking-tight text-[#042B6B] drop-shadow-sm"
-          >
-            Job Postings
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-[#2F3440] mt-2 font-semibold opacity-70 text-lg"
-          >
-            Manage active recruitment pipelines and job requisitions.
-          </motion.p>
+    <div className="space-y-6 pb-10">
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-black text-slate-800">Jobs</h1>
+          <p className="text-sm text-slate-500 mt-0.5">Manage job listings shown on the website.</p>
         </div>
-        <motion.div 
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="flex items-center gap-3"
-        >
-          <button className="flex items-center gap-2 px-6 py-3 bg-white/80 backdrop-blur-md border border-white/60 rounded-xl text-sm font-bold text-[#042B6B] hover:bg-white shadow-sm hover:shadow-md transition-all duration-300">
-            <Filter className="w-4 h-4 text-[#007BFF]" /> Filter
-          </button>
-          <button 
-            onClick={() => { setFormData({ title: "", description: "", company_id: "", recruiter_id: "", status: "OPEN", salary_range: "" }); setIsAddModalOpen(true); }}
-            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#007BFF] to-[#00B388] rounded-xl text-sm font-bold text-white hover:opacity-90 shadow-lg shadow-[#007BFF]/20 transition-all duration-300"
-          >
-            <Plus className="w-5 h-5" /> Post Job
-          </button>
-        </motion.div>
+        <button onClick={openCreate}
+          className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-xl shadow-sm transition-colors">
+          <Plus className="w-4 h-4" /> Post Job
+        </button>
       </div>
 
-      {/* Grid Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-        {jobs.length === 0 ? (
-          <div className="col-span-full py-24 flex flex-col items-center justify-center bg-white/60 backdrop-blur-xl rounded-3xl shadow-sm border border-white/60">
-            <div className="w-24 h-24 rounded-full bg-[#007BFF]/10 flex items-center justify-center mb-6 border border-[#007BFF]/20 shadow-[0_0_30px_rgba(0,123,255,0.15)]">
-              <Briefcase className="w-10 h-10 text-[#007BFF]" />
-            </div>
-            <p className="text-[#042B6B] font-black text-2xl tracking-tight">No active jobs found.</p>
-            <p className="text-[#2F3440] opacity-60 font-semibold mt-2 text-center max-w-sm">You haven't posted any jobs yet. Click "Post Job" to create your first requisition.</p>
-          </div>
+      <div className={card + " overflow-hidden"}>
+        {loading ? (
+          <PageLoader />
+        ) : jobs.length === 0 ? (
+          <div className="text-center py-16"><Briefcase className="w-8 h-8 text-slate-200 mx-auto mb-2" /><p className="text-slate-400 font-semibold">No jobs yet.</p></div>
         ) : (
-          jobs.map((job, i) => (
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.05 }}
-              key={job.id} 
-              className="group relative bg-white/60 backdrop-blur-xl p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden"
-            >
-              {/* Subtle hover gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#007BFF]/0 to-[#00B388]/0 group-hover:from-[#007BFF]/5 group-hover:to-[#00B388]/5 transition-all duration-500 pointer-events-none" />
-
-              <div className="flex justify-between items-start mb-6 relative z-10">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#042B6B] to-[#021840] flex items-center justify-center font-black text-white shadow-lg border border-white/10">
-                    {getCompanyName(job.company_id).charAt(0)}
-                  </div>
-                  <div>
-                    <h3 className="text-[19px] font-black text-[#042B6B] leading-tight tracking-tight group-hover:text-[#007BFF] transition-colors">{job.title}</h3>
-                    <p className="text-[11px] font-bold text-[#00B388] uppercase tracking-[0.15em] mt-1">{getCompanyName(job.company_id)}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-4 mb-8 relative z-10">
-                <div className="flex flex-wrap gap-2">
-                  {getStatusBadge(job.status)}
-                  {job.salary_range && (
-                    <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#007BFF]/10 text-[#007BFF] border border-[#007BFF]/20 text-[10px] font-black uppercase tracking-[0.1em] shadow-sm backdrop-blur-sm">
-                      <DollarSign className="w-3 h-3" /> {job.salary_range}
-                    </span>
-                  )}
-                </div>
-                
-                <p className="text-sm text-[#2F3440] font-medium opacity-70 line-clamp-3 leading-relaxed">
-                  {job.description}
-                </p>
-              </div>
-              
-              <div className="pt-5 border-t border-gray-200/50 flex items-center justify-between mt-auto relative z-10">
-                <div className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">
-                  ID: {job.id.substring(0, 8)}
-                </div>
-                <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <button onClick={() => openEditModal(job)} className="p-2.5 bg-white shadow-sm border border-gray-100 hover:border-[#007BFF]/30 hover:bg-[#007BFF]/5 text-gray-400 hover:text-[#007BFF] rounded-xl transition-all">
-                    <Edit className="w-4 h-4" />
-                  </button>
-                  <button onClick={() => handleDelete(job.id)} className="p-2.5 bg-white shadow-sm border border-gray-100 hover:border-red-500/30 hover:bg-red-500/5 text-gray-400 hover:text-red-500 rounded-xl transition-all">
-                    <Trash2 className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          ))
+          <table className="w-full">
+            <thead className="bg-slate-50 border-b border-slate-100">
+              <tr>
+                {["Title","Industry","Location","Type","Level","Status","Actions"].map(h => (
+                  <th key={h} className="text-left px-4 py-3 text-[10px] font-black text-slate-400 uppercase tracking-widest">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-50">
+              {jobs.map((j: any) => (
+                <tr key={j._id || j.id} className="hover:bg-slate-50 transition-colors">
+                  <td className="px-4 py-3">
+                    <div>
+                      <p className="text-sm font-bold text-slate-800">{j.title}</p>
+                      {j.salary_range && <p className="text-xs text-slate-400">{j.salary_range}</p>}
+                    </div>
+                  </td>
+                  <td className="px-4 py-3 text-sm text-slate-500">{j.industry || "—"}</td>
+                  <td className="px-4 py-3">
+                    {j.location && <span className="flex items-center gap-1 text-sm text-slate-500"><MapPin className="w-3 h-3" />{j.location}</span>}
+                  </td>
+                  <td className="px-4 py-3 text-sm text-slate-500">{j.job_type || "—"}</td>
+                  <td className="px-4 py-3 text-sm text-slate-500">{j.experience_level || "—"}</td>
+                  <td className="px-4 py-3">
+                    <button onClick={() => toggleStatus(j)}
+                      className={`px-2 py-0.5 rounded-full text-xs font-bold border transition-colors ${statusColor[j.status] || statusColor.DRAFT}`}>
+                      {j.status}
+                    </button>
+                  </td>
+                  <td className="px-4 py-3">
+                    <div className="flex items-center gap-1.5">
+                      <Link href={`/admin/applications?job=${encodeURIComponent(j.title)}`} className="p-1.5 rounded-lg hover:bg-emerald-50 text-slate-400 hover:text-emerald-600 transition-colors" title="View Applications">
+                        <FileText className="w-3.5 h-3.5" />
+                      </Link>
+                      <button onClick={() => openEdit(j)} className="p-1.5 rounded-lg hover:bg-blue-50 text-slate-400 hover:text-blue-600 transition-colors" title="Edit Job"><Edit2 className="w-3.5 h-3.5" /></button>
+                      <button onClick={() => handleDelete(j._id || j.id)} className="p-1.5 rounded-lg hover:bg-red-50 text-slate-400 hover:text-red-500 transition-colors" title="Delete Job"><Trash2 className="w-3.5 h-3.5" /></button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
       </div>
 
-      {/* Add/Edit Job Modal */}
-      <Modal isOpen={isAddModalOpen || isEditModalOpen} onClose={() => { setIsAddModalOpen(false); setIsEditModalOpen(false); }} title={isEditModalOpen ? "Edit Job Post" : "Post New Job"}>
-        <form onSubmit={isEditModalOpen ? handleEditSubmit : handleAddSubmit} className="space-y-5">
-          <div>
-            <label className="block text-xs font-black text-[#042B6B] uppercase tracking-wider mb-2">Job Title</label>
-            <input type="text" required value={formData.title} onChange={e => setFormData({...formData, title: e.target.value})} className="w-full px-5 py-3 rounded-2xl border border-gray-200 focus:border-[#007BFF] focus:ring-4 focus:ring-[#007BFF]/10 outline-none bg-white/50 backdrop-blur-sm transition-all font-medium text-[#2F3440]" />
-          </div>
-          <div>
-            <label className="block text-xs font-black text-[#042B6B] uppercase tracking-wider mb-2">Company</label>
-            <select required value={formData.company_id} onChange={e => setFormData({...formData, company_id: e.target.value})} className="w-full px-5 py-3 rounded-2xl border border-gray-200 focus:border-[#007BFF] focus:ring-4 focus:ring-[#007BFF]/10 outline-none bg-white/50 backdrop-blur-sm transition-all font-medium text-[#2F3440]">
-              <option value="">Select a company</option>
-              {companies?.map(c => (
-                <option key={c.id} value={c.id}>{c.name}</option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label className="block text-xs font-black text-[#042B6B] uppercase tracking-wider mb-2">Salary Range</label>
-            <input type="text" value={formData.salary_range} onChange={e => setFormData({...formData, salary_range: e.target.value})} className="w-full px-5 py-3 rounded-2xl border border-gray-200 focus:border-[#007BFF] focus:ring-4 focus:ring-[#007BFF]/10 outline-none bg-white/50 backdrop-blur-sm transition-all font-medium text-[#2F3440]" placeholder="e.g. $100k - $120k" />
-          </div>
-          <div>
-            <label className="block text-xs font-black text-[#042B6B] uppercase tracking-wider mb-2">Description</label>
-            <textarea required rows={4} value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} className="w-full px-5 py-3 rounded-2xl border border-gray-200 focus:border-[#007BFF] focus:ring-4 focus:ring-[#007BFF]/10 outline-none bg-white/50 backdrop-blur-sm transition-all font-medium text-[#2F3440] custom-scrollbar" />
-          </div>
-          <div>
-            <label className="block text-xs font-black text-[#042B6B] uppercase tracking-wider mb-2">Status</label>
-            <select value={formData.status} onChange={e => setFormData({...formData, status: e.target.value as "OPEN" | "CLOSED" | "DRAFT"})} className="w-full px-5 py-3 rounded-2xl border border-gray-200 focus:border-[#007BFF] focus:ring-4 focus:ring-[#007BFF]/10 outline-none bg-white/50 backdrop-blur-sm transition-all font-medium text-[#2F3440]">
-              <option value="OPEN">Open</option>
-              <option value="CLOSED">Closed</option>
-              <option value="DRAFT">Draft</option>
-            </select>
-          </div>
-          <button disabled={isCreating || isUpdating} type="submit" className="w-full py-4 mt-6 bg-gradient-to-r from-[#007BFF] to-[#00B388] text-white font-black uppercase tracking-widest text-sm rounded-2xl hover:opacity-90 shadow-lg shadow-[#007BFF]/20 transition-all duration-300 disabled:opacity-50">
-            {isCreating || isUpdating ? "Processing..." : (isEditModalOpen ? "Save Changes" : "Post Requisition")}
-          </button>
-        </form>
-      </Modal>
-
+      <AnimatePresence>
+        {modal && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setModal(null)}>
+            <motion.div initial={{ scale: 0.95 }} animate={{ scale: 1 }} exit={{ scale: 0.95 }}
+              className="bg-white rounded-3xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
+              <div className="flex items-center justify-between p-6 border-b border-slate-100">
+                <h2 className="text-lg font-black text-slate-800">{modal === "create" ? "Post New Job" : "Edit Job"}</h2>
+                <button onClick={() => setModal(null)} className="p-2 rounded-xl hover:bg-slate-100"><X className="w-4 h-4 text-slate-500" /></button>
+              </div>
+              <div className="p-6 space-y-3">
+                <div><label className="text-xs font-bold text-slate-600 mb-1 block">Job Title *</label><input className={input} value={form.title} onChange={e => setForm({...form, title: e.target.value})} placeholder="e.g. Senior HR Manager" /></div>
+                <div><label className="text-xs font-bold text-slate-600 mb-1 block">Description *</label><textarea className={input + " h-32 resize-none"} value={form.description} onChange={e => setForm({...form, description: e.target.value})} placeholder="Job description..." /></div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div><label className="text-xs font-bold text-slate-600 mb-1 block">Industry</label><input className={input} value={form.industry} onChange={e => setForm({...form, industry: e.target.value})} placeholder="e.g. Healthcare" /></div>
+                  <div><label className="text-xs font-bold text-slate-600 mb-1 block">Location</label><input className={input} value={form.location} onChange={e => setForm({...form, location: e.target.value})} placeholder="e.g. Mumbai, India" /></div>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div><label className="text-xs font-bold text-slate-600 mb-1 block">Job Type</label>
+                    <select className={input} value={form.job_type} onChange={e => setForm({...form, job_type: e.target.value})}>
+                      {["Full-time","Part-time","Contract","Freelance"].map(t => <option key={t}>{t}</option>)}
+                    </select>
+                  </div>
+                  <div><label className="text-xs font-bold text-slate-600 mb-1 block">Experience Level</label>
+                    <select className={input} value={form.experience_level} onChange={e => setForm({...form, experience_level: e.target.value})}>
+                      {["Entry","Mid","Senior","Executive"].map(l => <option key={l}>{l}</option>)}
+                    </select>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div><label className="text-xs font-bold text-slate-600 mb-1 block">Salary Range</label><input className={input} value={form.salary_range} onChange={e => setForm({...form, salary_range: e.target.value})} placeholder="e.g. ₹8L – ₹15L" /></div>
+                  <div><label className="text-xs font-bold text-slate-600 mb-1 block">Status</label>
+                    <select className={input} value={form.status} onChange={e => setForm({...form, status: e.target.value})}>
+                      {["OPEN","CLOSED","DRAFT"].map(s => <option key={s}>{s}</option>)}
+                    </select>
+                  </div>
+                </div>
+                <div><label className="text-xs font-bold text-slate-600 mb-1 block">Company ID</label><input className={input} value={form.company_id} onChange={e => setForm({...form, company_id: e.target.value})} placeholder="MongoDB ObjectId" /></div>
+                <button onClick={handleSave} disabled={saving}
+                  className="w-full flex items-center justify-center gap-2 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-colors disabled:opacity-60">
+                  {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
+                  {saving ? "Saving..." : "Save Job"}
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

@@ -1,88 +1,58 @@
-"use client";
+import { ServiceLayout } from "@/components/services/ServiceLayout";
 
-import { motion } from "framer-motion";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { Settings, BarChart3, UsersRound, ArrowRight } from "lucide-react";
+export const metadata = {
+  title: "Human Resource Consulting | CoVian Advisory",
+  description: "HR strategy development, employee engagement, and workforce productivity solutions.",
+};
 
 export default function HRConsultingPage() {
-  const features = [
-    { icon: Settings, title: "Org Design", desc: "Restructure your teams for maximum efficiency and growth." },
-    { icon: BarChart3, title: "Compensation Strategy", desc: "Market-aligned salary frameworks to attract top talent." },
-    { icon: UsersRound, title: "Cultural Transformation", desc: "Build a workplace where the best people want to stay." },
-  ];
-
   return (
-    <main className="min-h-screen bg-background flex flex-col">
-      <Header />
-      
-      {/* Premium Hero Section */}
-      <section className="relative pt-40 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[#042B6B]">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] rounded-full bg-[#007BFF]/20 blur-[130px] animate-pulse" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#042B6B_100%)] opacity-85" />
-        </div>
-
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl mb-8"
-            >
-              <Settings className="w-4 h-4 text-[#007BFF]" />
-              <span className="text-[#E8ECEF] text-sm font-bold tracking-widest uppercase">HR Consulting</span>
-            </motion.div>
-            
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-5xl md:text-7xl font-heading font-black text-white mb-8 leading-tight"
-            >
-              Strategic People, <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-[#007BFF]">Operational Excellence.</span>
-            </motion.h1>
-
-            <motion.p 
-              initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-xl text-[#E8ECEF]/80 max-w-2xl mx-auto leading-relaxed font-medium mb-12"
-            >
-              Elevate your human resources from administrative overhead to a strategic powerhouse. We design the frameworks that enable hyper-growth.
-            </motion.p>
-          </div>
-        </div>
-      </section>
-
-      {/* Glassmorphic Features Section */}
-      <section className="py-24 relative bg-white">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto -mt-32 relative z-20">
-            {features.map((feat, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 + (idx * 0.1) }}
-                className="bg-white/80 backdrop-blur-2xl p-8 rounded-3xl border border-gray-100 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-[0_30px_60px_-15px_rgba(0,123,255,0.15)] transition-all group"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-[#042B6B]/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <feat.icon className="w-7 h-7 text-[#042B6B]" />
-                </div>
-                <h3 className="text-2xl font-bold text-[#042B6B] mb-3">{feat.title}</h3>
-                <p className="text-[#2F3440]/70 font-medium leading-relaxed">{feat.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="mt-32 text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl font-heading font-black text-[#042B6B] mb-6">Expertise When You Need It</h2>
-            <p className="text-lg text-[#2F3440]/80 mb-10 leading-relaxed">
-              Navigating complex labor laws, M&A integrations, and cultural shifts requires seasoned experts. Partner with CoreVita to safeguard and optimize your most valuable asset: your people.
-            </p>
-            <button className="inline-flex items-center gap-2 bg-[#042B6B] hover:bg-[#007BFF] text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-[#042B6B]/20 transition-all hover:pr-6 group">
-              Consult with Experts <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </main>
+    <ServiceLayout
+      tag="HR Consulting"
+      title="Transform Your Workplace,"
+      titleHighlight="Empower Your People"
+      subtitle="HR Strategy & Workforce Productivity"
+      description="CoVian Advisory designs HR systems that align your people with your business goals. From strategy development to employee engagement and performance management — we help you build a culture of excellence that drives sustained high performance."
+      features={[
+        "Custom HR Strategy Development",
+        "Employee Engagement Programs",
+        "Performance Management Systems",
+        "HR Policy Design & Review",
+      ]}
+      imageUrl="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop"
+      stats={[
+        { value: "200+", label: "HR Roadmaps Built" },
+        { value: "40%", label: "Avg. Attrition Reduction" },
+        { value: "95%", label: "Client Retention" },
+      ]}
+      heroBadges={["HR Strategy", "Engagement Programs", "Workforce Analytics", "Policy Design"]}
+      sectionLabel="What We Provide"
+      sectionTitle="Why Strategic HR"
+      sectionHighlight="Is Your Competitive Advantage"
+      sectionBody={[
+        "In today's talent market, your HR function is not just a support department — it's a strategic driver of business performance. Organizations with strong HR foundations consistently outperform those without.",
+        "High attrition, low engagement, and unclear performance structures cost organizations far more than they realize. Our HR consulting services address these root causes with customized, scalable solutions.",
+        "We work as an extension of your leadership team — diagnosing organizational health, designing HR roadmaps, deploying engagement initiatives, and establishing KPI frameworks that bring lasting, measurable improvement.",
+      ]}
+      sectionCards={[
+        { icon: "🏆", title: "Stronger Culture", description: "Build a values-driven culture where employees feel motivated and aligned with company goals." },
+        { icon: "📉", title: "Reduce Attrition", description: "Targeted engagement and retention programs address root causes of employee turnover." },
+        { icon: "📈", title: "Scalable HR Systems", description: "HR infrastructure that grows with your business — from 10 to 10,000 employees." },
+        { icon: "📊", title: "Data-Driven Insights", description: "HR analytics and reporting frameworks to make smarter decisions about your workforce." },
+      ]}
+      sectionImageUrl="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=900&auto=format&fit=crop"
+      benefits={[
+        { title: "Stronger Organizational Culture", description: "Build a values-driven culture where employees feel motivated, aligned, and proud to contribute." },
+        { title: "Reduced Employee Attrition", description: "Targeted engagement programs that address root causes of turnover and significantly reduce churn." },
+        { title: "Scalable HR Infrastructure", description: "HR systems and policies that scale seamlessly with your business as it grows." },
+        { title: "Data-Driven Workforce Insights", description: "Leverage HR analytics to make smarter decisions about your people and organizational structure." },
+      ]}
+      process={[
+        { title: "Diagnose", description: "Stakeholder interviews and surveys to assess HR maturity, culture health, and workforce pain points." },
+        { title: "Design", description: "Co-create a customized HR roadmap addressing strategy, policies, and engagement initiatives." },
+        { title: "Deploy", description: "Hands-on implementation with training, communication, and change management support." },
+        { title: "Sustain", description: "KPIs, review cadences, and continuous improvement loops to ensure lasting impact." },
+      ]}
+    />
   );
 }

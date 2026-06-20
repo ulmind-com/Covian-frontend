@@ -1,255 +1,221 @@
 "use client";
 /* eslint-disable */
 
-import { useAdminStats } from "@/services/queries";
-import { Users, Briefcase, FileText, IndianRupee, TrendingUp, Activity, ArrowUpRight, ArrowDownRight, UserPlus, Star } from "lucide-react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Legend } from "recharts";
+import {
+  MessageSquare, HeartHandshake, FileText, Briefcase,
+  Newspaper, Users, Star, Building2, UserCog, TrendingUp,
+  ArrowUpRight, Clock, CheckCircle2, AlertCircle, Plus,
+} from "lucide-react";
+import Link from "next/link";
+import { getDashboardKPIs } from "@/services/admin-api";
 
-import { Loader } from "@/components/ui/Loader";
+const card = "bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-200";
+
+function StatCard({ title, value, icon: Icon, color, bg, href, subtitle }: any) {
+  return (
+    <Link href={href || "#"}>
+      <motion.div
+        whileHover={{ y: -2, scale: 1.01 }}
+        className={`${card} p-6 cursor-pointer group relative overflow-hidden`}
+      >
+        <div className={`absolute -right-4 -top-4 w-20 h-20 rounded-full opacity-20 group-hover:opacity-40 transition-opacity ${bg}`} />
+        <div className="flex items-start justify-between relative z-10">
+          <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${bg} ${color} border border-current/10 mb-4`}>
+            <Icon className="w-5 h-5" />
+          </div>
+          <ArrowUpRight className="w-4 h-4 text-slate-300 group-hover:text-slate-500 transition-colors" />
+        </div>
+        <p className="text-3xl font-black text-slate-800 relative z-10">{value ?? "—"}</p>
+        <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1 relative z-10">{title}</p>
+        {subtitle && <p className="text-[11px] text-slate-400 mt-0.5 relative z-10">{subtitle}</p>}
+      </motion.div>
+    </Link>
+  );
+}
+
+const statusColor: Record<string, string> = {
+  NEW: "bg-blue-50 text-blue-700 border-blue-200",
+  REVIEWING: "bg-amber-50 text-amber-700 border-amber-200",
+  REPLIED: "bg-emerald-50 text-emerald-700 border-emerald-200",
+  CLOSED: "bg-slate-100 text-slate-500 border-slate-200",
+};
 
 export default function AdminDashboardPage() {
-  const { data: stats, isLoading, error } = useAdminStats();
+  const [stats, setStats] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  if (isLoading) {
-    return (
-      <div className="h-[600px] flex items-center justify-center">
-        <Loader message="Loading dashboard metrics..." />
-      </div>
-    );
-  }
+  useEffect(() => {
+    getDashboardKPIs()
+      .then(setStats)
+      .catch((e) => setError(e.message))
+      .finally(() => setLoading(false));
+  }, []);
 
-  if (error || !stats) {
+  if (loading) {
     return (
-      <div className="flex items-center justify-center h-64 bg-white/60 backdrop-blur-lg rounded-3xl shadow-xl text-red-500 font-bold border border-red-500/20 p-6">
-        <div className="flex flex-col items-center gap-3">
-          <Activity className="w-10 h-10 text-red-500" />
-          <span>Failed to load dashboard metrics. Ensure backend is running and you have Admin access.</span>
+      <div className="flex items-center justify-center h-[500px]">
+        <div className="text-center">
+          <div className="w-10 h-10 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <p className="text-sm font-semibold text-slate-500">Loading dashboard...</p>
         </div>
       </div>
     );
   }
 
   const statCards = [
-    { title: "Total Revenue", value: `₹${stats.total_revenue.toLocaleString()}`, icon: IndianRupee, color: "text-[#00B388]", bg: "bg-[#00B388]/10", border: "border-[#00B388]/20", trend: "+12.5%", isPositive: true },
-    { title: "Active Jobs", value: stats.open_jobs_count, icon: Briefcase, color: "text-[#007BFF]", bg: "bg-[#007BFF]/10", border: "border-[#007BFF]/20", trend: "+5.2%", isPositive: true },
-    { title: "New CRM Leads", value: stats.new_leads_count, icon: TrendingUp, color: "text-[#042B6B]", bg: "bg-[#042B6B]/10", border: "border-[#042B6B]/20", trend: "+18.1%", isPositive: true },
-    { title: "Total Users", value: stats.total_users, icon: Users, color: "text-amber-500", bg: "bg-amber-500/10", border: "border-amber-500/20", trend: "-2.4%", isPositive: false },
+    { title: "Total Enquiries",          value: stats?.total_enquiries ?? 0,           icon: MessageSquare,  color: "text-blue-600",   bg: "bg-blue-50",   href: "/admin/enquiries" },
+    { title: "Caregiver Enquiries",      value: stats?.total_caregiver_enquiries ?? 0, icon: HeartHandshake, color: "text-rose-500",   bg: "bg-rose-50",   href: "/admin/caregiver-enquiries" },
+    { title: "Total Applications",       value: stats?.total_applications ?? 0,        icon: FileText,       color: "text-violet-600", bg: "bg-violet-50", href: "/admin/applications" },
+    { title: "Active Jobs",              value: stats?.active_jobs ?? 0,               icon: Briefcase,      color: "text-emerald-600",bg: "bg-emerald-50",href: "/admin/jobs" },
+    { title: "Published News",           value: stats?.published_news ?? 0,            icon: Newspaper,      color: "text-amber-600",  bg: "bg-amber-50",  href: "/admin/news" },
+    { title: "Team Members",             value: stats?.team_members ?? 0,              icon: Users,          color: "text-sky-600",    bg: "bg-sky-50",    href: "/admin/team" },
+    { title: "Testimonials",             value: stats?.total_testimonials ?? 0,        icon: Star,           color: "text-yellow-600", bg: "bg-yellow-50", href: "/admin/testimonials" },
+    { title: "Client Logos",             value: stats?.total_client_logos ?? 0,        icon: Building2,      color: "text-indigo-600", bg: "bg-indigo-50", href: "/admin/logos" },
+    { title: "Admin Users",              value: stats?.admin_users ?? 0,               icon: UserCog,        color: "text-slate-600",  bg: "bg-slate-100", href: "/admin/admins" },
   ];
 
-  const revenueData = [
-    { name: "Jan", total: 2400 },
-    { name: "Feb", total: 3600 },
-    { name: "Mar", total: 4200 },
-    { name: "Apr", total: 5800 },
-    { name: "May", total: 6200 },
-    { name: "Jun", total: 7400 },
-    { name: "Jul", total: 8900 },
-  ];
-
-  const recruitmentData = [
-    { name: "Tech", applications: 120, hired: 20 },
-    { name: "Finance", applications: 85, hired: 15 },
-    { name: "Health", applications: 65, hired: 10 },
-    { name: "Retail", applications: 90, hired: 25 },
+  const quickActions = [
+    { label: "Add News Article",  href: "/admin/news",     icon: Newspaper,  color: "bg-amber-500" },
+    { label: "Post New Job",      href: "/admin/jobs",     icon: Briefcase,  color: "bg-emerald-600" },
+    { label: "Add Team Member",   href: "/admin/team",     icon: Users,      color: "bg-sky-600" },
+    { label: "View Enquiries",    href: "/admin/enquiries",icon: MessageSquare,color: "bg-blue-600" },
   ];
 
   return (
-    <div className="space-y-8 pb-10 relative z-10">
-      
+    <div className="space-y-7 pb-10">
+
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative">
-        <div className="relative">
-          <motion.h1 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="text-4xl font-black tracking-tight text-[#042B6B] drop-shadow-sm"
-          >
-            Dashboard Overview
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-[#2F3440] mt-2 font-semibold opacity-70 text-lg"
-          >
-            Welcome back. Here's what's happening with your platform today.
-          </motion.p>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-black text-slate-800 tracking-tight">Dashboard</h1>
+          <p className="text-sm text-slate-500 mt-0.5 font-medium">Welcome back! Here's what's happening today.</p>
         </div>
-        <motion.div 
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="flex items-center gap-3"
-        >
-          <button className="px-6 py-3 bg-white/80 backdrop-blur-md border border-white/60 rounded-xl text-sm font-bold text-[#042B6B] hover:bg-white shadow-sm hover:shadow-md transition-all duration-300">
-            Download Report
-          </button>
-          <button className="px-6 py-3 bg-gradient-to-r from-[#007BFF] to-[#00B388] rounded-xl text-sm font-bold text-white hover:opacity-90 shadow-lg shadow-[#007BFF]/20 transition-all duration-300">
-            New Campaign
-          </button>
-        </motion.div>
+        <div className="flex items-center gap-2 text-xs font-semibold text-slate-400">
+          <Clock className="w-3.5 h-3.5" />
+          <span>Last updated: just now</span>
+        </div>
       </div>
 
-      {/* KPI Grid - Glassmorphic Style */}
-      <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-        {statCards.map((stat, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            className="group relative bg-white/60 backdrop-blur-xl rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 hover:shadow-xl hover:-translate-y-1 hover:bg-white/80 transition-all duration-300 overflow-hidden"
-          >
-            {/* Subtle background glow based on brand colors */}
-            <div className={`absolute -right-10 -top-10 w-32 h-32 rounded-full blur-[40px] opacity-20 group-hover:opacity-40 transition-opacity ${stat.bg}`} />
-            
-            <div className="flex items-start justify-between mb-6 relative z-10">
-              <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${stat.bg} ${stat.color} ${stat.border} border shadow-sm`}>
-                <stat.icon className="w-6 h-6" />
-              </div>
-              <div className={`flex items-center gap-1.5 text-xs font-black px-3 py-1.5 rounded-full backdrop-blur-md shadow-sm border ${stat.isPositive ? "bg-[#00B388]/10 text-[#00B388] border-[#00B388]/20" : "bg-red-500/10 text-red-600 border-red-500/20"}`}>
-                {stat.isPositive ? <ArrowUpRight className="w-3.5 h-3.5" /> : <ArrowDownRight className="w-3.5 h-3.5" />}
-                {stat.trend}
-              </div>
-            </div>
-            
-            <div className="relative z-10">
-              <h3 className="text-[#2F3440] text-sm font-bold mb-1 opacity-70 uppercase tracking-wider">{stat.title}</h3>
-              <p className="text-4xl font-black text-[#042B6B] tracking-tight">{stat.value}</p>
-            </div>
+      {error && (
+        <div className="bg-red-50 border border-red-200 rounded-2xl p-4 flex items-center gap-3 text-red-700">
+          <AlertCircle className="w-5 h-5 shrink-0" />
+          <span className="text-sm font-semibold">{error} — Make sure the backend is running and you are logged in as Admin.</span>
+        </div>
+      )}
+
+      {/* KPI Grid */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        {statCards.map((s, i) => (
+          <motion.div key={i} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
+            <StatCard {...s} />
           </motion.div>
         ))}
       </div>
 
-      {/* Charts Section - Glassmorphic Style */}
-      <div className="grid gap-6 grid-cols-1 lg:grid-cols-3">
-        
-        {/* Revenue Chart */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="lg:col-span-2 bg-white/60 backdrop-blur-xl p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 hover:bg-white/80 transition-all duration-300 relative overflow-hidden"
-        >
-          <div className="absolute -left-20 -bottom-20 w-64 h-64 bg-[#007BFF]/5 blur-[60px] rounded-full pointer-events-none" />
-          
-          <div className="flex items-center justify-between mb-8 relative z-10">
-            <div>
-              <h3 className="text-xl font-black text-[#042B6B] tracking-tight">Revenue Overview</h3>
-              <p className="text-sm font-bold text-[#2F3440] opacity-60 uppercase tracking-wider mt-1">Monthly recurring revenue (MRR)</p>
+      {/* Quick Actions */}
+      <div className={card + " p-6"}>
+        <div className="flex items-center gap-2 mb-4">
+          <TrendingUp className="w-4 h-4 text-blue-600" />
+          <h2 className="text-sm font-black text-slate-700 uppercase tracking-wider">Quick Actions</h2>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {quickActions.map((a, i) => (
+            <Link href={a.href} key={i}>
+              <div className="flex items-center gap-3 p-3 rounded-xl border border-slate-100 hover:border-blue-200 hover:bg-blue-50 transition-all group cursor-pointer">
+                <div className={`w-8 h-8 rounded-lg ${a.color} flex items-center justify-center shrink-0`}>
+                  <a.icon className="w-4 h-4 text-white" />
+                </div>
+                <span className="text-xs font-bold text-slate-700 group-hover:text-blue-700 transition-colors">{a.label}</span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* Bottom Grid: Recent Enquiries + Recent Applications */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        {/* Recent Enquiries */}
+        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }} className={card + " p-6"}>
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-sm font-black text-slate-700 uppercase tracking-wider">Latest Enquiries</h2>
+            <Link href="/admin/enquiries" className="text-xs font-semibold text-blue-600 hover:text-blue-700">View all →</Link>
+          </div>
+          {stats?.recent_enquiries?.length > 0 ? (
+            <div className="space-y-3">
+              {stats.recent_enquiries.map((e: any, i: number) => (
+                <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors">
+                  <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-black text-sm shrink-0">
+                    {e.name?.charAt(0)?.toUpperCase()}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-bold text-slate-800 truncate">{e.name}</p>
+                    <p className="text-xs text-slate-500 truncate">{e.service || e.email}</p>
+                  </div>
+                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-black border ${statusColor[e.status] || statusColor.NEW}`}>
+                    {e.status}
+                  </span>
+                </div>
+              ))}
             </div>
-            <select className="bg-white/50 backdrop-blur-md border border-white/60 shadow-sm text-sm rounded-xl px-4 py-2.5 outline-none font-bold text-[#042B6B] focus:ring-2 focus:ring-[#007BFF] transition-all cursor-pointer">
-              <option>Last 7 months</option>
-              <option>This Year</option>
-            </select>
-          </div>
-          <div className="h-[320px] w-full relative z-10">
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={revenueData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                <defs>
-                  <linearGradient id="colorTotal" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#007BFF" stopOpacity={0.4}/>
-                    <stop offset="95%" stopColor="#007BFF" stopOpacity={0}/>
-                  </linearGradient>
-                </defs>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E8ECEF" />
-                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 13, fill: '#2F3440', opacity: 0.6, fontWeight: 700 }} dy={10} />
-                <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 13, fill: '#2F3440', opacity: 0.6, fontWeight: 700 }} dx={-10} />
-                <Tooltip 
-                  contentStyle={{ borderRadius: '16px', border: '1px solid rgba(255,255,255,0.6)', backgroundColor: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(10px)', boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)' }}
-                  itemStyle={{ color: '#042B6B', fontWeight: '900', fontSize: '16px' }}
-                />
-                <Area type="monotone" dataKey="total" stroke="#007BFF" strokeWidth={4} fillOpacity={1} fill="url(#colorTotal)" />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
+          ) : (
+            <div className="text-center py-8">
+              <MessageSquare className="w-8 h-8 text-slate-200 mx-auto mb-2" />
+              <p className="text-sm text-slate-400 font-medium">No enquiries yet</p>
+            </div>
+          )}
         </motion.div>
 
-        {/* Recruitment Pipeline */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="bg-white/60 backdrop-blur-xl p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 hover:bg-white/80 transition-all duration-300 relative overflow-hidden"
-        >
-          <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-[#00B388]/5 blur-[60px] rounded-full pointer-events-none" />
-
-          <h3 className="text-xl font-black text-[#042B6B] mb-1 relative z-10 tracking-tight">Pipeline Metrics</h3>
-          <p className="text-sm font-bold text-[#2F3440] opacity-60 uppercase tracking-wider mb-8 relative z-10">Applications vs Hired</p>
-          
-          <div className="h-[320px] w-full relative z-10">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={recruitmentData} margin={{ top: 0, right: 0, left: -25, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E8ECEF" />
-                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 13, fill: '#2F3440', opacity: 0.6, fontWeight: 700 }} dy={10} />
-                <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 13, fill: '#2F3440', opacity: 0.6, fontWeight: 700 }} />
-                <Tooltip cursor={{ fill: 'rgba(232, 236, 239, 0.5)' }} contentStyle={{ borderRadius: '16px', border: '1px solid rgba(255,255,255,0.6)', backgroundColor: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(10px)', boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)' }} />
-                <Legend iconType="circle" wrapperStyle={{ fontSize: '13px', paddingTop: '10px', fontWeight: 'bold' }} />
-                <Bar dataKey="applications" name="Applications" fill="#042B6B" radius={[6, 6, 0, 0]} barSize={16} />
-                <Bar dataKey="hired" name="Hired" fill="#00B388" radius={[6, 6, 0, 0]} barSize={16} />
-              </BarChart>
-            </ResponsiveContainer>
+        {/* Recent Applications */}
+        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className={card + " p-6"}>
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-sm font-black text-slate-700 uppercase tracking-wider">Latest Applications</h2>
+            <Link href="/admin/applications" className="text-xs font-semibold text-blue-600 hover:text-blue-700">View all →</Link>
           </div>
+          {stats?.recent_applications?.length > 0 ? (
+            <div className="space-y-3">
+              {stats.recent_applications.map((a: any, i: number) => (
+                <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors">
+                  <div className="w-8 h-8 rounded-full bg-violet-100 flex items-center justify-center shrink-0">
+                    <FileText className="w-4 h-4 text-violet-600" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-xs text-slate-500 font-medium truncate">Job: {a.job_id?.slice(-8)}</p>
+                    <p className="text-xs text-slate-400 truncate">Candidate: {a.candidate_id?.slice(-8)}</p>
+                  </div>
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-violet-50 text-violet-700 border border-violet-200">
+                    {a.stage}
+                  </span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-8">
+              <FileText className="w-8 h-8 text-slate-200 mx-auto mb-2" />
+              <p className="text-sm text-slate-400 font-medium">No applications yet</p>
+            </div>
+          )}
         </motion.div>
       </div>
 
-      {/* Activity Feed & Recent Data - Glassmorphic Style */}
-      <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="bg-white/60 backdrop-blur-xl p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 hover:bg-white/80 transition-all duration-300 relative overflow-hidden"
-        >
-          <div className="flex items-center justify-between mb-8 relative z-10">
-            <h3 className="text-xl font-black text-[#042B6B] tracking-tight">Recent Activity</h3>
-            <button className="text-sm font-bold text-[#007BFF] hover:text-[#042B6B] hover:underline transition-colors uppercase tracking-wider">View All</button>
-          </div>
-          <div className="space-y-6 relative z-10">
-            {[
-              { icon: UserPlus, color: "text-[#007BFF]", bg: "bg-[#007BFF]/10 border border-[#007BFF]/20", text: "New candidate registered", time: "2 hours ago" },
-              { icon: FileText, color: "text-[#00B388]", bg: "bg-[#00B388]/10 border border-[#00B388]/20", text: "Stripe LLC submitted a new job requirement", time: "4 hours ago" },
-              { icon: Star, color: "text-amber-500", bg: "bg-amber-500/10 border border-amber-500/20", text: "Sarah Connor advanced to Interview stage", time: "6 hours ago" },
-              { icon: IndianRupee, color: "text-[#042B6B]", bg: "bg-[#042B6B]/10 border border-[#042B6B]/20", text: "Invoice #INV-2024 paid by Client", time: "Yesterday" },
-            ].map((activity, i) => (
-              <motion.div 
-                whileHover={{ x: 5 }}
-                key={i} 
-                className="flex items-start gap-4 p-3 -mx-3 rounded-2xl hover:bg-white/60 transition-colors"
-              >
-                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 shadow-sm ${activity.bg} ${activity.color}`}>
-                  <activity.icon className="w-5 h-5" />
-                </div>
-                <div className="pt-1">
-                  <p className="text-[15px] font-bold text-[#042B6B]">{activity.text}</p>
-                  <p className="text-xs font-bold text-[#2F3440] opacity-50 mt-1 uppercase tracking-wider">{activity.time}</p>
-                </div>
-              </motion.div>
+      {/* Recent Activity */}
+      {stats?.recent_activity?.length > 0 && (
+        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }} className={card + " p-6"}>
+          <h2 className="text-sm font-black text-slate-700 uppercase tracking-wider mb-4">Recent Activity</h2>
+          <div className="space-y-2">
+            {stats.recent_activity.map((a: any, i: number) => (
+              <div key={i} className="flex items-center gap-3 py-2 border-b border-slate-50 last:border-0">
+                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                <p className="text-sm text-slate-700 font-medium flex-1">{a.title || a.event_type}</p>
+                <span className="text-[11px] text-slate-400 shrink-0">{new Date(a.created_at).toLocaleDateString()}</span>
+              </div>
             ))}
           </div>
         </motion.div>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-          className="bg-gradient-to-br from-[#042B6B] to-[#021840] p-8 rounded-3xl shadow-xl shadow-[#042B6B]/20 border border-white/10 flex flex-col items-center justify-center text-center relative overflow-hidden"
-        >
-          {/* Subtle noise/glow for dark card */}
-          <div className="absolute inset-0 bg-[#007BFF]/10 blur-[80px] pointer-events-none" />
-
-          <div className="w-24 h-24 rounded-full bg-[#00B388]/20 flex items-center justify-center mb-6 relative z-10 border border-[#00B388]/30 shadow-[0_0_30px_rgba(0,179,136,0.3)]">
-            <Activity className="w-12 h-12 text-[#00B388]" />
-          </div>
-          <h3 className="text-3xl font-black text-white mb-3 relative z-10 tracking-tight">Platform Health Optimal</h3>
-          <p className="text-white/70 max-w-sm mb-8 text-lg font-medium relative z-10">All systems are running smoothly. APIs are connected and latency is incredibly low.</p>
-          <button className="px-8 py-3.5 bg-white text-[#042B6B] font-black rounded-xl hover:bg-gray-100 hover:scale-105 transition-all shadow-lg relative z-10">
-            View System Logs
-          </button>
-        </motion.div>
-      </div>
-
+      )}
     </div>
   );
 }

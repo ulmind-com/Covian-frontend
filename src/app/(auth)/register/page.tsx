@@ -94,7 +94,7 @@ export default function RegisterPage() {
               </div>
             </div>
             <span className="font-heading font-black text-3xl tracking-tight text-white drop-shadow-md">
-              CoreVita
+              Covian
             </span>
           </Link>
         </div>
@@ -136,7 +136,7 @@ export default function RegisterPage() {
         {/* Bottom */}
         <div className="relative z-10">
           <p className="text-sm text-white/25">
-            © {new Date().getFullYear()} CoreVita. All rights reserved.
+            © {new Date().getFullYear()} Covian. All rights reserved.
           </p>
         </div>
 
@@ -159,7 +159,7 @@ export default function RegisterPage() {
                 </div>
               </div>
               <span className="font-heading font-black text-3xl tracking-tight text-white drop-shadow-md">
-                CoreVita
+                Covian
               </span>
             </Link>
           </div>
@@ -170,7 +170,7 @@ export default function RegisterPage() {
               Create an account
             </h2>
             <p className="text-white/40 text-sm font-medium">
-              Enter your details to create your CoreVita account.
+              Enter your details to create your Covian account.
             </p>
           </div>
 

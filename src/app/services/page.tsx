@@ -8,7 +8,7 @@ import { FAQSection } from "@/components/services/FAQSection";
 import { CTASection } from "@/components/home/CTASection";
 
 export const metadata = {
-  title: "Our Services | CoreVita Advisory",
+  title: "Our Services | Covian Advisory",
   description: "Comprehensive workforce solutions powered by our proprietary matching technology and human expertise.",
 };
 

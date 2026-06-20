@@ -80,7 +80,7 @@ export const useJobs = (statusFilter?: string) => {
     queryKey: ['jobs', { statusFilter }],
     queryFn: async () => {
       const params = statusFilter ? { status_filter: statusFilter } : {};
-      const { data } = await api.get<Job[]>('/jobs', { params });
+      const { data } = await api.get<Job[]>('/jobs/', { params });
       return data;
     },
     retry: false,
@@ -342,6 +342,12 @@ export const useCMSBlogs = () => {
   return useQuery({
     queryKey: ['cms', 'blogs'],
     queryFn: async () => {
+      // Try new content/news endpoint first, fall back to old /cms/blogs
+      try {
+        const { data } = await api.get<any[]>('/content/news');
+        if (data && data.length > 0) return data;
+      } catch {}
+      // Fallback to legacy CMS blogs
       const { data } = await api.get<any[]>('/cms/blogs');
       return data;
     },
@@ -354,10 +360,48 @@ export const useCMSBlog = (slug: string) => {
   return useQuery({
     queryKey: ['cms', 'blog', slug],
     queryFn: async () => {
-      const { data } = await api.get<any>(`/cms/blogs/${slug}`);
-      return data;
+      try {
+        const { data } = await api.get<any>(`/content/news/${slug}`);
+        return data;
+      } catch {
+        const { data } = await api.get<any>(`/cms/blogs/${slug}`);
+        return data;
+      }
     },
     retry: false,
+  });
+};
+
+export const useTeamMembers = () => {
+  return useQuery({
+    queryKey: ['content', 'team'],
+    queryFn: async () => {
+      const { data } = await api.get<any[]>('/content/team?active_only=true');
+      return data;
+    },
+    staleTime: 5 * 60 * 1000,
+  });
+};
+
+export const useTestimonials = () => {
+  return useQuery({
+    queryKey: ['content', 'testimonials'],
+    queryFn: async () => {
+      const { data } = await api.get<any[]>('/content/testimonials');
+      return data;
+    },
+    staleTime: 5 * 60 * 1000,
+  });
+};
+
+export const useClientLogos = () => {
+  return useQuery({
+    queryKey: ['content', 'logos'],
+    queryFn: async () => {
+      const { data } = await api.get<any[]>('/content/logos?active_only=true');
+      return data;
+    },
+    staleTime: 5 * 60 * 1000,
   });
 };
 

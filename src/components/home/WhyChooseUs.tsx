@@ -1,75 +1,79 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldCheck, Zap, Globe2, LineChart } from "lucide-react";
-import { useEffect, useState } from "react";
-import api from "@/services/api";
+import { Briefcase, Zap, ShieldCheck, Headset, MapPin } from "lucide-react";
 
 export function WhyChooseUs() {
-  const [cmsContent, setCmsContent] = useState<{ title: string; desc: string } | null>(null);
-
-  useEffect(() => {
-    // Attempt to fetch from the CMS if admin has configured the "home-features" slug
-    api.get("/cms/pages/home-features").then(res => {
-      // Basic extraction of text from CMS HTML assuming standard h1/p tags
-      const div = document.createElement("div");
-      div.innerHTML = res.data.content || "";
-      const h1 = div.querySelector("h1")?.innerText || res.data.title;
-      const p = div.querySelector("p")?.innerText || "Experience the next generation of workforce management.";
-      setCmsContent({ title: h1, desc: p });
-    }).catch(() => {
-      // Fallback
-    });
-  }, []);
-
   const features = [
     {
-      icon: ShieldCheck,
-      title: "Enterprise Grade Security",
-      desc: "Bank-level encryption and compliance with GDPR, SOC2, and global data protection standards.",
-      color: "text-emerald-500",
-      bg: "bg-emerald-50",
-      border: "hover:border-emerald-200"
+      icon: Briefcase,
+      title: "Industry-Focused Expertise",
+      desc: "Deep domain knowledge across multiple sectors to find the perfect fit for your specialized roles.",
     },
     {
       icon: Zap,
-      title: "AI-Powered Matching",
-      desc: "Our proprietary machine learning models match the perfect candidates with your open roles in seconds.",
-      color: "text-amber-500",
-      bg: "bg-amber-50",
-      border: "hover:border-amber-200"
+      title: "Fast Turnaround Time",
+      desc: "Accelerated hiring cycles without compromising on candidate quality or compliance.",
     },
     {
-      icon: Globe2,
-      title: "Global Talent Pool",
-      desc: "Access pre-vetted professionals from over 150 countries without the legal and compliance overhead.",
-      color: "text-blue-500",
-      bg: "bg-blue-50",
-      border: "hover:border-blue-200"
+      icon: ShieldCheck,
+      title: "Quality Assurance",
+      desc: "Rigorous vetting processes ensuring only top-tier professionals reach your interview desk.",
     },
     {
-      icon: LineChart,
-      title: "Actionable Analytics",
-      desc: "Make data-driven hiring decisions with our comprehensive real-time dashboards and reporting suite.",
-      color: "text-purple-500",
-      bg: "bg-purple-50",
-      border: "hover:border-purple-200"
+      icon: Headset,
+      title: "Dedicated Support",
+      desc: "A personalized account management team available around the clock for your hiring needs.",
+    },
+    {
+      icon: MapPin,
+      title: "Pan-India Talent Network",
+      desc: "Unrestricted access to a massive pool of verified candidates across all major Indian cities.",
     }
   ];
 
   return (
-    <section className="py-24 bg-white relative">
-      <div className="container mx-auto px-6">
+    <section className="py-24 bg-[#F0F9FF] relative overflow-hidden">
+      {/* Premium background accents */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute -top-[20%] -right-[10%] w-[600px] h-[600px] rounded-full bg-[#BAE6FD]/30 blur-[100px]" />
+        <div className="absolute -bottom-[20%] -left-[10%] w-[600px] h-[600px] rounded-full bg-[#E0F2FE]/50 blur-[100px]" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-5xl font-heading font-black text-[#042B6B] mb-6">
-            {cmsContent?.title || "Why Enterprises Choose Us"}
-          </h2>
-          <p className="text-lg text-[#2F3440]/70 font-medium">
-            {cmsContent?.desc || "We've rebuilt the entire recruitment pipeline from the ground up, eliminating friction and maximizing talent quality."}
-          </p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E0F2FE] border border-[#BAE6FD] mb-6 shadow-sm"
+          >
+            <div className="w-2 h-2 rounded-full bg-[#0EA5E9] animate-pulse" />
+            <span className="text-[#0284C7] text-xs font-bold tracking-widest uppercase">
+              Our Advantage
+            </span>
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl font-heading font-bold text-[#0F172A] mb-6"
+          >
+            Why Choose CoVian Advisory?
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-[#475569] font-medium"
+          >
+            Partner with us to transform your workforce strategy and achieve unparalleled business growth.
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {features.map((feat, i) => (
             <motion.div
               key={i}
@@ -77,13 +81,13 @@ export function WhyChooseUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              className={`p-8 rounded-3xl border border-gray-100 bg-white/80 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,123,255,0.15)] hover:-translate-y-2 transition-all duration-300 ${feat.border} group`}
+              className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] p-8 rounded-[2rem] border border-[#E0F2FE] bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(2,132,199,0.1)] hover:-translate-y-2 transition-all duration-300 group"
             >
-              <div className={`w-16 h-16 rounded-2xl ${feat.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-inner`}>
-                <feat.icon className={`w-8 h-8 ${feat.color}`} />
+              <div className="w-16 h-16 rounded-2xl bg-[#F0F9FF] border border-[#E0F2FE] flex items-center justify-center mb-6 group-hover:bg-[#0284C7] group-hover:border-[#0284C7] transition-colors duration-300 shadow-sm">
+                <feat.icon className="w-8 h-8 text-[#0284C7] group-hover:text-white transition-colors duration-300" />
               </div>
-              <h3 className="text-xl font-bold text-[#042B6B] mb-3">{feat.title}</h3>
-              <p className="text-slate-500 leading-relaxed text-sm">
+              <h3 className="text-xl font-bold text-[#0F172A] mb-3">{feat.title}</h3>
+              <p className="text-[#64748B] leading-relaxed text-sm font-medium">
                 {feat.desc}
               </p>
             </motion.div>

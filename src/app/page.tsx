@@ -1,19 +1,20 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/home/HeroSection";
-import { SuccessMetrics } from "@/components/home/SuccessMetrics";
 import { FeaturedJobs } from "@/components/home/FeaturedJobs";
-import { FeaturedCompanies } from "@/components/home/FeaturedCompanies";
+import { IndustriesSection } from "@/components/home/IndustriesSection";
 import { TalentSearch } from "@/components/home/TalentSearch";
 import { RecruitmentSolutions } from "@/components/home/RecruitmentSolutions";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
+import { ClientLogosMarquee } from "@/components/home/ClientLogosMarquee";
+import { ParallaxBanner } from "@/components/home/ParallaxBanner";
 import { HiringProcess } from "@/components/home/HiringProcess";
 import { Testimonials } from "@/components/home/Testimonials";
 import { BlogSection } from "@/components/home/BlogSection";
 import { CTASection } from "@/components/home/CTASection";
 
 export const metadata = {
-  title: "CoreVita Advisory | The #1 Enterprise Recruitment Platform",
+  title: "Covian Advisory | The #1 Enterprise Recruitment Platform",
   description: "Transform your workforce with AI-driven recruitment, seamless onboarding, and dynamic talent management. Build your dream team today.",
 };
 
@@ -22,19 +23,33 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-slate-50 font-sans selection:bg-blue-600 selection:text-white">
       <Header />
       
-      <main className="flex-1 w-full overflow-hidden">
-        {/* Core Architecture - Ordered for maximum conversion and storytelling */}
-        <HeroSection />
-        <SuccessMetrics />
-        <FeaturedCompanies />
-        <TalentSearch />
-        <RecruitmentSolutions />
-        <FeaturedJobs />
-        <HiringProcess />
-        <WhyChooseUs />
-        <Testimonials />
-        <BlogSection />
-        <CTASection />
+      <main className="flex-1 w-full">
+        {/* Sections before parallax */}
+        <div className="relative z-10">
+          <HeroSection />
+          <WhyChooseUs />
+          <ClientLogosMarquee />
+        </div>
+
+        {/* Parallax sticky container */}
+        <div className="relative">
+          {/* Sticky parallax image — stays pinned while content below scrolls over it */}
+          <div className="sticky top-0 z-0 h-screen">
+            <ParallaxBanner />
+          </div>
+
+          {/* Content that slides UP over the parallax image */}
+          <div className="relative z-10 -mt-[30vh]">
+            <IndustriesSection />
+            <TalentSearch />
+            <RecruitmentSolutions />
+            <FeaturedJobs />
+            <HiringProcess />
+            <Testimonials />
+            <BlogSection />
+            <CTASection />
+          </div>
+        </div>
       </main>
 
       <Footer />

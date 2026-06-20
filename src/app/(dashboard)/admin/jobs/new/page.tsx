@@ -2,6 +2,8 @@
 /* eslint-disable */
 
 
+import { PageLoader } from "@/components/ui/PageLoader";
+import { triggerLottie } from "@/components/ui/GlobalLottie";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";

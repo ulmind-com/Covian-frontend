@@ -113,7 +113,7 @@ export default function LoginPage() {
               </div>
             </div>
             <span className="font-heading font-black text-3xl tracking-tight text-white drop-shadow-md">
-              CoreVita
+              Covian
             </span>
           </Link>
         </div>
@@ -155,7 +155,7 @@ export default function LoginPage() {
         {/* Bottom */}
         <div className="relative z-10">
           <p className="text-sm text-white/25">
-            © {new Date().getFullYear()} CoreVita. All rights reserved.
+            © {new Date().getFullYear()} Covian. All rights reserved.
           </p>
         </div>
 
@@ -178,7 +178,7 @@ export default function LoginPage() {
                 </div>
               </div>
               <span className="font-heading font-black text-3xl tracking-tight text-white drop-shadow-md">
-                CoreVita
+                Covian
               </span>
             </Link>
           </div>

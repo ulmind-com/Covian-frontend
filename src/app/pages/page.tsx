@@ -19,7 +19,7 @@ export default function PagesListing() {
         { slug: "privacy-policy", title: "Privacy Policy", icon: ShieldCheck, color: "text-emerald-500", bg: "bg-emerald-50" },
         { slug: "terms-of-service", title: "Terms of Service", icon: Scale, color: "text-blue-500", bg: "bg-blue-50" },
         { slug: "faq", title: "Frequently Asked Questions", icon: HelpCircle, color: "text-purple-500", bg: "bg-purple-50" },
-        { slug: "careers", title: "Careers at CoreVita", icon: Briefcase, color: "text-orange-500", bg: "bg-orange-50" },
+        { slug: "careers", title: "Careers at Covian", icon: Briefcase, color: "text-orange-500", bg: "bg-orange-50" },
         { slug: "success-stories", title: "Success Stories", icon: TrendingUp, color: "text-rose-500", bg: "bg-rose-50" },
         { slug: "industries", title: "Industries Served", icon: Building, color: "text-indigo-500", bg: "bg-indigo-50" },
       ];

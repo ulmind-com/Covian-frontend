@@ -4,7 +4,7 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X, PhoneCall, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 import { User } from "@/types";
 import { motion, AnimatePresence } from "framer-motion";
@@ -38,27 +38,29 @@ export function Header() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
+    { name: "Our Team", href: "/team" },
     { 
       name: "Services", 
       isDropdown: true,
       items: [
-        { name: "Executive Search", href: "/services/executive-search" },
-        { name: "Contract Staffing", href: "/services/contract-staffing" },
+        { name: "Recruitment & Staffing", href: "/services/recruitment-and-staffing" },
+        { name: "Business Advisory", href: "/services/business-advisory" },
         { name: "HR Consulting", href: "/services/hr-consulting" },
+        { name: "Digital Business", href: "/services/digital-business" },
       ]
     },
     { 
       name: "Industries", 
       isDropdown: true,
       items: [
-        { name: "Technology", href: "/industries/technology" },
-        { name: "Finance", href: "/industries/finance" },
         { name: "Healthcare", href: "/industries/healthcare" },
+        { name: "Medical Devices", href: "/industries/medical-devices" },
+        { name: "Eldercare", href: "/industries/eldercare" },
+        { name: "Hospitality", href: "/industries/hospitality" },
+        { name: "Information Technology", href: "/industries/technology" },
       ]
     },
     { name: "Jobs", href: "/jobs" },
-    { name: "Candidates", href: "/candidates" },
-    { name: "Employers", href: "/employers" },
     { name: "Blog", href: "/blog" },
     { name: "Contact Us", href: "/contact" },
   ];
@@ -81,11 +83,11 @@ export function Header() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group z-50">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#007BFF] to-[#00B388] flex items-center justify-center font-black text-xl text-white shadow-lg shadow-[#007BFF]/30 transition-transform group-hover:scale-105">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#2563EB] to-[#60A5FA] flex items-center justify-center font-black text-xl text-white shadow-lg shadow-[#2563EB]/30 transition-transform group-hover:scale-105">
               CV
             </div>
             <span className="font-bold text-2xl tracking-tight text-white drop-shadow-md">
-              CoreVita
+              Covian
             </span>
           </Link>
 
@@ -149,17 +151,21 @@ export function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden xl:flex items-center shrink-0 relative z-50">
-            <Link href="/login">
-              <div className="relative group">
-                {/* Premium Glow Effect */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full blur opacity-40 group-hover:opacity-80 transition duration-300"></div>
-                {/* Pill Button */}
-                <Button className="relative bg-[#0b1b3d] text-white hover:bg-[#112347] border border-white/10 font-bold rounded-full px-8 h-10 shadow-lg transition-transform group-hover:scale-[1.02]">
-                  Login
-                </Button>
-              </div>
+          {/* Contact Icons */}
+          <div className="hidden xl:flex items-center gap-4 shrink-0 relative z-50">
+            <Link 
+              href="tel:+919876543210" 
+              aria-label="Call Us" 
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-blue-600 hover:text-white hover:border-blue-500 hover:shadow-[0_0_15px_rgba(37,99,235,0.5)] transition-all"
+            >
+              <PhoneCall className="w-4 h-4" />
+            </Link>
+            <Link 
+              href="mailto:contact@covian.com" 
+              aria-label="Email Us" 
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-blue-600 hover:text-white hover:border-blue-500 hover:shadow-[0_0_15px_rgba(37,99,235,0.5)] transition-all"
+            >
+              <Mail className="w-4 h-4" />
             </Link>
           </div>
 

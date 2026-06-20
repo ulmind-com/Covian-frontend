@@ -1,88 +1,58 @@
-"use client";
+import { ServiceLayout } from "@/components/services/ServiceLayout";
 
-import { motion } from "framer-motion";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { HeartPulse, Stethoscope, Microscope, ArrowRight } from "lucide-react";
+export const metadata = {
+  title: "Healthcare Industry | CoVian Advisory",
+  description: "Specialized recruitment and staffing solutions for hospitals, clinics, and healthcare networks.",
+};
 
-export default function HealthcareIndustryPage() {
-  const features = [
-    { icon: Stethoscope, title: "Clinical Staffing", desc: "Physicians, registered nurses, and specialized healthcare practitioners." },
-    { icon: Microscope, title: "Life Sciences & R&D", desc: "Researchers, lab directors, and clinical trial managers." },
-    { icon: HeartPulse, title: "Health-Tech Leadership", desc: "Executives bridging the gap between medical care and digital innovation." },
-  ];
-
+export default function HealthcarePage() {
   return (
-    <main className="min-h-screen bg-background flex flex-col">
-      <Header />
-      
-      {/* Premium Hero Section */}
-      <section className="relative pt-40 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[#042B6B]">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-[-10%] right-[-10%] w-[900px] h-[900px] rounded-full bg-[#00B388]/15 blur-[150px] animate-pulse" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,transparent_0%,#042B6B_100%)] opacity-85" />
-        </div>
-
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-[#00B388]/30 backdrop-blur-xl mb-8 shadow-[0_0_20px_rgba(0,179,136,0.15)]"
-            >
-              <HeartPulse className="w-4 h-4 text-[#00B388]" />
-              <span className="text-[#E8ECEF] text-sm font-bold tracking-widest uppercase">Healthcare & Life Sciences</span>
-            </motion.div>
-            
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-5xl md:text-7xl font-heading font-black text-white mb-8 leading-tight"
-            >
-              Empowering Care. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00B388] to-teal-200">Advancing Science.</span>
-            </motion.h1>
-
-            <motion.p 
-              initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-xl text-[#E8ECEF]/80 max-w-2xl mx-auto leading-relaxed font-medium mb-12"
-            >
-              The future of global health relies on brilliant minds. We connect leading medical institutions and biotech firms with the talent that saves lives.
-            </motion.p>
-          </div>
-        </div>
-      </section>
-
-      {/* Glassmorphic Features Section */}
-      <section className="py-24 relative bg-white">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto -mt-32 relative z-20">
-            {features.map((feat, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 + (idx * 0.1) }}
-                className="bg-white/80 backdrop-blur-2xl p-8 rounded-3xl border border-[#00B388]/10 shadow-[0_20px_40px_-15px_rgba(0,179,136,0.08)] hover:shadow-[0_30px_60px_-15px_rgba(0,179,136,0.2)] transition-all group"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-[#00B388]/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <feat.icon className="w-7 h-7 text-[#00B388]" />
-                </div>
-                <h3 className="text-2xl font-bold text-[#042B6B] mb-3">{feat.title}</h3>
-                <p className="text-[#2F3440]/70 font-medium leading-relaxed">{feat.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="mt-32 text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl font-heading font-black text-[#042B6B] mb-6">Precision and Compliance</h2>
-            <p className="text-lg text-[#2F3440]/80 mb-10 leading-relaxed">
-              Healthcare staffing requires rigorous credentialing and an unwavering commitment to quality. Our bespoke process ensures every placement meets the highest clinical standards.
-            </p>
-            <button className="inline-flex items-center gap-2 bg-[#00B388] hover:bg-[#008C73] text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-[#00B388]/30 transition-all hover:pr-6 group">
-              Source Medical Talent <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </main>
+    <ServiceLayout
+      tag="Industry Focus"
+      title="Healthcare"
+      titleHighlight="Staffing Solutions"
+      subtitle="Trusted Talent Partner for Healthcare"
+      description="We partner with hospitals, clinics, diagnostic centres, and healthcare networks to source skilled medical professionals — from doctors, nurses, and paramedics to hospital administrators and allied health workers. Our deep understanding of clinical requirements ensures rapid, quality placements at every level."
+      features={[
+        "Permanent & Contract Medical Staffing",
+        "Nursing & Paramedical Recruitment",
+        "Hospital Administration Hiring",
+        "Allied Health Professional Placement",
+      ]}
+      imageUrl="https://images.unsplash.com/photo-1551601651-2a8555f1a136?q=80&w=1200&auto=format&fit=crop"
+      stats={[
+        { value: "500+", label: "Healthcare Placements" },
+        { value: "72hr", label: "Average Turnaround" },
+        { value: "98%", label: "Retention Rate" },
+      ]}
+      heroBadges={["Hospitals & Clinics", "Nursing Staff", "Paramedical", "Administration"]}
+      sectionLabel="Why Healthcare Staffing Matters"
+      sectionTitle="Qualified Medical Talent,"
+      sectionHighlight="When You Need It Most"
+      sectionBody={[
+        "The healthcare sector faces chronic talent shortages, especially for skilled nursing staff and allied health professionals. A single vacancy in a critical care department can have real consequences for patient outcomes.",
+        "CoVian Advisory's healthcare division maintains a curated pool of credentialed, background-verified medical professionals across specialties. We understand the compliance requirements, registration mandates, and domain expertise needed for each role.",
+        "Whether you're staffing a new hospital wing, managing seasonal surge capacity, or filling a critical leadership position, we deliver the right talent — fast.",
+      ]}
+      sectionCards={[
+        { icon: "🏥", title: "Hospital & Clinic Staffing", description: "End-to-end recruitment for multispecialty hospitals, nursing homes, and diagnostic chains." },
+        { icon: "👩‍⚕️", title: "Verified Clinical Talent", description: "Every candidate is credential-verified, reference-checked, and ready to deploy." },
+        { icon: "⚡", title: "Rapid Deployment", description: "Emergency and urgent staffing fulfilled within 24–72 hours across major cities." },
+        { icon: "📋", title: "Compliance-Ready", description: "We handle NMC, INC, and other regulatory verification requirements for all placements." },
+      ]}
+      sectionImageUrl="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=900&auto=format&fit=crop"
+      benefits={[
+        { title: "Specialized Healthcare Network", description: "Access a pre-vetted pool of medical professionals across specialties, ready for immediate deployment." },
+        { title: "Credential & Compliance Verified", description: "All candidates are verified against NMC, INC, and other regulatory mandates before placement." },
+        { title: "Flexible Engagement Models", description: "Permanent, contract, locum, and project-based staffing — tailored to your operational needs." },
+        { title: "Pan-India Coverage", description: "Talent sourcing across metros, tier-2 cities, and semi-urban healthcare facilities nationwide." },
+      ]}
+      process={[
+        { title: "Assess", description: "Understand your staffing requirements, specialty mix, and compliance framework." },
+        { title: "Source", description: "Draw from our credentialed healthcare talent database and active referral networks." },
+        { title: "Verify", description: "Thorough credential checks, background verification, and regulatory compliance review." },
+        { title: "Deploy", description: "Swift placement with post-joining support to ensure smooth onboarding and retention." },
+      ]}
+    />
   );
 }

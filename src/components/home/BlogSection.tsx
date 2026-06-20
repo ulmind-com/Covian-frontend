@@ -11,7 +11,14 @@ export function BlogSection() {
 
   // Fallback to static data if API is empty/fails
   const displayBlogs = (!isError && blogs && blogs.length > 0) 
-    ? blogs.slice(0, 3)
+    ? blogs.slice(0, 3).map((b: any) => ({
+        ...b,
+        id: b._id || b.id,
+        image: b.featured_image_url || b.image || null,
+        category: b.category || "Insight",
+        author: b.author || "Covian Team",
+        created_at: b.published_at || b.created_at,
+      }))
     : [
         {
           slug: "future-of-ai-recruitment",
@@ -19,7 +26,7 @@ export function BlogSection() {
           category: "Technology",
           created_at: "2026-10-24",
           author: "Dr. Sarah Chen",
-          image: "bg-gradient-to-br from-[#007BFF] to-[#042B6B]"
+          image: null
         },
         {
           slug: "compliant-global-workforce",
@@ -27,7 +34,7 @@ export function BlogSection() {
           category: "Compliance",
           created_at: "2026-10-21",
           author: "Marcus Aurelius",
-          image: "bg-gradient-to-br from-[#00B388] to-[#042B6B]"
+          image: null
         },
         {
           slug: "hr-metrics-dashboard",
@@ -35,7 +42,7 @@ export function BlogSection() {
           category: "Analytics",
           created_at: "2026-10-18",
           author: "Elena Rodriguez",
-          image: "bg-gradient-to-br from-indigo-500 to-[#042B6B]"
+          image: null
         }
       ];
 
@@ -76,8 +83,8 @@ export function BlogSection() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {displayBlogs.map((blog, i) => (
-              <Link key={blog.id || i} href={`/blog/${blog.slug}`}>
+            {displayBlogs.map((blog: any, i: number) => (
+              <Link key={blog.id || blog.slug || i} href={`/blog/${blog.slug}`}>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -85,13 +92,16 @@ export function BlogSection() {
                   transition={{ delay: i * 0.1, duration: 0.5 }}
                   className="group bg-white/80 backdrop-blur-xl rounded-3xl overflow-hidden border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,123,255,0.15)] hover:-translate-y-2 transition-all cursor-pointer flex flex-col h-full"
                 >
-                  <div className={`w-full h-48 ${blog.image || 'bg-gradient-to-br from-slate-200 to-slate-300'} relative overflow-hidden`}>
+                  <div className="w-full h-48 relative overflow-hidden bg-gradient-to-br from-[#007BFF] to-[#042B6B]">
+                    {/* Show actual image if available */}
+                    {blog.image && blog.image.startsWith("http") ? (
+                      <img src={blog.image} alt={blog.title} className="w-full h-full object-cover" />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center opacity-20 group-hover:scale-110 transition-transform duration-700">
+                        <FileText className="w-24 h-24 text-white" />
+                      </div>
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#042B6B]/80 to-transparent opacity-80" />
-                    
-                    {/* Placeholder icon if no real image */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-20 group-hover:scale-110 transition-transform duration-700">
-                      <FileText className="w-24 h-24 text-white" />
-                    </div>
 
                     <span className="absolute bottom-4 left-6 px-3 py-1 bg-white/20 backdrop-blur-md border border-white/20 text-white text-xs font-bold rounded-full uppercase tracking-wider">
                       {blog.category || "Insight"}

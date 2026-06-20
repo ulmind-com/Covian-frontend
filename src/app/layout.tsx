@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
+import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -16,7 +17,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "CoreVita Advisory",
+  title: "Covian Advisory",
   description: "Strategic Workforce & Talent Solutions",
 };
 
@@ -33,6 +34,7 @@ export default function RootLayout({
       >
         <Providers>
           {children}
+          <WhatsAppButton />
         </Providers>
       </body>
     </html>

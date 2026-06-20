@@ -18,7 +18,7 @@ export function FeaturedCompanies() {
       ];
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-24 bg-white rounded-t-[2rem] shadow-[0_-20px_60px_rgba(0,0,0,0.15)] relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#042B6B]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#00B388]/5 rounded-full blur-[100px] pointer-events-none" />
       
