@@ -67,7 +67,7 @@ export default function CaregiverEnquiriesPage() {
           <h1 className="text-2xl font-black text-slate-800">Caregiver Enquiries</h1>
           <p className="text-sm text-slate-500 mt-0.5">Manage caregiver staffing requests.</p>
         </div>
-        <a href={`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1"}/content/caregiver-enquiries/export-csv`}
+        <a href={`${process.env.NODE_ENV === "production" ? "https://project-for-prem-backend.onrender.com/api/v1" : "http://localhost:8000/api/v1"}/content/caregiver-enquiries/export-csv`}
           className="flex items-center gap-2 px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white text-sm font-bold rounded-xl shadow-sm transition-colors">
           <Download className="w-4 h-4" /> Export CSV
         </a>

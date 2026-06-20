@@ -46,7 +46,8 @@ export default function JobApplicationModal({ jobId, jobTitle, isOpen, onClose }
       const formData = new FormData();
       formData.append("file", file);
       
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://project-for-prem-backend.onrender.com/api/v1';
+      const isProd = process.env.NODE_ENV === 'production';
+      const API_URL = isProd ? 'https://project-for-prem-backend.onrender.com/api/v1' : 'http://localhost:8000/api/v1';
       const uploadRes = await axios.post(`${API_URL}/media/upload-cv`, formData);
       
       const cvUrl = uploadRes.data.url;
