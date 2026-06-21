@@ -36,7 +36,7 @@ export function WhyChooseUs() {
     <section className="py-24 bg-[#F0F9FF] relative overflow-hidden">
       {/* Premium background accents */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-[20%] -right-[10%] w-[600px] h-[600px] rounded-full bg-[#BAE6FD]/30 blur-[100px]" />
+        <div className="absolute top-[10%] -right-[10%] w-[600px] h-[600px] rounded-full bg-[#BAE6FD]/30 blur-[100px]" />
         <div className="absolute -bottom-[20%] -left-[10%] w-[600px] h-[600px] rounded-full bg-[#E0F2FE]/50 blur-[100px]" />
       </div>
 

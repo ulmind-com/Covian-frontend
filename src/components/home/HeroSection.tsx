@@ -220,12 +220,12 @@ export function HeroSection() {
           {/* Subtle back wave */}
           <path 
             d="M0,90 C320,150 420,30 720,30 C1020,30 1120,150 1440,90 L1440,120 L0,120 Z" 
-            className="fill-slate-50/10" 
+            className="fill-[#F0F9FF]/30" 
           />
-          {/* Main front wave matching the next section's background */}
+          {/* Main front wave matching the next section's background exactly */}
           <path 
             d="M0,60 C320,120 420,0 720,0 C1020,0 1120,120 1440,60 L1440,120 L0,120 Z" 
-            className="fill-slate-50" 
+            className="fill-[#F0F9FF]" 
           />
         </svg>
       </div>
