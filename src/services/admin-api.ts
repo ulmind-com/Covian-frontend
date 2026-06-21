@@ -49,6 +49,8 @@ async function apiFetch<T>(
 export const getDashboardKPIs = () => apiFetch<any>("/admin/dashboard/kpi");
 
 // ─── NEWS ─────────────────────────────────────────────────────────────────────
+export const getPublicNews = (params?: string) => apiFetch<any[]>(`/content/news${params ? `?${params}` : ""}`);
+export const getPublicNewsBySlug = (slug: string) => apiFetch<any>(`/content/news/${slug}`);
 export const getAllNews = () => apiFetch<any[]>("/content/news/all");
 export const createNews = (data: any) => apiFetch<any>("/content/news", { method: "POST", body: JSON.stringify(data) });
 export const updateNews = (id: string, data: any) => apiFetch<any>(`/content/news/${id}`, { method: "PUT", body: JSON.stringify(data) });
