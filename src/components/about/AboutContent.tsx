@@ -17,7 +17,7 @@ export function AboutContent() {
   return (
     <div className="w-full">
       {/* HERO SECTION */}
-      <section className="relative min-h-[90vh] flex items-center pt-32 pb-20 overflow-hidden bg-[#0A1220]">
+      <section className="relative min-h-[90vh] flex items-center pt-32 pb-48 lg:pb-64 overflow-hidden bg-[#0A1220]">
         {/* Abstract Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 right-[-5%] w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px]" />
@@ -124,6 +124,24 @@ export function AboutContent() {
 
             </motion.div>
           </div>
+        </div>
+        
+        {/* ── BOTTOM WAVE DIVIDER ── */}
+        <div className="absolute bottom-[-1px] left-0 w-full overflow-hidden leading-[0] z-20 pointer-events-none">
+          <svg viewBox="0 0 1440 320" preserveAspectRatio="none" className="w-full h-[100px] md:h-[150px] lg:h-[200px]">
+            {/* 1. Main Ribbon (Top) */}
+            <path d="M0,80 C400,200 800,220 1440,30 L1440,320 L0,320 Z" fill="#0B1B3D" />
+            {/* 2. Slate Gap 1 */}
+            <path d="M0,120 C400,240 800,260 1440,70 L1440,320 L0,320 Z" fill="#F8FAFC" />
+            {/* 3. Dark Navy Ribbon */}
+            <path d="M0,140 C400,250 800,260 1440,70 L1440,320 L0,320 Z" fill="#0B1B3D" />
+            {/* 4. Slate Gap 2 */}
+            <path d="M0,180 C400,290 800,300 1440,110 L1440,320 L0,320 Z" fill="#F8FAFC" />
+            {/* 5. Bottom Ribbon */}
+            <path d="M0,200 C400,300 800,300 1440,110 L1440,320 L0,320 Z" fill="#0B1B3D" />
+            {/* 6. Final Slate Base */}
+            <path d="M0,230 C400,320 800,300 1440,110 L1440,320 L0,320 Z" fill="#F8FAFC" />
+          </svg>
         </div>
       </section>
 
