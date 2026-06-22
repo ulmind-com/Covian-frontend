@@ -59,7 +59,7 @@ export default async function CMSPage({ params }: { params: Promise<{ slug: stri
       <main className="flex-1 w-full pt-32 pb-24">
         
         {/* Dynamic Hero Header */}
-        <div className="bg-[#0b1b3d] py-20 relative overflow-hidden mb-16">
+        <div className="bg-[#003A70] py-20 relative overflow-hidden mb-16">
           <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent pointer-events-none" />
           
           <div className="container mx-auto px-6 relative z-10">
@@ -92,7 +92,7 @@ export default async function CMSPage({ params }: { params: Promise<{ slug: stri
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto bg-white rounded-3xl p-8 md:p-16 shadow-sm border border-slate-100">
             <div 
-              className="prose prose-lg prose-slate prose-headings:text-[#0b1b3d] prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-6 prose-p:text-slate-600 prose-p:leading-relaxed prose-a:text-blue-600 hover:prose-a:text-blue-700 max-w-none"
+              className="prose prose-lg prose-slate prose-headings:text-[#003A70] prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-6 prose-p:text-slate-600 prose-p:leading-relaxed prose-a:text-blue-600 hover:prose-a:text-blue-700 max-w-none"
               dangerouslySetInnerHTML={{ __html: pageData.content }} 
             />
           </div>

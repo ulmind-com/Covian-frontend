@@ -14,7 +14,8 @@ const input = "w-full px-3 py-2 rounded-xl border border-slate-200 text-sm font-
 const emptyForm = {
   title: "", description: "", company_id: "", recruiter_id: "", status: "OPEN",
   salary_range: "", location: "", industry: "", job_type: "Full-time",
-  experience_level: "Mid", pipeline_stages: ["Applied","Screened","Interviewing","Offer","Rejected","Hired"]
+  experience_level: "Mid", pipeline_stages: ["Applied","Screened","Interviewing","Offer","Rejected","Hired"],
+  key_responsibilities: [] as string[], requirements: [] as string[], perks_and_benefits: [] as string[],
 };
 
 const statusColor: Record<string, string> = {
@@ -35,7 +36,7 @@ export default function JobsPage() {
   useEffect(() => { load(); }, []);
 
   const openCreate = () => { setForm(emptyForm); setEditing(null); setModal("create"); };
-  const openEdit = (j: any) => { setEditing(j); setForm({ ...j }); setModal("edit"); };
+  const openEdit = (j: any) => { setEditing(j); setForm({ ...j, key_responsibilities: j.key_responsibilities || [], requirements: j.requirements || [], perks_and_benefits: j.perks_and_benefits || [] }); setModal("edit"); };
 
   const handleSave = async () => {
     setSaving(true);
@@ -164,6 +165,9 @@ export default function JobsPage() {
                   </div>
                 </div>
                 <div><label className="text-xs font-bold text-slate-600 mb-1 block">Company ID</label><input className={input} value={form.company_id} onChange={e => setForm({...form, company_id: e.target.value})} placeholder="MongoDB ObjectId" /></div>
+                <div><label className="text-xs font-bold text-slate-600 mb-1 block">Key Responsibilities <span className="text-slate-400 font-normal">(one per line)</span></label><textarea className={input + " h-28 resize-none"} value={(form.key_responsibilities || []).join("\n")} onChange={e => setForm({...form, key_responsibilities: e.target.value.split("\n").filter(s => s.trim())})} placeholder={"Drive technical architecture...\nCollaborate with cross-functional teams..."} /></div>
+                <div><label className="text-xs font-bold text-slate-600 mb-1 block">Requirements <span className="text-slate-400 font-normal">(one per line)</span></label><textarea className={input + " h-28 resize-none"} value={(form.requirements || []).join("\n")} onChange={e => setForm({...form, requirements: e.target.value.split("\n").filter(s => s.trim())})} placeholder={"3+ years experience...\nStrong communication skills..."} /></div>
+                <div><label className="text-xs font-bold text-slate-600 mb-1 block">Perks & Benefits <span className="text-slate-400 font-normal">(one per line)</span></label><textarea className={input + " h-28 resize-none"} value={(form.perks_and_benefits || []).join("\n")} onChange={e => setForm({...form, perks_and_benefits: e.target.value.split("\n").filter(s => s.trim())})} placeholder={"Health Insurance\nFlexible Working Hours..."} /></div>
                 <button onClick={handleSave} disabled={saving}
                   className="w-full flex items-center justify-center gap-2 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-colors disabled:opacity-60">
                   {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}

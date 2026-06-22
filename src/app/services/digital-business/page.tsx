@@ -2,56 +2,56 @@ import { ServiceLayout } from "@/components/services/ServiceLayout";
 
 export const metadata = {
   title: "Digital Business Solutions | CoVian Advisory",
-  description: "Social media management, content creation, branding, and digital marketing support.",
+  description: "Digital transformation and technology staffing solutions to future-proof your business.",
 };
 
 export default function DigitalBusinessPage() {
   return (
     <ServiceLayout
       tag="Digital Business"
-      title="Amplify Your Brand,"
-      titleHighlight="Dominate Digitally"
-      subtitle="Social Media, Branding & Digital Marketing"
-      description="CoVian Advisory provides end-to-end digital business solutions — from social media management and content creation to brand identity and performance marketing. We help your business build a powerful online presence that resonates, engages, and converts."
+      title="Digital Talent,"
+      titleHighlight="Future-Ready Teams."
+      subtitle="Technology Staffing & Digital Transformation Support"
+      description="CoVian Advisory helps organizations build digital capabilities by sourcing specialized technology talent and supporting digital transformation initiatives with expert resources."
       features={[
-        "Full-Service Social Media Management",
-        "SEO-Optimized Content Creation",
-        "Brand Identity & Positioning",
-        "360° Digital Marketing Campaigns",
+        "Technology Talent Acquisition",
+        "Digital Transformation Support",
+        "IT Staffing & Consulting",
+        "Product & Engineering Talent",
       ]}
-      imageUrl="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop"
+      imageUrl="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop"
       stats={[
-        { value: "150+", label: "Brands Grown" },
-        { value: "3x", label: "Avg. Engagement Uplift" },
-        { value: "98%", label: "Client Retention" },
+        { value: "200+", label: "Tech Placements" },
+        { value: "50+", label: "Tech Domains" },
+        { value: "48hrs", label: "Avg Shortlist Time" },
       ]}
-      heroBadges={["Social Media", "SEO & Content", "Paid Ads", "Brand Strategy"]}
-      sectionLabel="What We Provide"
-      sectionTitle="Why Your Digital Presence"
-      sectionHighlight="Matters More Than Ever"
+      heroBadges={["IT Staffing", "Digital Transformation", "Product & Engineering", "Tech Consulting"]}
+      sectionLabel="Digital Expertise"
+      sectionTitle="Building Digital"
+      sectionHighlight="Capabilities"
       sectionBody={[
-        "In a world where your customers make decisions before they even speak to you, your digital presence is your first — and most important — impression. A weak online identity is a lost opportunity, every single day.",
-        "Most businesses invest in a website and call it digital marketing. We go deeper — building cohesive brand narratives, audience-first content strategies, and data-backed campaigns that generate real, measurable ROI across every channel.",
-        "From LinkedIn thought leadership and Instagram content calendars to Google Ads and email campaigns, CoVian delivers an integrated digital approach that makes your brand impossible to ignore.",
+        "The digital talent gap is one of the most critical challenges facing modern organizations. CoVian bridges that gap with a deep network of technology professionals across all domains.",
+        "From software engineers and data scientists to digital transformation consultants and product managers — we place professionals who drive real digital outcomes.",
+        "Our technology-specific vetting process ensures every candidate brings not just technical skills, but the problem-solving mindset your digital initiatives demand."
       ]}
       sectionCards={[
-        { icon: "📱", title: "Consistent Presence", description: "Cohesive, professional brand presence across all digital platforms — from LinkedIn to Instagram." },
-        { icon: "✍️", title: "Audience-First Content", description: "Content that connects with your target audience and builds long-term brand loyalty." },
-        { icon: "📊", title: "Performance Marketing", description: "Data-backed campaigns optimized continuously for maximum ROI on your marketing spend." },
-        { icon: "🚀", title: "Holistic Growth", description: "Integrated strategy covering SEO, paid ads, email marketing, and influencer outreach." },
+        { icon: "💻", title: "Software Engineering", description: "Full-stack, backend, frontend, and mobile engineering talent across all tech stacks." },
+        { icon: "📊", title: "Data & Analytics", description: "Data scientists, analysts, and ML engineers to power your data strategy." },
+        { icon: "🔒", title: "Cybersecurity", description: "Information security professionals to protect your digital assets." },
+        { icon: "☁️", title: "Cloud & DevOps", description: "Cloud architects and DevOps engineers for modern infrastructure." }
       ]}
-      sectionImageUrl="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=900&auto=format&fit=crop"
+      sectionImageUrl="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=900&auto=format&fit=crop"
       benefits={[
-        { title: "Consistent Brand Presence", description: "Maintain a cohesive, professional presence across all digital channels — from LinkedIn to Google." },
-        { title: "Audience-First Content Strategy", description: "Content that genuinely connects, builds trust, and drives long-term brand loyalty." },
-        { title: "Performance-Driven Marketing", description: "Every campaign backed by data, continuously analyzed and optimized for maximum ROI." },
-        { title: "Holistic Digital Growth", description: "Integrated 360° strategy covering SEO, paid ads, email marketing, and influencer outreach." },
+        { title: "Specialized Tech Network", description: "Access to a pre-vetted pool of technology professionals across 50+ specializations." },
+        { title: "Technical Vetting", description: "Candidates are assessed through technical evaluations and real-world problem-solving tests." },
+        { title: "Rapid Deployment", description: "Fast shortlisting and placement to keep your digital projects on track." },
+        { title: "Flexible Engagement", description: "Hire on contract, permanent, or project basis depending on your initiative needs." }
       ]}
       process={[
-        { title: "Discover", description: "Audit your digital presence, analyze competitors, and define your brand voice and target audience." },
-        { title: "Strategize", description: "Build a comprehensive digital roadmap with goals, KPIs, channel mix, and content calendar." },
-        { title: "Execute", description: "Launch campaigns, publish content, and activate all digital touchpoints with precision." },
-        { title: "Optimize", description: "Monitor performance in real time, A/B test, iterate, and scale what works best." },
+        { title: "Tech Requirement Analysis", description: "Understanding the technical stack, role scope, and team structure needed." },
+        { title: "Talent Sourcing", description: "Targeting passive and active candidates from our specialized tech network." },
+        { title: "Technical Assessment", description: "Skill evaluations, coding assessments, and panel interviews." },
+        { title: "Placement & Support", description: "Seamless onboarding with continued support during the initial months." }
       ]}
     />
   );

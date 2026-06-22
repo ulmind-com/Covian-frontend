@@ -58,7 +58,7 @@ export function BlogContent() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-[52px] font-heading font-black text-[#042B6B] tracking-tight leading-[1.15] mb-6"
+              className="text-4xl md:text-5xl lg:text-[52px] font-heading font-black text-[#003A70] tracking-tight leading-[1.15] mb-6"
             >
               Insights, Trends & <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-500">
@@ -132,7 +132,7 @@ export function BlogContent() {
                           </span>
                         </div>
 
-                        <h2 className="text-3xl lg:text-4xl font-bold text-[#042B6B] leading-tight mb-6 group-hover:text-blue-600 transition-colors line-clamp-3">
+                        <h2 className="text-3xl lg:text-4xl font-bold text-[#003A70] leading-tight mb-6 group-hover:text-blue-600 transition-colors line-clamp-3">
                           {featuredPost.title}
                         </h2>
 
@@ -157,7 +157,7 @@ export function BlogContent() {
             {regularPosts.length > 0 && (
               <section className="px-6 relative z-10">
                 <div className="container mx-auto max-w-6xl">
-                  <h3 className="text-2xl font-bold text-[#042B6B] mb-10 flex items-center gap-3">
+                  <h3 className="text-2xl font-bold text-[#003A70] mb-10 flex items-center gap-3">
                     <span className="w-8 h-1 bg-blue-600 rounded-full"></span> Latest Articles
                   </h3>
 
@@ -186,7 +186,7 @@ export function BlogContent() {
                             </div>
                           )}
                           <div className="absolute top-4 left-4">
-                            <span className="px-3 py-1 bg-white/90 backdrop-blur-md text-[#042B6B] text-[10px] font-bold rounded-full uppercase tracking-wider shadow-sm">
+                            <span className="px-3 py-1 bg-white/90 backdrop-blur-md text-[#003A70] text-[10px] font-bold rounded-full uppercase tracking-wider shadow-sm">
                               {post.category || "Article"}
                             </span>
                           </div>
@@ -203,7 +203,7 @@ export function BlogContent() {
                             </span>
                           </div>
 
-                          <h4 className="text-xl font-bold text-[#042B6B] leading-snug mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                          <h4 className="text-xl font-bold text-[#003A70] leading-snug mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                             {post.title}
                           </h4>
 

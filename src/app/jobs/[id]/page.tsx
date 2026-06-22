@@ -38,7 +38,7 @@ export default function JobDetailsPage({ params }: { params: Promise<{ id: strin
             <h1 className="text-3xl font-black text-slate-900 mb-4">Position Not Found</h1>
             <p className="text-slate-500 mb-8 max-w-md mx-auto">This role may have been filled, or the link you followed is incorrect. Explore our other open positions.</p>
             <Link href="/jobs">
-              <button className="bg-[#0b1b3d] hover:bg-blue-600 text-white px-8 py-3.5 rounded-xl font-bold transition-colors">View All Jobs</button>
+              <button className="bg-[#003A70] hover:bg-blue-600 text-white px-8 py-3.5 rounded-xl font-bold transition-colors">View All Jobs</button>
             </Link>
           </div>
         </div>
@@ -67,7 +67,7 @@ export default function JobDetailsPage({ params }: { params: Promise<{ id: strin
                     <span className="text-sm font-bold text-slate-400">Posted recently</span>
                   </div>
                   
-                  <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#0b1b3d] mb-6 leading-tight capitalize">
+                  <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#003A70] mb-6 leading-tight capitalize">
                     {job.title}
                   </h1>
                   
@@ -142,14 +142,9 @@ export default function JobDetailsPage({ params }: { params: Promise<{ id: strin
                       <hr className="border-slate-100 my-10" />
 
                       <h3 className="text-xl font-black text-slate-900 mb-6">Key Responsibilities</h3>
+                      {job.key_responsibilities && job.key_responsibilities.length > 0 ? (
                       <ul className="space-y-4">
-                        {[
-                          "Drive technical architecture and implementation for scalable distributed systems.",
-                          "Collaborate with cross-functional teams to define, design, and ship new features.",
-                          "Ensure the performance, quality, and responsiveness of applications.",
-                          "Identify and correct bottlenecks and fix bugs in our systems.",
-                          "Help maintain code quality, organization, and automatization."
-                        ].map((item, i) => (
+                        {job.key_responsibilities.map((item, i) => (
                           <li key={i} className="flex items-start gap-4 text-slate-600 font-medium">
                             <span className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center shrink-0 mt-0.5">
                               <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
@@ -158,18 +153,16 @@ export default function JobDetailsPage({ params }: { params: Promise<{ id: strin
                           </li>
                         ))}
                       </ul>
+                      ) : (
+                        <p className="text-slate-400 italic">No responsibilities listed yet.</p>
+                      )}
 
                       <hr className="border-slate-100 my-10" />
 
                       <h3 className="text-xl font-black text-slate-900 mb-6">Requirements</h3>
+                      {job.requirements && job.requirements.length > 0 ? (
                       <ul className="space-y-4">
-                        {[
-                          "Proven experience as a senior contributor in a high-growth tech environment.",
-                          "Strong knowledge of modern web development and system design.",
-                          "Familiarity with cloud message APIs and push notifications.",
-                          "Understanding of design principles and interface guidelines.",
-                          "Proficient understanding of code versioning tools (e.g. Git)."
-                        ].map((item, i) => (
+                        {job.requirements.map((item, i) => (
                           <li key={i} className="flex items-start gap-4 text-slate-600 font-medium">
                             <span className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center shrink-0 mt-0.5">
                               <div className="w-1.5 h-1.5 rounded-full bg-slate-400" />
@@ -178,6 +171,9 @@ export default function JobDetailsPage({ params }: { params: Promise<{ id: strin
                           </li>
                         ))}
                       </ul>
+                      ) : (
+                        <p className="text-slate-400 italic">No requirements listed yet.</p>
+                      )}
                     </div>
                   </motion.div>
 
@@ -186,7 +182,7 @@ export default function JobDetailsPage({ params }: { params: Promise<{ id: strin
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="bg-[#0b1b3d] rounded-[2rem] p-10 md:p-12 shadow-2xl text-white relative overflow-hidden"
+                    className="bg-[#003A70] rounded-[2rem] p-10 md:p-12 shadow-2xl text-white relative overflow-hidden"
                   >
                     <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500/20 rounded-full blur-[80px] pointer-events-none" />
                     <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-indigo-500/20 rounded-full blur-[80px] pointer-events-none" />
@@ -198,7 +194,7 @@ export default function JobDetailsPage({ params }: { params: Promise<{ id: strin
                           Join a world-class team building the future. Submit your application today.
                         </p>
                       </div>
-                      <button onClick={() => setIsModalOpen(true)} className="bg-white text-[#0b1b3d] hover:bg-blue-50 px-8 py-4 rounded-xl font-black text-lg transition-transform hover:scale-105 active:scale-95 shrink-0 shadow-xl shadow-black/20">
+                      <button onClick={() => setIsModalOpen(true)} className="bg-white text-[#003A70] hover:bg-blue-50 px-8 py-4 rounded-xl font-black text-lg transition-transform hover:scale-105 active:scale-95 shrink-0 shadow-xl shadow-black/20">
                         Apply for this Role
                       </button>
                     </div>
@@ -267,7 +263,8 @@ export default function JobDetailsPage({ params }: { params: Promise<{ id: strin
                       </div>
                     </motion.div>
 
-                    {/* Perks Card */}
+                    {/* Perks Card — Dynamic */}
+                    {job.perks_and_benefits && job.perks_and_benefits.length > 0 && (
                     <motion.div 
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -276,13 +273,7 @@ export default function JobDetailsPage({ params }: { params: Promise<{ id: strin
                     >
                       <h3 className="font-black text-slate-900 mb-6 text-xl">Benefits & Perks</h3>
                       <ul className="space-y-4">
-                        {[
-                          "Comprehensive Health Insurance",
-                          "Unlimited PTO & Sick Days",
-                          "Remote Work Setup Stipend",
-                          "Annual Learning Budget",
-                          "401(k) / Pension Matching"
-                        ].map((perk, i) => (
+                        {job.perks_and_benefits.map((perk, i) => (
                           <li key={i} className="flex items-center gap-3 text-sm font-bold text-slate-600">
                             <div className="w-6 h-6 rounded-full bg-emerald-50 flex items-center justify-center shrink-0">
                               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
@@ -292,6 +283,7 @@ export default function JobDetailsPage({ params }: { params: Promise<{ id: strin
                         ))}
                       </ul>
                     </motion.div>
+                    )}
 
                   </div>
                 </div>

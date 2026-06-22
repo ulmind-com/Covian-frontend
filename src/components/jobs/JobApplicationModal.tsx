@@ -66,9 +66,10 @@ export default function JobApplicationModal({ jobId, jobTitle, isOpen, onClose }
 
       // 3. Show Success
       setStep(2);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
-      setError(err.response?.data?.detail || "An error occurred while submitting your application.");
+      const message = err instanceof Error ? err.message : "An error occurred while submitting your application.";
+      setError(message);
     } finally {
       setLoading(false);
     }
@@ -77,7 +78,7 @@ export default function JobApplicationModal({ jobId, jobTitle, isOpen, onClose }
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
           <motion.div 
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"
@@ -87,7 +88,7 @@ export default function JobApplicationModal({ jobId, jobTitle, isOpen, onClose }
             initial={{ scale: 0.95, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 20 }}
-            className="bg-white rounded-[2rem] shadow-2xl w-full max-w-xl relative z-10 overflow-hidden border border-slate-200/50"
+            className="bg-white rounded-[2rem] shadow-2xl w-full max-w-xl relative z-10 overflow-hidden border border-slate-200/50 max-h-[90vh] overflow-y-auto"
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-6 text-white relative overflow-hidden">

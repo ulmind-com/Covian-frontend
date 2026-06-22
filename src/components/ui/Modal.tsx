@@ -66,13 +66,13 @@ export function Modal({ isOpen, onClose, title, children, maxWidth = "md" }: Mod
             transition={{ type: "spring", duration: 0.5, bounce: 0.3 }}
             className={`relative w-full ${maxWidthClass} bg-white/95 backdrop-blur-xl border border-white/40 shadow-[0_0_40px_rgba(0,123,255,0.15)] rounded-3xl overflow-hidden flex flex-col max-h-[90vh]`}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#007BFF]/5 to-[#00B388]/5 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#1E88E5]/5 to-[#00A86B]/5 pointer-events-none" />
             
             <div className="relative flex items-center justify-between px-8 py-5 border-b border-gray-100/50 bg-white/50 backdrop-blur-sm">
-              <h2 className="text-xl font-black text-[#042B6B] tracking-tight">{title}</h2>
+              <h2 className="text-xl font-black text-[#003A70] tracking-tight">{title}</h2>
               <button
                 onClick={onClose}
-                className="p-2.5 rounded-xl text-gray-400 hover:text-[#007BFF] hover:bg-[#007BFF]/10 transition-colors bg-white shadow-sm border border-gray-100"
+                className="p-2.5 rounded-xl text-gray-400 hover:text-[#1E88E5] hover:bg-[#1E88E5]/10 transition-colors bg-white shadow-sm border border-gray-100"
               >
                 <X className="w-4 h-4" />
               </button>

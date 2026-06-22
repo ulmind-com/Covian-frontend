@@ -32,18 +32,18 @@ export function MissionVision() {
             transition={{ duration: 0.6 }}
             className="space-y-6 bg-white/80 backdrop-blur-xl p-10 rounded-[2rem] shadow-[0_20px_50px_rgba(4,43,107,0.06)] border border-gray-100 group hover:shadow-[0_20px_50px_rgba(4,43,107,0.12)] hover:-translate-y-2 transition-all"
           >
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#007BFF] to-[#00B388] p-[2px] shadow-lg group-hover:scale-110 transition-transform">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#1E88E5] to-[#00A86B] p-[2px] shadow-lg group-hover:scale-110 transition-transform">
               <div className="w-full h-full bg-white rounded-2xl flex items-center justify-center">
-                <Target className="w-8 h-8 text-[#007BFF]" />
+                <Target className="w-8 h-8 text-[#1E88E5]" />
               </div>
             </div>
-            <h2 className="text-3xl font-heading font-black text-[#042B6B]">Our Mission</h2>
+            <h2 className="text-3xl font-heading font-black text-[#003A70]">Our Mission</h2>
             <div className="text-lg text-[#2F3440]/80 font-medium leading-relaxed">
               {content.html ? (
                 <div dangerouslySetInnerHTML={{ __html: content.html }} />
               ) : (
                 <p>
-                  To democratize access to world-class talent and opportunities. We empower organizations to scale without borders by providing an intelligent, friction-free recruitment infrastructure that guarantees the perfect match, every single time.
+                  To connect businesses with exceptional talent through ethical, technology-enabled recruitment and advisory services.
                 </p>
               )}
             </div>
@@ -57,15 +57,15 @@ export function MissionVision() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-6 bg-white/80 backdrop-blur-xl p-10 rounded-[2rem] shadow-[0_20px_50px_rgba(4,43,107,0.06)] border border-gray-100 group hover:shadow-[0_20px_50px_rgba(4,43,107,0.12)] hover:-translate-y-2 transition-all"
           >
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#00B388] to-[#007BFF] p-[2px] shadow-lg group-hover:scale-110 transition-transform">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#00A86B] to-[#1E88E5] p-[2px] shadow-lg group-hover:scale-110 transition-transform">
               <div className="w-full h-full bg-white rounded-2xl flex items-center justify-center">
-                <Lightbulb className="w-8 h-8 text-[#00B388]" />
+                <Lightbulb className="w-8 h-8 text-[#00A86B]" />
               </div>
             </div>
-            <h2 className="text-3xl font-heading font-black text-[#042B6B]">Our Vision</h2>
+            <h2 className="text-3xl font-heading font-black text-[#003A70]">Our Vision</h2>
             <div className="text-lg text-[#2F3440]/80 font-medium leading-relaxed">
               <p>
-                A world where geographical boundaries do not limit human potential. We envision a future where every company, regardless of size, has instant access to the top 1% of global professionals, creating diverse and hyper-productive workforces.
+                To become one of India's most trusted workforce solutions companies.
               </p>
             </div>
           </motion.div>

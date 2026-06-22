@@ -2,59 +2,69 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Heart, Cpu, Users, Hotel, Stethoscope } from "lucide-react";
+import { ArrowRight, Stethoscope, Factory, ShoppingCart, Monitor, Landmark, GraduationCap } from "lucide-react";
 import Image from "next/image";
 
 const industries = [
   {
     id: "healthcare",
-    icon: Heart,
-    name: "Healthcare",
+    icon: Stethoscope,
+    name: "Healthcare & Hospitals",
     description:
-      "We partner with hospitals, clinics, and healthcare networks to source skilled medical professionals — from doctors and nurses to hospital administrators and allied health workers. Our deep understanding of clinical requirements ensures rapid, quality placements.",
+      "Clinical, non-clinical, and administrative talent across hospitals, diagnostics, pharma, and health-tech.",
     imageUrl:
-      "https://images.unsplash.com/photo-1551601651-2a8555f1a136?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=1200&auto=format&fit=crop",
     href: "/industries/healthcare",
   },
   {
-    id: "medical-devices",
-    icon: Stethoscope,
-    name: "Medical Devices",
+    id: "manufacturing",
+    icon: Factory,
+    name: "Manufacturing",
     description:
-      "The medical devices sector demands specialized technical talent. We connect leading medtech companies with experienced engineers, regulatory specialists, and sales professionals who understand the stringent demands of this rapidly evolving industry.",
+      "Engineering, operations, supply chain, and plant leadership roles across discrete and process manufacturing.",
     imageUrl:
-      "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1200&auto=format&fit=crop",
-    href: "/industries/medical-devices",
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
+    href: "/industries/manufacturing",
   },
   {
-    id: "eldercare",
-    icon: Users,
-    name: "Eldercare",
+    id: "retail",
+    icon: ShoppingCart,
+    name: "Retail & Services",
     description:
-      "With India's aging population growing rapidly, quality eldercare is in high demand. We recruit compassionate, trained caregivers, geriatric nurses, and care facility managers to ensure the highest standards of senior care across the country.",
+      "Frontline, store operations, logistics, and corporate roles for retail chains and service enterprises.",
     imageUrl:
-      "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=1200&auto=format&fit=crop",
-    href: "/industries/eldercare",
-  },
-  {
-    id: "hospitality",
-    icon: Hotel,
-    name: "Hospitality",
-    description:
-      "From luxury resorts to boutique hotels, we provide the hospitality industry with front-of-house and back-of-house talent — including guest relations, F&B operations, revenue management, and executive leadership for hospitality brands across India.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop",
-    href: "/industries/hospitality",
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop",
+    href: "/industries/retail",
   },
   {
     id: "it",
-    icon: Cpu,
-    name: "Information Technology",
+    icon: Monitor,
+    name: "IT & Technology",
     description:
-      "We enable access to specialized IT talent across project-based and long-term engagements. Our staffing and managed service models support contract and permanent roles in data science, cybersecurity, AI/ML, cloud, and other emerging technologies.",
+      "Software engineers, product managers, data scientists, and tech leadership across startups and enterprises.",
     imageUrl:
-      "https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
     href: "/industries/technology",
+  },
+  {
+    id: "bfsi",
+    icon: Landmark,
+    name: "BFSI",
+    description:
+      "Banking, financial services, and insurance roles spanning risk, compliance, operations, and technology.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1200&auto=format&fit=crop",
+    href: "/industries/bfsi",
+  },
+  {
+    id: "education",
+    icon: GraduationCap,
+    name: "Education",
+    description:
+      "Academic, administrative, and leadership talent for schools, universities, and ed-tech organizations.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop",
+    href: "/industries/education",
   },
 ];
 

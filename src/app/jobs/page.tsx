@@ -338,7 +338,7 @@ export default function JobsPage() {
                         </button>
                       </Link>
                       <Link href={`/jobs/${job.id}`} className="w-full">
-                        <button className="w-full md:w-36 bg-white border-2 border-slate-200 hover:border-[#042B6B] hover:text-[#042B6B] text-slate-600 px-6 py-2.5 rounded-xl font-bold text-sm transition-all active:scale-95">
+                        <button className="w-full md:w-36 bg-white border-2 border-slate-200 hover:border-[#003A70] hover:text-[#003A70] text-slate-600 px-6 py-2.5 rounded-xl font-bold text-sm transition-all active:scale-95">
                           View Details
                         </button>
                       </Link>

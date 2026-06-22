@@ -7,12 +7,12 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-playfair), ui-serif, Georgia, serif;
-  --color-corporate-navy: #042B6B;
-  --color-electric-blue: #007BFF;
-  --color-corevita-teal: #00B388;
-  --color-deep-teal: #008C73;
+  --color-corporate-navy: #003A70;
+  --color-electric-blue: #1E88E5;
+  --color-corevita-teal: #00A86B;
+  --color-deep-teal: #007A52;
   --color-charcoal-grey: #2F3440;
   --color-soft-silver: #E8ECEF;
   --color-sidebar-ring: var(--sidebar-ring);

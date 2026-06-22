@@ -3,7 +3,7 @@ import Link from "next/link";
 export function WhatsAppButton() {
   // Use the standard wa.me link format for WhatsApp click-to-chat
   // Ensure the phone number includes the country code without any +, spaces, or dashes
-  const phoneNumber = "919876543210"; 
+  const phoneNumber = "919288065556"; 
   const message = "Hi, I would like to know more about your services.";
 
   return (

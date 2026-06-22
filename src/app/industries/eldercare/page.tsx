@@ -19,7 +19,7 @@ export default function EldercarePage() {
         "Care Facility Managers",
         "Physiotherapists & Occupational Therapists",
       ]}
-      imageUrl="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=1200&auto=format&fit=crop"
+      imageUrl="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1200&auto=format&fit=crop"
       stats={[
         { value: "300+", label: "Eldercare Placements" },
         { value: "100%", label: "Background Verified" },

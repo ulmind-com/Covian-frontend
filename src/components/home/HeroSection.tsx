@@ -11,7 +11,7 @@ export function HeroSection() {
   const heroImages = [
     "/images/hero_transparent.png",
     "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop",
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -52,7 +52,7 @@ export function HeroSection() {
                 className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#0F172A] border border-[#1E293B]"
               >
                 <div className="w-2 h-2 rounded-full bg-[#3B82F6] animate-pulse" />
-                <span className="text-[#60A5FA] text-xs font-medium tracking-wide">
+                <span className="text-[#42A5F5] text-xs font-medium tracking-wide">
                   Global Reach — Local Expertise
                 </span>
               </motion.div>
@@ -66,22 +66,17 @@ export function HeroSection() {
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-heading font-medium leading-[1.1] text-white tracking-tight">
                 Strategic <br />
-                Workforce & <span className="text-[#60A5FA] italic font-medium pr-2">Talent</span> <br />
+                Workforce & <span className="text-[#42A5F5] italic font-medium pr-2">Talent</span> <br />
                 <span className="text-[#d9a05b]">Solutions</span>
               </h1>
               <p className="text-base text-[#94A3B8] max-w-[580px] leading-relaxed pt-1">
-                CoVian Advisory Pvt Ltd is a leading workforce solutions and business
-                advisory company specializing in talent acquisition, staffing, workforce
-                management, and recruitment consulting. We partner with organizations to
-                build agile, future-ready teams by delivering customized hiring strategies,
-                quality talent pipelines, and workforce solutions that drive long-term
-                business success.
+                CoVian Advisory is a full-spectrum workforce solutions partner that helps organizations attract, assess, hire, and retain the talent that drives growth. Through recruitment, staffing, executive search, and workforce advisory services, we bridge the gap between ambition and execution — delivering people strategies that scale.
               </p>
             </div>
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-1">
-              <Link href="/contact" className="h-12 px-8 rounded-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold text-[15px] transition-all flex items-center justify-center gap-2 shadow-lg">
+              <Link href="/contact" className="h-12 px-8 rounded-full bg-[#1E88E5] hover:bg-[#1565C0] text-white font-semibold text-[15px] transition-all flex items-center justify-center gap-2 shadow-lg">
                 <Briefcase className="w-5 h-5 fill-white" />
                 Hire Talent Now
               </Link>
@@ -96,14 +91,14 @@ export function HeroSection() {
               <div className="flex items-center gap-4 px-5 py-3 rounded-full bg-[#111827] border border-[#1F2937] hover:bg-[#1F2937] transition-colors cursor-pointer">
                 <Phone className="w-4 h-4 text-[#64748B]" />
                 <div className="flex flex-col">
-                  <span className="text-white font-semibold text-[13px] leading-tight">+91 98765 43210</span>
+                  <span className="text-white font-semibold text-[13px] leading-tight">+91 92880 65556</span>
                   <span className="text-[#F43F5E] text-[11px] hover:underline decoration-[#F43F5E] leading-tight mt-0.5">Call or WhatsApp</span>
                 </div>
               </div>
               <div className="flex items-center gap-4 px-5 py-3 rounded-full bg-[#111827] border border-[#1F2937] hover:bg-[#1F2937] transition-colors cursor-pointer">
                 <Mail className="w-4 h-4 text-[#64748B]" />
                 <div className="flex flex-col">
-                  <span className="text-white font-semibold text-[13px] leading-tight">contact@covian.com</span>
+                  <span className="text-white font-semibold text-[13px] leading-tight">info@covian.in</span>
                   <span className="text-[#F43F5E] text-[11px] hover:underline decoration-[#F43F5E] leading-tight mt-0.5">Email us anytime</span>
                 </div>
               </div>
@@ -176,7 +171,7 @@ export function HeroSection() {
                 <div className="absolute bottom-8 left-8 right-8 z-20">
                   <h3 className="text-[26px] font-heading font-medium text-white mb-2">Connecting Talent, Building Futures</h3>
                   <div className="flex items-center gap-2 text-[#94A3B8] text-[13px]">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#60A5FA]" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#42A5F5]" />
                     <span>Verified Professionals — Deployed Fast</span>
                   </div>
                 </div>

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useJobs } from "@/services/queries";
-import { ArrowRight, MapPin, DollarSign, Clock, Building2, Briefcase } from "lucide-react";
+import { ArrowRight, MapPin, Clock, Building2, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function FeaturedJobs() {
@@ -15,13 +15,13 @@ export function FeaturedJobs() {
   return (
     <section className="py-24 relative overflow-hidden bg-white">
       {/* Decorative gradient orb */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#007BFF]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#1E88E5]/5 rounded-full blur-[100px] pointer-events-none" />
       
       <div className="container mx-auto px-6 relative z-10">
         
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="max-w-2xl">
-            <h2 className="text-4xl md:text-5xl font-heading font-black text-[#042B6B] mb-4">
+            <h2 className="text-4xl md:text-5xl font-heading font-black text-[#003A70] mb-4">
               Featured Opportunities
             </h2>
             <p className="text-lg text-[#2F3440]/70 font-medium">
@@ -29,7 +29,7 @@ export function FeaturedJobs() {
             </p>
           </div>
           <Link href="/jobs">
-            <Button className="bg-white text-[#042B6B] border-2 border-gray-100 hover:border-[#007BFF]/30 hover:bg-[#007BFF]/5 rounded-full px-8 h-12 shadow-sm whitespace-nowrap font-bold transition-all">
+            <Button className="bg-white text-[#003A70] border-2 border-gray-100 hover:border-[#1E88E5]/30 hover:bg-[#1E88E5]/5 rounded-full px-8 h-12 shadow-sm whitespace-nowrap font-bold transition-all">
               Explore All Jobs <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </Link>
@@ -71,46 +71,46 @@ export function FeaturedJobs() {
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
                 className="bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,123,255,0.15)] transition-all group flex flex-col justify-between relative overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#007BFF]/5 rounded-bl-full transition-transform group-hover:scale-150 pointer-events-none" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#1E88E5]/5 rounded-bl-full transition-transform group-hover:scale-150 pointer-events-none" />
                 
                 <div className="relative z-10">
                   <div className="flex justify-between items-start mb-6">
-                    <div className="w-14 h-14 bg-[#007BFF]/10 text-[#007BFF] rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:bg-[#007BFF] group-hover:text-white transition-all shadow-inner">
+                    <div className="w-14 h-14 bg-[#1E88E5]/10 text-[#1E88E5] rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:bg-[#1E88E5] group-hover:text-white transition-all shadow-inner">
                       <Building2 className="w-7 h-7" />
                     </div>
                     <div className="flex flex-col items-end gap-2">
-                      <span className="px-3 py-1 bg-[#00B388]/10 text-[#00B388] text-xs font-bold rounded-full uppercase tracking-wider">
+                      <span className="px-3 py-1 bg-[#00A86B]/10 text-[#00A86B] text-xs font-bold rounded-full uppercase tracking-wider">
                         {job.status}
                       </span>
                       {job.industry && (
-                        <span className="px-3 py-1 bg-[#042B6B]/5 text-[#042B6B] text-[10px] font-bold rounded-full uppercase tracking-wider">
+                        <span className="px-3 py-1 bg-[#003A70]/5 text-[#003A70] text-[10px] font-bold rounded-full uppercase tracking-wider">
                           {job.industry}
                         </span>
                       )}
                     </div>
                   </div>
                   <Link href={`/jobs/${job.id}`}>
-                    <h3 className="text-xl font-bold text-[#042B6B] mb-3 line-clamp-2 leading-tight group-hover:text-[#007BFF] transition-colors cursor-pointer">
+                    <h3 className="text-xl font-bold text-[#003A70] mb-3 line-clamp-2 leading-tight group-hover:text-[#1E88E5] transition-colors cursor-pointer">
                       {job.title}
                     </h3>
                   </Link>
                   <div className="flex flex-wrap gap-y-2 gap-x-4 text-sm text-[#2F3440]/70 font-medium mt-4">
                     <div className="flex items-center gap-1.5">
-                      <MapPin className="w-4 h-4 text-[#007BFF]" /> {job.location || "Remote"}
+                      <MapPin className="w-4 h-4 text-[#1E88E5]" /> {job.location || "Remote"}
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <Clock className="w-4 h-4 text-[#00B388]" /> {job.job_type || "Full-Time"}
+                      <Clock className="w-4 h-4 text-[#00A86B]" /> {job.job_type || "Full-Time"}
                     </div>
                   </div>
                 </div>
 
                 <div className="flex justify-between items-center mt-8 pt-6 border-t border-gray-100 relative z-10">
-                  <div className="flex items-center gap-1.5 text-[#042B6B] font-bold">
-                    <DollarSign className="w-5 h-5 text-[#00B388]" />
+                  <div className="flex items-center gap-1.5 text-[#003A70] font-bold">
+                    <span className="text-lg font-bold text-[#00A86B]">₹</span>
                     {job.salary_range || "Competitive"}
                   </div>
                   <Link href={`/jobs/${job.id}`}>
-                    <Button variant="ghost" className="text-[#007BFF] hover:text-white hover:bg-[#007BFF] rounded-full font-semibold transition-colors">
+                    <Button variant="ghost" className="text-[#1E88E5] hover:text-white hover:bg-[#1E88E5] rounded-full font-semibold transition-colors">
                       Apply <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
                   </Link>

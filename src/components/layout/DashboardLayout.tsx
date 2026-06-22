@@ -2,6 +2,7 @@
 /* eslint-disable */
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { User } from "@/types";
@@ -30,7 +31,6 @@ const navItems: NavItem[] = [
   { title: "Testimonials",       href: "/admin/testimonials",        icon: Star,            roles: ["SUPER_ADMIN", "ADMIN"] },
   { title: "Client Logos",       href: "/admin/logos",               icon: Building2,       roles: ["SUPER_ADMIN", "ADMIN"] },
   { title: "Enquiries",          href: "/admin/enquiries",           icon: MessageSquare,   roles: ["SUPER_ADMIN", "ADMIN"] },
-  { title: "Caregiver Enquiries",href: "/admin/caregiver-enquiries", icon: HeartHandshake,  roles: ["SUPER_ADMIN", "ADMIN"] },
   { title: "Jobs",               href: "/admin/jobs",                icon: Briefcase,       roles: ["SUPER_ADMIN", "ADMIN", "EDITOR"] },
   { title: "Applications",       href: "/admin/applications",        icon: FileText,        roles: ["SUPER_ADMIN", "ADMIN"] },
   { title: "Manage Admins",      href: "/admin/admins",              icon: UserCog,         roles: ["SUPER_ADMIN"] },
@@ -81,17 +81,19 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
       <div className="absolute bottom-0 right-0 w-48 h-48 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%)" }} />
 
       {/* Logo */}
-      <div className="px-6 py-7 relative z-10 border-b border-white/5">
+      <div className="px-6 py-5 relative z-10 border-b border-white/5">
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 rounded-xl flex items-center justify-center text-white font-black text-sm shadow-lg"
-            style={{ background: "linear-gradient(135deg, #2563eb, #059669)" }}>
-            CV
-          </div>
-          <div>
-            <span className="font-black text-lg text-white tracking-tight">Covian</span>
-            <span className="block text-[9px] text-blue-400/80 font-semibold uppercase tracking-widest -mt-0.5">Admin Panel</span>
+          <div className="relative w-44 h-16 group-hover:scale-105 transition-all">
+            <Image
+              src="/covian_logo.png"
+              alt="CoVian Advisory"
+              fill
+              className="object-contain object-left"
+              priority
+            />
           </div>
         </Link>
+        <span className="block text-[9px] text-blue-400/80 font-semibold uppercase tracking-widest mt-1 pl-0.5">Admin Panel</span>
       </div>
 
       {/* Nav */}

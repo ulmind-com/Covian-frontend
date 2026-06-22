@@ -19,7 +19,7 @@ export default function ExecutiveSearchPage() {
         "Rigorous Vetting & Assessment",
         "Absolute Confidentiality",
       ]}
-      imageUrl="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1200&auto=format&fit=crop"
+      imageUrl="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1200&auto=format&fit=crop"
       stats={[
         { value: "100+", label: "CxO Placements" },
         { value: "95%", label: "Retention Rate" },

@@ -7,9 +7,9 @@ import loadingAnimation from "../../../public/Lottie/Loading Screen.json";
 export function PageLoader() {
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  // Hydration guard — must set state after mount to avoid SSR mismatch
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => { setMounted(true); }, []);
 
   if (!mounted) return null;
 
@@ -21,3 +21,4 @@ export function PageLoader() {
     </div>
   );
 }
+

@@ -41,7 +41,7 @@ export function Testimonials() {
           </div>
         )}
         <div>
-          <h4 className="font-bold text-sm text-[#0b1b3d] line-clamp-1">{review.client_name}</h4>
+          <h4 className="font-bold text-sm text-[#003A70] line-clamp-1">{review.client_name}</h4>
           <p className="text-xs text-slate-500 line-clamp-1">{review.client_designation || review.client_company}</p>
         </div>
       </div>
@@ -55,7 +55,7 @@ export function Testimonials() {
 
       <div className="container mx-auto px-6 relative z-10 mb-16">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-heading font-black text-[#042B6B] mb-6">
+          <h2 className="text-4xl md:text-5xl font-heading font-black text-[#003A70] mb-6">
             Client Experience
           </h2>
           <p className="text-lg text-slate-500">

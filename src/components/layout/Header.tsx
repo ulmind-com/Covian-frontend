@@ -3,6 +3,7 @@
 
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Menu, X, PhoneCall, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -43,21 +44,24 @@ export function Header() {
       name: "Services", 
       isDropdown: true,
       items: [
-        { name: "Recruitment & Staffing", href: "/services/recruitment-and-staffing" },
-        { name: "Business Advisory", href: "/services/business-advisory" },
-        { name: "HR Consulting", href: "/services/hr-consulting" },
-        { name: "Digital Business", href: "/services/digital-business" },
+        { name: "Permanent Hiring", href: "/services/permanent-hiring" },
+        { name: "Temporary Staffing", href: "/services/temporary-staffing" },
+        { name: "Executive Search", href: "/services/executive-search" },
+        { name: "RPO", href: "/services/rpo" },
+        { name: "Workforce Advisory", href: "/services/workforce-advisory" },
+        { name: "Training & Development", href: "/services/training-and-development" },
       ]
     },
     { 
       name: "Industries", 
       isDropdown: true,
       items: [
-        { name: "Healthcare", href: "/industries/healthcare" },
-        { name: "Medical Devices", href: "/industries/medical-devices" },
-        { name: "Eldercare", href: "/industries/eldercare" },
-        { name: "Hospitality", href: "/industries/hospitality" },
-        { name: "Information Technology", href: "/industries/technology" },
+        { name: "Healthcare & Hospitals", href: "/industries/healthcare" },
+        { name: "Manufacturing", href: "/industries/manufacturing" },
+        { name: "Retail & Services", href: "/industries/retail" },
+        { name: "IT & Technology", href: "/industries/technology" },
+        { name: "BFSI", href: "/industries/bfsi" },
+        { name: "Education", href: "/industries/education" },
       ]
     },
     { name: "Jobs", href: "/jobs" },
@@ -73,8 +77,8 @@ export function Header() {
         <header 
           className={`pointer-events-auto flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-visible ${
             scrolled 
-              ? "top-4 w-[95%] xl:w-[85%] rounded-full bg-[#042B6B]/95 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] py-3 px-6 mt-4" 
-              : "top-6 w-[98%] xl:w-[95%] rounded-[2rem] bg-[#042B6B]/80 backdrop-blur-xl border border-white/15 py-5 px-8 mt-6 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)]"
+              ? "top-4 w-[95%] xl:w-[85%] rounded-full bg-[#003A70]/95 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] py-1 px-6 mt-3" 
+              : "top-6 w-[98%] xl:w-[95%] rounded-[2rem] bg-[#003A70]/80 backdrop-blur-xl border border-white/15 py-2 px-8 mt-4 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)]"
           }`}
           style={{
             boxShadow: scrolled ? "0 10px 40px -10px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)" : "none",
@@ -82,13 +86,15 @@ export function Header() {
         >
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group z-50">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#2563EB] to-[#60A5FA] flex items-center justify-center font-black text-xl text-white shadow-lg shadow-[#2563EB]/30 transition-transform group-hover:scale-105">
-              CV
-            </div>
-            <span className="font-bold text-2xl tracking-tight text-white drop-shadow-md">
-              Covian
-            </span>
+          <Link href="/" className="flex items-center group z-50">
+            <Image
+              src="/covian_logo.png"
+              alt="CoVian Advisory Logo"
+              width={300}
+              height={80}
+              className="h-20 w-auto object-contain drop-shadow-md transition-transform group-hover:scale-105"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -129,7 +135,7 @@ export function Header() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-6 w-56 bg-[#0b1b3d]/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/10 overflow-hidden"
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-6 w-72 bg-[#003A70]/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/10 overflow-hidden"
                       >
                         <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
                         <div className="relative p-2 flex flex-col gap-1">
@@ -154,14 +160,14 @@ export function Header() {
           {/* Contact Icons */}
           <div className="hidden xl:flex items-center gap-4 shrink-0 relative z-50">
             <Link 
-              href="tel:+919876543210" 
+              href="tel:+919288065556" 
               aria-label="Call Us" 
               className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-blue-600 hover:text-white hover:border-blue-500 hover:shadow-[0_0_15px_rgba(37,99,235,0.5)] transition-all"
             >
               <PhoneCall className="w-4 h-4" />
             </Link>
             <Link 
-              href="mailto:contact@covian.com" 
+              href="mailto:info@covian.in" 
               aria-label="Email Us" 
               className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-blue-600 hover:text-white hover:border-blue-500 hover:shadow-[0_0_15px_rgba(37,99,235,0.5)] transition-all"
             >
@@ -187,7 +193,7 @@ export function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-[#0b1b3d]/60 backdrop-blur-sm z-40 xl:hidden"
+              className="fixed inset-0 bg-[#003A70]/60 backdrop-blur-sm z-40 xl:hidden"
               onClick={() => setMobileMenuOpen(false)}
             />
             <motion.div 
@@ -195,7 +201,7 @@ export function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[85vw] max-w-sm bg-[#0b1b3d] z-50 xl:hidden flex flex-col shadow-2xl border-l border-white/10"
+              className="fixed top-0 right-0 bottom-0 w-[85vw] max-w-sm bg-[#003A70] z-50 xl:hidden flex flex-col shadow-2xl border-l border-white/10"
             >
               <div className="p-6 flex items-center justify-between border-b border-white/10">
                 <span className="font-bold text-xl tracking-tight text-white">Menu</span>

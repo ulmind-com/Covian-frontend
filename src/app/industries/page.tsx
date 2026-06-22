@@ -78,14 +78,14 @@ export default function IndustriesPage() {
       
       {/* Premium Hero Section */}
       <section className="relative pt-32 pb-24 overflow-hidden bg-white">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#007BFF]/5 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#00B388]/5 rounded-full blur-[80px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#1E88E5]/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#00A86B]/5 rounded-full blur-[80px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-[#007BFF]/10 text-[#007BFF] font-bold text-[10px] uppercase tracking-widest mb-6 border border-[#007BFF]/20 shadow-sm"
+            className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-[#1E88E5]/10 text-[#1E88E5] font-bold text-[10px] uppercase tracking-widest mb-6 border border-[#1E88E5]/20 shadow-sm"
           >
             <Building className="w-4 h-4" /> Global Industry Expertise
           </motion.div>
@@ -93,9 +93,9 @@ export default function IndustriesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl font-heading font-black text-[#042B6B] tracking-tight mb-6 leading-[1.1] max-w-4xl mx-auto drop-shadow-sm"
+            className="text-5xl md:text-7xl font-heading font-black text-[#003A70] tracking-tight mb-6 leading-[1.1] max-w-4xl mx-auto drop-shadow-sm"
           >
-            Specialized Recruitment Across <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#007BFF] to-[#00B388]">Key Sectors.</span>
+            Specialized Recruitment Across <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E88E5] to-[#00A86B]">Key Sectors.</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -130,7 +130,7 @@ export default function IndustriesPage() {
                       <ind.icon className={`w-7 h-7 ${colors.text}`} />
                     </div>
                     
-                    <h3 className={`text-2xl font-heading font-black text-[#042B6B] mb-3 relative z-10 transition-colors ${colors.hover.split(' ')[1]}`}>
+                    <h3 className={`text-2xl font-heading font-black text-[#003A70] mb-3 relative z-10 transition-colors ${colors.hover.split(' ')[1]}`}>
                       {ind.title}
                     </h3>
                     <p className="text-[#2F3440]/70 font-medium mb-8 relative z-10 h-16 leading-relaxed">
@@ -148,7 +148,7 @@ export default function IndustriesPage() {
                   </div>
 
                   <Link href={`/jobs?industry=${ind.id}`} className="relative z-10">
-                    <button className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-gray-50 text-[#042B6B] font-bold group-hover:bg-gradient-to-r group-hover:from-[#007BFF] group-hover:to-[#00B388] group-hover:text-white transition-all shadow-sm">
+                    <button className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-gray-50 text-[#003A70] font-bold group-hover:bg-gradient-to-r group-hover:from-[#1E88E5] group-hover:to-[#00A86B] group-hover:text-white transition-all shadow-sm">
                       View Open Roles <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </Link>
@@ -166,7 +166,7 @@ export default function IndustriesPage() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-br from-[#0b1b3d] to-blue-900 rounded-[2.5rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl"
+            className="bg-gradient-to-br from-[#003A70] to-blue-900 rounded-[2.5rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl"
           >
             <div className="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] opacity-10 mix-blend-overlay" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/30 rounded-full blur-[120px] pointer-events-none" />
@@ -176,7 +176,7 @@ export default function IndustriesPage() {
               Our executive search network spans across multiple niche verticals. Contact our principal consultants to discuss your specific requirements.
             </p>
             <Link href="/contact" className="relative z-10">
-              <button className="bg-white text-[#0b1b3d] px-10 py-4 rounded-xl font-black hover:bg-blue-50 transition-colors hover:scale-105 transform duration-200 shadow-xl">
+              <button className="bg-white text-[#003A70] px-10 py-4 rounded-xl font-black hover:bg-blue-50 transition-colors hover:scale-105 transform duration-200 shadow-xl">
                 Contact Our Consultants
               </button>
             </Link>

@@ -101,7 +101,7 @@ export function ServiceLayout({
             </div>
           </section>
         ) : (
-          <section className="relative min-h-[90vh] flex items-center pt-28 pb-32 lg:pb-40 overflow-hidden">
+          <section className="relative min-h-[90vh] flex items-center pt-40 lg:pt-48 pb-32 lg:pb-40 overflow-hidden">
           {/* Background blobs */}
           <div className="absolute inset-0 pointer-events-none">
             <motion.div
@@ -379,13 +379,13 @@ export function ServiceLayout({
                   {/* Left: Text & Cards */}
                   <div>
                     <div className="mb-10 text-center lg:text-left">
-                      <p className="text-blue-600 text-xs font-bold tracking-[0.2em] uppercase mb-3">Why We're Different</p>
+                      <p className="text-blue-600 text-xs font-bold tracking-[0.2em] uppercase mb-3">Why We&apos;re Different</p>
                       <h3 className="text-4xl lg:text-5xl font-heading font-bold text-slate-900 tracking-tight leading-tight">
                         Why Top Companies <br className="hidden lg:block"/>
                         <span className="italic font-light">Choose CoVian</span>
                       </h3>
                       <p className="mt-6 text-slate-600 text-lg max-w-lg mx-auto lg:mx-0">
-                        We don't just fill positions — we provide strategic talent solutions backed by deep industry expertise and rigorous vetting.
+                        We don&apos;t just fill positions &mdash; we provide strategic talent solutions backed by deep industry expertise and rigorous vetting.
                       </p>
                     </div>
                     
@@ -453,7 +453,7 @@ export function ServiceLayout({
                       transition={{ duration: 0.6, delay: 0.3 }}
                       className="absolute bottom-4 left-0 right-0 h-[40%] rounded-[2rem] overflow-hidden shadow-lg z-0"
                     >
-                      <Image src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" alt="Professionals" fill className="object-cover" />
+                      <Image src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1200&auto=format&fit=crop" alt="Professionals" fill className="object-cover" />
                     </motion.div>
 
                     {/* Floating Badge */}

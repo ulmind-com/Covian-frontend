@@ -40,6 +40,9 @@ export interface Job {
   industry?: string;
   job_type?: string;
   experience_level?: string;
+  key_responsibilities?: string[];
+  requirements?: string[];
+  perks_and_benefits?: string[];
 }
 
 export interface Candidate {

@@ -65,9 +65,9 @@ export default function RegisterPage() {
       {/* Animated Background */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Gradient orbs */}
-        <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] rounded-full bg-[#007BFF]/15 blur-[150px] animate-pulse" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[700px] h-[700px] rounded-full bg-[#00B388]/10 blur-[120px] animate-pulse" style={{ animationDelay: "1s" }} />
-        <div className="absolute top-[40%] right-[30%] w-[400px] h-[400px] rounded-full bg-[#042B6B]/30 blur-[100px] animate-pulse" style={{ animationDelay: "2s" }} />
+        <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] rounded-full bg-[#1E88E5]/15 blur-[150px] animate-pulse" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[700px] h-[700px] rounded-full bg-[#00A86B]/10 blur-[120px] animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute top-[40%] right-[30%] w-[400px] h-[400px] rounded-full bg-[#003A70]/30 blur-[100px] animate-pulse" style={{ animationDelay: "2s" }} />
         
         {/* Grid pattern */}
         <div 
@@ -88,7 +88,7 @@ export default function RegisterPage() {
         {/* Logo */}
         <div className="relative z-10">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-[1rem] bg-gradient-to-br from-[#007BFF] to-[#00B388] p-[1.5px] shadow-[0_10px_30px_rgba(0,123,255,0.3)] group-hover:scale-105 transition-all">
+            <div className="w-12 h-12 rounded-[1rem] bg-gradient-to-br from-[#1E88E5] to-[#00A86B] p-[1.5px] shadow-[0_10px_30px_rgba(0,123,255,0.3)] group-hover:scale-105 transition-all">
               <div className="w-full h-full bg-[#020B1A] rounded-[0.9rem] flex items-center justify-center font-black text-white text-xl">
                 CV
               </div>
@@ -101,14 +101,14 @@ export default function RegisterPage() {
 
         {/* Center Content */}
         <div className="relative z-10 max-w-lg">
-          <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-[#00B388]/10 border border-[#00B388]/20 text-[#00B388] text-[10px] font-black uppercase tracking-widest mb-6 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-[#00A86B]/10 border border-[#00A86B]/20 text-[#00A86B] text-[10px] font-black uppercase tracking-widest mb-6 backdrop-blur-md">
             <Sparkles className="w-4 h-4" />
             Join the Network
           </div>
           
           <h1 className="text-4xl xl:text-6xl font-heading font-black text-white leading-[1.05] tracking-tight mb-6 drop-shadow-lg">
             Scale your team, <br />
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#00B388] to-[#007BFF]">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#00A86B] to-[#1E88E5]">
               without limits.
             </span>
           </h1>
@@ -124,8 +124,8 @@ export default function RegisterPage() {
               { icon: Lock, text: "End-to-end encrypted data protection" },
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-4 text-white/50 bg-white/[0.03] p-3 pr-6 rounded-2xl border border-white/[0.05] w-fit backdrop-blur-sm">
-                <div className="w-10 h-10 rounded-[0.8rem] bg-[#007BFF]/10 flex items-center justify-center shrink-0 border border-[#007BFF]/20">
-                  <item.icon className="w-5 h-5 text-[#007BFF]" />
+                <div className="w-10 h-10 rounded-[0.8rem] bg-[#1E88E5]/10 flex items-center justify-center shrink-0 border border-[#1E88E5]/20">
+                  <item.icon className="w-5 h-5 text-[#1E88E5]" />
                 </div>
                 <span className="text-sm font-semibold tracking-wide">{item.text}</span>
               </div>
@@ -153,7 +153,7 @@ export default function RegisterPage() {
           {/* Mobile Logo */}
           <div className="lg:hidden flex items-center justify-center gap-3 mb-8">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-12 h-12 rounded-[1rem] bg-gradient-to-br from-[#007BFF] to-[#00B388] p-[1.5px] shadow-[0_10px_30px_rgba(0,123,255,0.3)]">
+              <div className="w-12 h-12 rounded-[1rem] bg-gradient-to-br from-[#1E88E5] to-[#00A86B] p-[1.5px] shadow-[0_10px_30px_rgba(0,123,255,0.3)]">
                 <div className="w-full h-full bg-[#020B1A] rounded-[0.9rem] flex items-center justify-center font-black text-white text-xl">
                   CV
                 </div>
@@ -185,16 +185,16 @@ export default function RegisterPage() {
                   <FormItem>
                     <label className="block text-sm font-semibold text-white/60 mb-2.5">Full Name</label>
                     <FormControl>
-                      <div className={`relative group transition-all duration-300 rounded-[1.2rem] ${focusedField === "name" ? "ring-2 ring-[#007BFF]/40" : ""}`}>
+                      <div className={`relative group transition-all duration-300 rounded-[1.2rem] ${focusedField === "name" ? "ring-2 ring-[#1E88E5]/40" : ""}`}>
                         <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10">
-                          <User className={`w-5 h-5 transition-colors duration-300 ${focusedField === "name" ? "text-[#007BFF]" : "text-white/25"}`} />
+                          <User className={`w-5 h-5 transition-colors duration-300 ${focusedField === "name" ? "text-[#1E88E5]" : "text-white/25"}`} />
                         </div>
                         <input 
                           placeholder="John Doe" 
                           {...field}
                           onFocus={() => setFocusedField("name")}
                           onBlur={(e) => { field.onBlur(); setFocusedField(null); }}
-                          className="w-full bg-[#020B1A]/50 hover:bg-[#020B1A]/80 focus:bg-[#020B1A]/80 border border-white/[0.08] focus:border-[#007BFF]/30 rounded-[1.2rem] h-[3.5rem] pl-12 pr-4 text-white placeholder:text-white/20 text-[15px] font-medium outline-none transition-all duration-300"
+                          className="w-full bg-[#020B1A]/50 hover:bg-[#020B1A]/80 focus:bg-[#020B1A]/80 border border-white/[0.08] focus:border-[#1E88E5]/30 rounded-[1.2rem] h-[3.5rem] pl-12 pr-4 text-white placeholder:text-white/20 text-[15px] font-medium outline-none transition-all duration-300"
                         />
                       </div>
                     </FormControl>
@@ -210,16 +210,16 @@ export default function RegisterPage() {
                   <FormItem>
                     <label className="block text-sm font-semibold text-white/60 mb-2.5">Email Address</label>
                     <FormControl>
-                      <div className={`relative group transition-all duration-300 rounded-[1.2rem] ${focusedField === "email" ? "ring-2 ring-[#007BFF]/40" : ""}`}>
+                      <div className={`relative group transition-all duration-300 rounded-[1.2rem] ${focusedField === "email" ? "ring-2 ring-[#1E88E5]/40" : ""}`}>
                         <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10">
-                          <Mail className={`w-5 h-5 transition-colors duration-300 ${focusedField === "email" ? "text-[#007BFF]" : "text-white/25"}`} />
+                          <Mail className={`w-5 h-5 transition-colors duration-300 ${focusedField === "email" ? "text-[#1E88E5]" : "text-white/25"}`} />
                         </div>
                         <input 
                           placeholder="name@company.com" 
                           {...field}
                           onFocus={() => setFocusedField("email")}
                           onBlur={(e) => { field.onBlur(); setFocusedField(null); }}
-                          className="w-full bg-[#020B1A]/50 hover:bg-[#020B1A]/80 focus:bg-[#020B1A]/80 border border-white/[0.08] focus:border-[#007BFF]/30 rounded-[1.2rem] h-[3.5rem] pl-12 pr-4 text-white placeholder:text-white/20 text-[15px] font-medium outline-none transition-all duration-300"
+                          className="w-full bg-[#020B1A]/50 hover:bg-[#020B1A]/80 focus:bg-[#020B1A]/80 border border-white/[0.08] focus:border-[#1E88E5]/30 rounded-[1.2rem] h-[3.5rem] pl-12 pr-4 text-white placeholder:text-white/20 text-[15px] font-medium outline-none transition-all duration-300"
                         />
                       </div>
                     </FormControl>
@@ -236,9 +236,9 @@ export default function RegisterPage() {
                     <FormItem>
                       <label className="block text-sm font-semibold text-white/60 mb-2.5">Password</label>
                       <FormControl>
-                        <div className={`relative group transition-all duration-300 rounded-[1.2rem] ${focusedField === "password" ? "ring-2 ring-[#007BFF]/40" : ""}`}>
+                        <div className={`relative group transition-all duration-300 rounded-[1.2rem] ${focusedField === "password" ? "ring-2 ring-[#1E88E5]/40" : ""}`}>
                           <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10">
-                            <Lock className={`w-5 h-5 transition-colors duration-300 ${focusedField === "password" ? "text-[#007BFF]" : "text-white/25"}`} />
+                            <Lock className={`w-5 h-5 transition-colors duration-300 ${focusedField === "password" ? "text-[#1E88E5]" : "text-white/25"}`} />
                           </div>
                           <input
                             type={showPassword ? "text" : "password"}
@@ -246,7 +246,7 @@ export default function RegisterPage() {
                             {...field}
                             onFocus={() => setFocusedField("password")}
                             onBlur={(e) => { field.onBlur(); setFocusedField(null); }}
-                            className="w-full bg-[#020B1A]/50 hover:bg-[#020B1A]/80 focus:bg-[#020B1A]/80 border border-white/[0.08] focus:border-[#007BFF]/30 rounded-[1.2rem] h-[3.5rem] pl-12 pr-12 text-white placeholder:text-white/20 text-[15px] font-medium outline-none transition-all duration-300"
+                            className="w-full bg-[#020B1A]/50 hover:bg-[#020B1A]/80 focus:bg-[#020B1A]/80 border border-white/[0.08] focus:border-[#1E88E5]/30 rounded-[1.2rem] h-[3.5rem] pl-12 pr-12 text-white placeholder:text-white/20 text-[15px] font-medium outline-none transition-all duration-300"
                           />
                           <button
                             type="button"
@@ -269,15 +269,15 @@ export default function RegisterPage() {
                     <FormItem>
                       <label className="block text-sm font-semibold text-white/60 mb-2.5">Account Type</label>
                       <FormControl>
-                        <div className={`relative group transition-all duration-300 rounded-[1.2rem] ${focusedField === "role" ? "ring-2 ring-[#007BFF]/40" : ""}`}>
+                        <div className={`relative group transition-all duration-300 rounded-[1.2rem] ${focusedField === "role" ? "ring-2 ring-[#1E88E5]/40" : ""}`}>
                           <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
-                            <UserSquare2 className={`w-5 h-5 transition-colors duration-300 ${focusedField === "role" ? "text-[#007BFF]" : "text-white/25"}`} />
+                            <UserSquare2 className={`w-5 h-5 transition-colors duration-300 ${focusedField === "role" ? "text-[#1E88E5]" : "text-white/25"}`} />
                           </div>
                           <select 
                             {...field}
                             onFocus={() => setFocusedField("role")}
                             onBlur={(e) => { field.onBlur(); setFocusedField(null); }}
-                            className="w-full bg-[#020B1A]/50 hover:bg-[#020B1A]/80 focus:bg-[#020B1A]/80 border border-white/[0.08] focus:border-[#007BFF]/30 rounded-[1.2rem] h-[3.5rem] pl-12 pr-4 text-white appearance-none text-[15px] font-medium outline-none transition-all duration-300"
+                            className="w-full bg-[#020B1A]/50 hover:bg-[#020B1A]/80 focus:bg-[#020B1A]/80 border border-white/[0.08] focus:border-[#1E88E5]/30 rounded-[1.2rem] h-[3.5rem] pl-12 pr-4 text-white appearance-none text-[15px] font-medium outline-none transition-all duration-300"
                           >
                             <option value="CLIENT" className="bg-[#020B1A] text-white">Client</option>
                             <option value="RECRUITER" className="bg-[#020B1A] text-white">Recruiter</option>
@@ -301,7 +301,7 @@ export default function RegisterPage() {
                   className="group relative w-full h-[3.5rem] rounded-[1.2rem] font-bold text-[16px] text-white overflow-hidden transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_10px_30px_rgba(0,179,136,0.3)]"
                 >
                   {/* Gradient Background */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#00B388] to-[#007BFF] transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#00A86B] to-[#1E88E5] transition-opacity duration-300" />
                   
                   {/* Hover shimmer */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
@@ -338,7 +338,7 @@ export default function RegisterPage() {
           <div className="text-center">
             <p className="text-white/40 text-sm font-medium">
               Already have an account?{" "}
-              <Link href="/login" className="text-[#00B388] hover:text-[#007BFF] font-bold transition-colors">
+              <Link href="/login" className="text-[#00A86B] hover:text-[#1E88E5] font-bold transition-colors">
                 Sign in instead
               </Link>
             </p>

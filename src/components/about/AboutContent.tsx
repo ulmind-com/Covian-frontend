@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ShieldCheck, Target, Lightbulb, Users, TrendingUp, Award, Eye, ArrowRight } from "lucide-react";
+import { ShieldCheck, Target, Lightbulb, Users, TrendingUp, Award, Eye, ArrowRight, Briefcase, Globe, Layers, Info } from "lucide-react";
 
 export function AboutContent() {
   const coreValues = [
@@ -247,6 +247,74 @@ export function AboutContent() {
                 <h3 className="text-xl font-bold text-[#0F172A]">{value.title}</h3>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* LEADERSHIP EXPERIENCE */}
+      <section className="py-24 lg:py-32 bg-slate-50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-white to-slate-50 pointer-events-none" />
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+            
+            {/* Image */}
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative w-full aspect-[4/5] lg:aspect-square rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)]"
+            >
+              <Image 
+                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1200&auto=format&fit=crop"
+                alt="Leadership"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-[#003A70]/10 mix-blend-overlay pointer-events-none" />
+            </motion.div>
+
+            {/* Content */}
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex flex-col gap-8"
+            >
+              <div>
+                <h2 className="text-4xl md:text-5xl font-heading font-black text-[#0F172A] mb-6">Leadership Experience</h2>
+                <p className="text-lg text-slate-600 font-medium leading-relaxed mb-4">
+                  CoVian Advisory is built on a foundation of deep workforce and ecosystem expertise. Our leadership team brings decades of combined experience in talent acquisition, organizational design, and HR strategy across complex, regulated industries.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-5xl font-heading font-bold text-[#00A86B] mb-2">15+</h3>
+                  <p className="text-slate-800 font-bold mb-1">Years of Expertise</p>
+                  <p className="text-sm text-slate-500 leading-relaxed">Combined leadership experience across workforce solutions and talent markets.</p>
+                </div>
+                <div>
+                  <h3 className="text-5xl font-heading font-bold text-[#1E88E5] mb-2">8</h3>
+                  <p className="text-slate-800 font-bold mb-1">Industries Served</p>
+                  <p className="text-sm text-slate-500 leading-relaxed">Active verticals including Healthcare, IT, BFSI, Manufacturing, Retail, and Education.</p>
+                </div>
+                <div className="sm:col-span-2">
+                  <h3 className="text-5xl font-heading font-bold text-[#FFB300] mb-2">6</h3>
+                  <p className="text-slate-800 font-bold mb-1">Service Lines</p>
+                  <p className="text-sm text-slate-500 leading-relaxed">Comprehensive offerings from permanent hiring and staffing to RPO and workforce advisory.</p>
+                </div>
+              </div>
+
+              <div className="bg-[#E0F2FE] border border-[#BAE6FD] rounded-2xl p-6 flex gap-4 items-start shadow-sm mt-4">
+                <Info className="w-6 h-6 text-[#0284C7] shrink-0 mt-0.5" />
+                <p className="text-[#0369A1] text-sm font-medium leading-relaxed">
+                  Our leadership team has direct experience building talent functions for hospitals, healthcare networks, technology firms, and large enterprises — bringing operational credibility to every engagement.
+                </p>
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </section>

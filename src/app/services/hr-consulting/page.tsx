@@ -1,57 +1,57 @@
 import { ServiceLayout } from "@/components/services/ServiceLayout";
 
 export const metadata = {
-  title: "Human Resource Consulting | CoVian Advisory",
-  description: "HR strategy development, employee engagement, and workforce productivity solutions.",
+  title: "HR Consulting | CoVian Advisory",
+  description: "End-to-end HR consulting services to transform your people function and build a future-ready organization.",
 };
 
-export default function HRConsultingPage() {
+export default function HrConsultingPage() {
   return (
     <ServiceLayout
       tag="HR Consulting"
-      title="Transform Your Workplace,"
-      titleHighlight="Empower Your People"
-      subtitle="HR Strategy & Workforce Productivity"
-      description="CoVian Advisory designs HR systems that align your people with your business goals. From strategy development to employee engagement and performance management — we help you build a culture of excellence that drives sustained high performance."
+      title="Transforming HR,"
+      titleHighlight="Enabling People."
+      subtitle="End-to-End HR Strategy & Operations"
+      description="CoVian Advisory&apos;s HR consulting practice helps organizations build, modernize, and optimize their entire people function — from talent acquisition strategy to performance management systems."
       features={[
-        "Custom HR Strategy Development",
-        "Employee Engagement Programs",
+        "HR Strategy & Policy Design",
         "Performance Management Systems",
-        "HR Policy Design & Review",
+        "Compensation & Benefits Benchmarking",
+        "Talent Development Frameworks",
       ]}
-      imageUrl="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop"
+      imageUrl="https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=1200&auto=format&fit=crop"
       stats={[
-        { value: "200+", label: "HR Roadmaps Built" },
-        { value: "40%", label: "Avg. Attrition Reduction" },
-        { value: "95%", label: "Client Retention" },
+        { value: "50+", label: "HR Projects Delivered" },
+        { value: "30%", label: "Avg Attrition Reduction" },
+        { value: "100%", label: "Policy Compliance Rate" },
       ]}
-      heroBadges={["HR Strategy", "Engagement Programs", "Workforce Analytics", "Policy Design"]}
-      sectionLabel="What We Provide"
-      sectionTitle="Why Strategic HR"
-      sectionHighlight="Is Your Competitive Advantage"
+      heroBadges={["HR Strategy", "Policy Design", "Performance Management", "Talent Development"]}
+      sectionLabel="HR Excellence"
+      sectionTitle="People Strategy"
+      sectionHighlight="That Performs"
       sectionBody={[
-        "In today's talent market, your HR function is not just a support department — it's a strategic driver of business performance. Organizations with strong HR foundations consistently outperform those without.",
-        "High attrition, low engagement, and unclear performance structures cost organizations far more than they realize. Our HR consulting services address these root causes with customized, scalable solutions.",
-        "We work as an extension of your leadership team — diagnosing organizational health, designing HR roadmaps, deploying engagement initiatives, and establishing KPI frameworks that bring lasting, measurable improvement.",
+        "A strong HR function is the backbone of organizational performance. CoVian Advisory helps you build HR capabilities that attract, develop, and retain the talent that drives your business forward.",
+        "Our HR consultants bring hands-on experience in designing policies, systems, and processes that are legally compliant, operationally efficient, and employee-friendly.",
+        "Whether you are a startup building HR from scratch or a mid-sized firm looking to modernize legacy systems — we have the expertise to transform your people function."
       ]}
       sectionCards={[
-        { icon: "🏆", title: "Stronger Culture", description: "Build a values-driven culture where employees feel motivated and aligned with company goals." },
-        { icon: "📉", title: "Reduce Attrition", description: "Targeted engagement and retention programs address root causes of employee turnover." },
-        { icon: "📈", title: "Scalable HR Systems", description: "HR infrastructure that grows with your business — from 10 to 10,000 employees." },
-        { icon: "📊", title: "Data-Driven Insights", description: "HR analytics and reporting frameworks to make smarter decisions about your workforce." },
+        { icon: "📜", title: "HR Policy Design", description: "Crafting compliant, clear, and employee-friendly HR policies and employee handbooks." },
+        { icon: "🎯", title: "Performance Systems", description: "Designing KPI frameworks, appraisal systems, and feedback cultures that drive accountability." },
+        { icon: "💼", title: "Compensation Benchmarking", description: "Ensuring your compensation packages are competitive to attract and retain top talent." },
+        { icon: "📈", title: "L&D Frameworks", description: "Building learning and development programs that upskill your workforce for future challenges." }
       ]}
-      sectionImageUrl="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=900&auto=format&fit=crop"
+      sectionImageUrl="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=900&auto=format&fit=crop"
       benefits={[
-        { title: "Stronger Organizational Culture", description: "Build a values-driven culture where employees feel motivated, aligned, and proud to contribute." },
-        { title: "Reduced Employee Attrition", description: "Targeted engagement programs that address root causes of turnover and significantly reduce churn." },
-        { title: "Scalable HR Infrastructure", description: "HR systems and policies that scale seamlessly with your business as it grows." },
-        { title: "Data-Driven Workforce Insights", description: "Leverage HR analytics to make smarter decisions about your people and organizational structure." },
+        { title: "Legally Compliant Policies", description: "All HR frameworks are designed in strict compliance with Indian labour laws and regulations." },
+        { title: "Reduced Attrition", description: "Structured HR systems create better employee experiences that reduce turnover significantly." },
+        { title: "Scalable Frameworks", description: "HR processes designed to scale with your organization as it grows." },
+        { title: "Employee Experience Focus", description: "We balance organizational requirements with a strong focus on employee well-being and engagement." }
       ]}
       process={[
-        { title: "Diagnose", description: "Stakeholder interviews and surveys to assess HR maturity, culture health, and workforce pain points." },
-        { title: "Design", description: "Co-create a customized HR roadmap addressing strategy, policies, and engagement initiatives." },
-        { title: "Deploy", description: "Hands-on implementation with training, communication, and change management support." },
-        { title: "Sustain", description: "KPIs, review cadences, and continuous improvement loops to ensure lasting impact." },
+        { title: "HR Audit", description: "Comprehensive review of your current HR policies, practices, and pain points." },
+        { title: "Gap Analysis", description: "Identifying gaps against industry best practices and legal requirements." },
+        { title: "Framework Design", description: "Building customized HR policies, systems, and processes tailored to your business." },
+        { title: "Implementation & Training", description: "Deploying new HR systems and training your team to manage them effectively." }
       ]}
     />
   );

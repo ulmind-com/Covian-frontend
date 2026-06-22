@@ -1,57 +1,57 @@
 import { ServiceLayout } from "@/components/services/ServiceLayout";
 
 export const metadata = {
-  title: "Recruitment & Staffing Solutions | CoVian Advisory",
-  description: "Talent acquisition, permanent staffing, temporary staffing, and executive search.",
+  title: "Recruitment & Staffing | CoVian Advisory",
+  description: "Full-cycle recruitment and staffing solutions for permanent and temporary roles across industries.",
 };
 
-export default function RecruitmentStaffingPage() {
+export default function RecruitmentAndStaffingPage() {
   return (
     <ServiceLayout
       tag="Recruitment & Staffing"
-      title="Find the Right Talent,"
-      titleHighlight="Faster & Smarter"
-      subtitle="Strategic Talent Acquisition"
-      description="CoVian Advisory connects organizations with top-tier professionals through a rigorous, multi-stage recruitment process. From permanent staffing to executive search, we deliver the right candidates tailored to your culture and strategic vision."
+      title="The Right Talent,"
+      titleHighlight="Right Now."
+      subtitle="Full-Cycle Hiring Across All Functions & Levels"
+      description="CoVian Advisory delivers end-to-end recruitment and staffing solutions — from sourcing and screening to offer management — backed by a deep talent pipeline built over years of industry engagement."
       features={[
-        "Talent Acquisition at all levels",
-        "Permanent & Temporary Staffing",
-        "Executive Search & Headhunting",
-        "Pan-India Talent Network",
+        "Permanent & Temporary Hiring",
+        "Multi-Level & Multi-Function Roles",
+        "Deep Talent Pipeline",
+        "Fast Time-to-Fill",
       ]}
-      imageUrl="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop"
+      imageUrl="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop"
       stats={[
-        { value: "3,200+", label: "Placements Done" },
-        { value: "48hr", label: "Average Turnaround" },
-        { value: "98%", label: "Client Satisfaction" },
+        { value: "500+", label: "Placements Made" },
+        { value: "72hrs", label: "Avg Time-to-Shortlist" },
+        { value: "95%", label: "Client Retention Rate" },
       ]}
-      heroBadges={["All Industries", "Pan-India Network", "Quality Assured", "Dedicated Support"]}
-      sectionLabel="What We Provide"
-      sectionTitle="Why Recruitment Expertise"
-      sectionHighlight="Matters More Than You Think"
+      heroBadges={["Permanent Hiring", "Temp Staffing", "All Functions", "Pan-India Network"]}
+      sectionLabel="Our Recruitment Edge"
+      sectionTitle="Hiring That Moves"
+      sectionHighlight="At Business Speed"
       sectionBody={[
-        "Finding the right candidate is more than matching a job description. It requires a deep understanding of the role, the company culture, and the talent landscape — something most generic portals cannot offer.",
-        "Our recruiters are domain specialists. Whether you need a mid-level engineer in Pune or a CXO for your Mumbai office, we leverage our proprietary database, referral networks, and active talent pipelines to deliver profiles that are the right fit — not just an available option.",
-        "CoVian Advisory's structured process ensures every candidate is rigorously screened for skills, cultural alignment, and long-term potential before they reach your desk.",
+        "Traditional recruitment is slow, expensive, and often misaligned with business needs. CoVian Advisory changes that with a structured, multi-channel approach that delivers quality talent fast.",
+        "Our recruitment practice covers all functions — from entry-level to senior management — across Healthcare, Manufacturing, IT, BFSI, Retail, and Education.",
+        "Every candidate goes through rigorous screening, competency assessment, and cultural fit evaluation before being presented to you."
       ]}
       sectionCards={[
-        { icon: "🎯", title: "Precision Matching", description: "We match candidates based on skills, culture fit, and growth potential — not just keywords." },
-        { icon: "⚡", title: "48-Hour Delivery", description: "Receive shortlisted, pre-screened profiles within 48–72 hours of mandate confirmation." },
-        { icon: "🌐", title: "Pan-India Reach", description: "Access to active talent across all major metros and tier-2 cities in India." },
-        { icon: "🔒", title: "Confidential Search", description: "Discreet and professional handling for sensitive leadership and executive hires." },
+        { icon: "🏆", title: "Quality First", description: "Rigorous screening ensures only the top candidates reach your interview desk." },
+        { icon: "⚡", title: "Speed", description: "Shortlists delivered within 72 hours of mandate confirmation." },
+        { icon: "🌐", title: "Pan-India Network", description: "Access to a vast talent pool across all major Indian cities and tier-2 markets." },
+        { icon: "🤝", title: "End-to-End Support", description: "From sourcing to offer negotiation and post-joining follow-up." }
       ]}
-      sectionImageUrl="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=900&auto=format&fit=crop"
+      sectionImageUrl="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=900&auto=format&fit=crop"
       benefits={[
-        { title: "Pan-India Talent Network", description: "Access our extensive database of pre-screened professionals across all major industries and geographies in India." },
-        { title: "Industry-Specific Expertise", description: "Our recruiters are domain specialists — bringing deep sector knowledge to every search mandate." },
-        { title: "Quality-First Screening", description: "Every candidate goes through structured multi-stage evaluation before being presented to you." },
-        { title: "Fast Turnaround", description: "Our streamlined process allows us to present shortlisted profiles within 48–72 hours." },
+        { title: "Structured Hiring Methodology", description: "Our 5-stage process (Requirement, Sourcing, Screening, Interview, Offer) ensures consistency and quality." },
+        { title: "Industry Specialists", description: "Dedicated recruitment teams with deep knowledge of your specific industry and function." },
+        { title: "Replacement Guarantee", description: "We stand behind our placements with replacement guarantees for every hire." },
+        { title: "Transparent Reporting", description: "Regular updates and data-driven reporting at every stage of the hiring process." }
       ]}
       process={[
-        { title: "Understand", description: "Deep-dive consultation to understand your culture, role requirements, and ideal candidate profile." },
-        { title: "Source", description: "Multi-channel sourcing including job boards, LinkedIn, referrals, and our proprietary database." },
-        { title: "Screen", description: "Structured interviews, skills tests, and background verification for every candidate." },
-        { title: "Place", description: "Smooth onboarding facilitation and post-placement support for long-term success." },
+        { title: "Requirement Gathering", description: "Deep-dive session to understand the role, culture, and ideal candidate profile." },
+        { title: "Multi-Channel Sourcing", description: "Leveraging our talent pool, job boards, referrals, and passive candidate outreach." },
+        { title: "Screening & Assessment", description: "Competency-based interviews, skill tests, and cultural fit evaluations." },
+        { title: "Interview Coordination", description: "Scheduling, feedback collection, and offer management through to joining." }
       ]}
     />
   );

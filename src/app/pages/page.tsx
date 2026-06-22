@@ -54,7 +54,7 @@ export default function PagesListing() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-6xl font-bold tracking-tight text-[#0b1b3d] mb-6"
+              className="text-4xl md:text-6xl font-bold tracking-tight text-[#003A70] mb-6"
             >
               Platform Resources
             </motion.h1>
@@ -97,7 +97,7 @@ export default function PagesListing() {
                           <IconComp className="w-7 h-7" />
                         </div>
                         <div>
-                          <h3 className="text-xl font-bold text-[#0b1b3d] mb-2 group-hover:text-blue-600 transition-colors">
+                          <h3 className="text-xl font-bold text-[#003A70] mb-2 group-hover:text-blue-600 transition-colors">
                             {page.title}
                           </h3>
                           <div className="flex items-center text-sm font-semibold text-slate-400 group-hover:text-blue-500 transition-colors mt-4">

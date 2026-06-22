@@ -60,15 +60,15 @@ export function SuccessMetrics() {
   }, []);
 
   const metrics = [
-    { title: "Active Talent", value: stats.users, prefix: "", suffix: "+", icon: Users, color: "text-[#007BFF]", bg: "bg-[#007BFF]/10 border border-[#007BFF]/20" },
-    { title: "Open Positions", value: stats.jobs, prefix: "", suffix: "+", icon: Briefcase, color: "text-[#042B6B]", bg: "bg-[#042B6B]/10 border border-[#042B6B]/20" },
-    { title: "Global Partners", value: stats.companies, prefix: "", suffix: "+", icon: Globe, color: "text-[#00B388]", bg: "bg-[#00B388]/10 border border-[#00B388]/20" },
-    { title: "Success Rate", value: stats.growth, prefix: "", suffix: "%", icon: TrendingUp, color: "text-[#007BFF]", bg: "bg-[#007BFF]/10 border border-[#007BFF]/20" },
+    { title: "Active Talent", value: stats.users, prefix: "", suffix: "+", icon: Users, color: "text-[#1E88E5]", bg: "bg-[#1E88E5]/10 border border-[#1E88E5]/20" },
+    { title: "Open Positions", value: stats.jobs, prefix: "", suffix: "+", icon: Briefcase, color: "text-[#003A70]", bg: "bg-[#003A70]/10 border border-[#003A70]/20" },
+    { title: "Global Partners", value: stats.companies, prefix: "", suffix: "+", icon: Globe, color: "text-[#00A86B]", bg: "bg-[#00A86B]/10 border border-[#00A86B]/20" },
+    { title: "Success Rate", value: stats.growth, prefix: "", suffix: "%", icon: TrendingUp, color: "text-[#1E88E5]", bg: "bg-[#1E88E5]/10 border border-[#1E88E5]/20" },
   ];
 
   return (
     <section className="py-20 bg-white relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-[#007BFF]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-[#1E88E5]/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {metrics.map((metric, i) => (
@@ -78,13 +78,13 @@ export function SuccessMetrics() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="flex flex-col items-center justify-center text-center p-8 rounded-3xl bg-white/60 backdrop-blur-xl border border-slate-100/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:border-[#007BFF]/30 hover:shadow-[0_20px_40px_-15px_rgba(0,123,255,0.15)] transition-all group"
+              className="flex flex-col items-center justify-center text-center p-8 rounded-3xl bg-white/60 backdrop-blur-xl border border-slate-100/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:border-[#1E88E5]/30 hover:shadow-[0_20px_40px_-15px_rgba(0,123,255,0.15)] transition-all group"
             >
               <div className={`w-14 h-14 rounded-2xl ${metric.bg} ${metric.color} flex items-center justify-center mb-6 shadow-inner relative overflow-hidden group`}>
                 <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <metric.icon className="w-7 h-7 relative z-10" />
               </div>
-              <h3 className="text-4xl md:text-5xl font-heading font-black text-[#042B6B] tracking-tight mb-2 flex items-center">
+              <h3 className="text-4xl md:text-5xl font-heading font-black text-[#003A70] tracking-tight mb-2 flex items-center">
                 {metric.prefix}
                 <Counter from={0} to={metric.value} duration={2.5} />
                 {metric.suffix}

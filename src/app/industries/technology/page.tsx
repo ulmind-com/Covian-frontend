@@ -40,7 +40,7 @@ export default function TechnologyPage() {
         { icon: "☁️", title: "Cloud & Infrastructure", description: "AWS, Azure, GCP architects, DevOps engineers, and SRE professionals." },
         { icon: "🔐", title: "Cybersecurity", description: "SOC analysts, penetration testers, CISO-level leaders, and security architects." },
       ]}
-      sectionImageUrl="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=900&auto=format&fit=crop"
+      sectionImageUrl="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=900&auto=format&fit=crop"
       benefits={[
         { title: "Technical Screening Rigor", description: "Candidates go through coding assessments and technical interviews before reaching your team." },
         { title: "Niche Skill Coverage", description: "Deep talent pool across niche technologies — not just mainstream stacks." },

@@ -68,7 +68,7 @@ export function ContactContent() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#061124] selection:bg-sky-500 selection:text-white">
+    <div className="flex flex-col min-h-screen bg-[#0A0F1E] selection:bg-sky-500 selection:text-white">
       <Header />
 
       <main className="flex-1 w-full pt-32 pb-24 relative overflow-hidden">
@@ -101,7 +101,7 @@ export function ContactContent() {
               transition={{ delay: 0.1 }}
               className="text-4xl lg:text-5xl font-heading font-black text-white tracking-tight leading-[1.15] mb-6"
             >
-              Let's Build Your <br className="hidden md:block" />
+              Let&apos;s Build Your <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-600">
                 Workforce Together
               </span>
@@ -120,31 +120,31 @@ export function ContactContent() {
               <div>
                 <h2 className="text-2xl font-bold text-white mb-2">Get in Touch</h2>
                 <p className="text-slate-400 text-sm leading-relaxed mb-8">
-                  Whether you're looking for top talent or exploring workforce solutions, our team at CoVian Advisory is ready to assist you.
+                  Whether you&apos;re looking for top talent or exploring workforce solutions, our team at CoVian Advisory is ready to assist you.
                 </p>
               </div>
 
               {/* Info Cards */}
               <div className="flex flex-col gap-5">
                 {/* Phone */}
-                <a href="tel:+919876543210" className="group p-6 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-sky-500/30 transition-all backdrop-blur-md flex items-start gap-5">
+                <a href="tel:+919288065556" className="group p-6 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-sky-500/30 transition-all backdrop-blur-md flex items-start gap-5">
                   <div className="w-12 h-12 rounded-2xl bg-sky-500/10 flex items-center justify-center shrink-0 group-hover:bg-sky-500 group-hover:text-white text-sky-400 transition-colors">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
                     <p className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Call / WhatsApp</p>
-                    <p className="text-lg font-semibold text-white group-hover:text-sky-300 transition-colors">+91 98765 43210</p>
+                    <p className="text-lg font-semibold text-white group-hover:text-sky-300 transition-colors">+91 92880 65556</p>
                   </div>
                 </a>
 
                 {/* Email */}
-                <a href="mailto:contact@covianadvisory.com" className="group p-6 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-sky-500/30 transition-all backdrop-blur-md flex items-start gap-5">
+                <a href="mailto:info@covian.in" className="group p-6 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-sky-500/30 transition-all backdrop-blur-md flex items-start gap-5">
                   <div className="w-12 h-12 rounded-2xl bg-sky-500/10 flex items-center justify-center shrink-0 group-hover:bg-sky-500 group-hover:text-white text-sky-400 transition-colors">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
                     <p className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Mail Us</p>
-                    <p className="text-lg font-semibold text-white group-hover:text-sky-300 transition-colors">contact@covianadvisory.com</p>
+                    <p className="text-lg font-semibold text-white group-hover:text-sky-300 transition-colors">info@covian.in</p>
                   </div>
                 </a>
 
@@ -157,8 +157,7 @@ export function ContactContent() {
                     <p className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-2">Office Address</p>
                     <p className="text-base font-medium text-white leading-relaxed">
                       CoVian Advisory Pvt Ltd<br />
-                      House No 03, Gokul Dham Construction,<br />
-                      Chira Chas, Bokaro Steel City,<br />
+                      Chas, Bokaro Steel City,<br />
                       Jharkhand, 827013
                     </p>
                   </div>

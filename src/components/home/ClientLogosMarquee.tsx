@@ -17,15 +17,15 @@ const FALLBACK_LOGOS = [
 
 function LogoItem({ logo }: { logo: any }) {
   const inner = (
-    <div className="flex items-center justify-center h-14 px-8 mx-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:border-blue-100 transition-all duration-300 group flex-shrink-0">
+    <div className="flex items-center justify-center h-20 px-10 mx-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:border-blue-100 transition-all duration-300 group flex-shrink-0">
       {logo.logo_url ? (
         <img
           src={logo.logo_url}
           alt={logo.name}
-          className="h-8 max-w-[120px] object-contain grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300"
+          className="h-14 max-w-[180px] object-contain transition-all duration-300"
         />
       ) : (
-        <span className="text-sm font-black text-slate-400 group-hover:text-blue-600 tracking-tight transition-colors whitespace-nowrap">
+        <span className="text-lg font-black text-slate-400 group-hover:text-blue-600 tracking-tight transition-colors whitespace-nowrap">
           {logo.name}
         </span>
       )}

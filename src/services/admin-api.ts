@@ -3,6 +3,7 @@
  * Handles all API calls to the backend for the admin panel.
  * Uses the NEXT_PUBLIC_API_URL environment variable.
  */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 const isProd = process.env.NODE_ENV === "production";
 const BASE_URL = isProd ? "https://project-for-prem-backend.onrender.com/api/v1" : "http://localhost:8000/api/v1";

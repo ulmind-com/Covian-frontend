@@ -65,7 +65,6 @@ export default function AdminDashboardPage() {
 
   const statCards = [
     { title: "Total Enquiries",          value: stats?.total_enquiries ?? 0,           icon: MessageSquare,  color: "text-blue-600",   bg: "bg-blue-50",   href: "/admin/enquiries" },
-    { title: "Caregiver Enquiries",      value: stats?.total_caregiver_enquiries ?? 0, icon: HeartHandshake, color: "text-rose-500",   bg: "bg-rose-50",   href: "/admin/caregiver-enquiries" },
     { title: "Total Applications",       value: stats?.total_applications ?? 0,        icon: FileText,       color: "text-violet-600", bg: "bg-violet-50", href: "/admin/applications" },
     { title: "Active Jobs",              value: stats?.active_jobs ?? 0,               icon: Briefcase,      color: "text-emerald-600",bg: "bg-emerald-50",href: "/admin/jobs" },
     { title: "Published News",           value: stats?.published_news ?? 0,            icon: Newspaper,      color: "text-amber-600",  bg: "bg-amber-50",  href: "/admin/news" },

@@ -73,7 +73,7 @@ export function BlogPostClient({ post }: { post: any }) {
             )}
             
             {/* Main Heading (same font as hero section) */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-[#042B6B] leading-[1.15] mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-[#003A70] leading-[1.15] mb-6">
               {post.title}
             </h1>
 
@@ -139,13 +139,13 @@ export function BlogPostClient({ post }: { post: any }) {
             {/* Rich Text Content */}
             <div 
               className="prose prose-lg prose-slate max-w-none 
-              prose-headings:font-black prose-headings:text-[#042B6B] prose-headings:tracking-tight 
+              prose-headings:font-black prose-headings:text-[#003A70] prose-headings:tracking-tight 
               prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
               prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
               prose-p:text-slate-700 prose-p:leading-loose prose-p:mb-8 prose-p:text-[1.1rem]
               prose-a:text-blue-600 prose-a:font-semibold prose-a:no-underline hover:prose-a:underline
               prose-img:rounded-xl prose-img:shadow-sm prose-img:my-10
-              prose-strong:text-[#042B6B] prose-strong:font-bold
+              prose-strong:text-[#003A70] prose-strong:font-bold
               prose-ul:list-disc prose-ul:pl-6 prose-ul:text-slate-700 prose-ul:mb-8
               prose-li:mb-2"
               dangerouslySetInnerHTML={{ __html: post.content }}
@@ -156,7 +156,7 @@ export function BlogPostClient({ post }: { post: any }) {
               <div className="mt-16 pt-10 border-t border-slate-100 flex flex-wrap items-center gap-3">
                 <span className="text-sm font-bold text-slate-400 uppercase tracking-widest mr-2">Tags:</span>
                 {post.tags.map((tag: string) => (
-                  <span key={tag} className="px-4 py-2 bg-slate-50 text-[#042B6B] hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer text-sm font-bold rounded-lg border border-slate-100">
+                  <span key={tag} className="px-4 py-2 bg-slate-50 text-[#003A70] hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer text-sm font-bold rounded-lg border border-slate-100">
                     #{tag}
                   </span>
                 ))}

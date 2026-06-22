@@ -18,11 +18,11 @@ export function TalentSearch() {
       ];
 
   return (
-    <section className="py-24 bg-[#042B6B] text-white relative overflow-hidden">
+    <section className="py-24 bg-[#003A70] text-white relative overflow-hidden">
       {/* Abstract Background Shapes */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[10%] left-[5%] w-96 h-96 bg-[#2563EB]/15 rounded-full blur-[100px]" />
-        <div className="absolute bottom-[10%] right-[5%] w-96 h-96 bg-[#60A5FA]/10 rounded-full blur-[100px]" />
+        <div className="absolute top-[10%] left-[5%] w-96 h-96 bg-[#1E88E5]/15 rounded-full blur-[100px]" />
+        <div className="absolute bottom-[10%] right-[5%] w-96 h-96 bg-[#42A5F5]/10 rounded-full blur-[100px]" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -33,13 +33,13 @@ export function TalentSearch() {
             </div>
             <h2 className="text-4xl md:text-5xl font-heading font-black mb-4 text-white drop-shadow-sm">
               Hire World-Class <br className="hidden md:block"/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#60A5FA] to-[#93C5FD]">Professionals</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#42A5F5] to-[#93C5FD]">Professionals</span>
             </h2>
             <p className="text-lg text-[#E8ECEF]/80 font-medium leading-relaxed">
               Skip the noise. Connect directly with pre-vetted, highly skilled professionals ready to make an immediate impact on your business.
             </p>
           </div>
-          <Button className="bg-white hover:bg-slate-50 text-[#042B6B] rounded-full px-8 h-14 font-bold shadow-[0_10px_30px_rgba(255,255,255,0.1)] transition-all">
+          <Button className="bg-white hover:bg-slate-50 text-[#003A70] rounded-full px-8 h-14 font-bold shadow-[0_10px_30px_rgba(255,255,255,0.1)] transition-all">
             Browse Talent Pool <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
         </div>
@@ -63,21 +63,21 @@ export function TalentSearch() {
                 className="bg-white/5 backdrop-blur-2xl rounded-3xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] hover:shadow-[0_30px_60px_-15px_rgba(0,123,255,0.2)] group cursor-pointer"
               >
                 <div className="flex justify-between items-start mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-[#2563EB] to-[#60A5FA] p-[2px] shadow-lg group-hover:scale-110 transition-transform">
-                    <div className="w-full h-full rounded-full bg-[#042B6B] flex items-center justify-center text-xl font-bold text-white">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-[#1E88E5] to-[#42A5F5] p-[2px] shadow-lg group-hover:scale-110 transition-transform">
+                    <div className="w-full h-full rounded-full bg-[#003A70] flex items-center justify-center text-xl font-bold text-white">
                       {candidate.name.charAt(0)}
                     </div>
                   </div>
-                  <span className="px-2.5 py-1 bg-[#60A5FA]/20 text-[#93C5FD] text-[10px] font-bold rounded-full uppercase tracking-wider border border-[#60A5FA]/20">
+                  <span className="px-2.5 py-1 bg-[#42A5F5]/20 text-[#93C5FD] text-[10px] font-bold rounded-full uppercase tracking-wider border border-[#42A5F5]/20">
                     {candidate.status}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-[#007BFF] transition-colors">
+                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-[#1E88E5] transition-colors">
                   {candidate.name}
                 </h3>
                 <p className="text-[#E8ECEF]/60 text-sm mb-6 flex items-center gap-1.5 font-medium">
-                  <UserCheck className="w-4 h-4 text-[#60A5FA]" /> Pre-vetted Professional
+                  <UserCheck className="w-4 h-4 text-[#42A5F5]" /> Pre-vetted Professional
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-6">
@@ -93,7 +93,7 @@ export function TalentSearch() {
                   )}
                 </div>
 
-                <Button variant="ghost" className="w-full justify-between text-[#60A5FA] font-bold hover:text-white hover:bg-[#2563EB] h-12 px-6 rounded-xl group/btn transition-colors">
+                <Button variant="ghost" className="w-full justify-between text-[#42A5F5] font-bold hover:text-white hover:bg-[#1E88E5] h-12 px-6 rounded-xl group/btn transition-colors">
                   View Profile 
                   <FileText className="w-4 h-4 opacity-50 group-hover/btn:opacity-100 transition-opacity group-hover/btn:translate-x-1" />
                 </Button>

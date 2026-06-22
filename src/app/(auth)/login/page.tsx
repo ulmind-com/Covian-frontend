@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
@@ -84,9 +85,9 @@ export default function LoginPage() {
       {/* Animated Background */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Gradient orbs */}
-        <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] rounded-full bg-[#007BFF]/15 blur-[150px] animate-pulse" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[700px] h-[700px] rounded-full bg-[#00B388]/10 blur-[120px] animate-pulse" style={{ animationDelay: "1s" }} />
-        <div className="absolute top-[40%] right-[30%] w-[400px] h-[400px] rounded-full bg-[#042B6B]/30 blur-[100px] animate-pulse" style={{ animationDelay: "2s" }} />
+        <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] rounded-full bg-[#1E88E5]/15 blur-[150px] animate-pulse" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[700px] h-[700px] rounded-full bg-[#00A86B]/10 blur-[120px] animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute top-[40%] right-[30%] w-[400px] h-[400px] rounded-full bg-[#003A70]/30 blur-[100px] animate-pulse" style={{ animationDelay: "2s" }} />
         
         {/* Grid pattern */}
         <div 
@@ -107,27 +108,28 @@ export default function LoginPage() {
         {/* Logo */}
         <div className="relative z-10">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-[1rem] bg-gradient-to-br from-[#007BFF] to-[#00B388] p-[1.5px] shadow-[0_10px_30px_rgba(0,123,255,0.3)] group-hover:scale-105 transition-all">
-              <div className="w-full h-full bg-[#020B1A] rounded-[0.9rem] flex items-center justify-center font-black text-white text-xl">
-                CV
-              </div>
+            <div className="relative w-64 h-20 group-hover:scale-105 transition-all">
+              <Image
+                src="/covian_logo.png"
+                alt="CoVian Advisory"
+                fill
+                className="object-contain object-left"
+                priority
+              />
             </div>
-            <span className="font-heading font-black text-3xl tracking-tight text-white drop-shadow-md">
-              Covian
-            </span>
           </Link>
         </div>
 
         {/* Center Content */}
         <div className="relative z-10 max-w-lg">
-          <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-[#007BFF]/10 border border-[#007BFF]/20 text-[#007BFF] text-[10px] font-black uppercase tracking-widest mb-6 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-[#1E88E5]/10 border border-[#1E88E5]/20 text-[#1E88E5] text-[10px] font-black uppercase tracking-widest mb-6 backdrop-blur-md">
             <Sparkles className="w-4 h-4" />
             Enterprise Recruitment Platform
           </div>
           
           <h1 className="text-4xl xl:text-6xl font-heading font-black text-white leading-[1.05] tracking-tight mb-6 drop-shadow-lg">
             Welcome to your <br />
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#007BFF] to-[#00B388]">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#1E88E5] to-[#00A86B]">
               Talent Command Center.
             </span>
           </h1>
@@ -143,8 +145,8 @@ export default function LoginPage() {
               { icon: Lock, text: "End-to-end encrypted data protection" },
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-4 text-white/50 bg-white/[0.03] p-3 pr-6 rounded-2xl border border-white/[0.05] w-fit backdrop-blur-sm">
-                <div className="w-10 h-10 rounded-[0.8rem] bg-[#007BFF]/10 flex items-center justify-center shrink-0 border border-[#007BFF]/20">
-                  <item.icon className="w-5 h-5 text-[#007BFF]" />
+                <div className="w-10 h-10 rounded-[0.8rem] bg-[#1E88E5]/10 flex items-center justify-center shrink-0 border border-[#1E88E5]/20">
+                  <item.icon className="w-5 h-5 text-[#1E88E5]" />
                 </div>
                 <span className="text-sm font-semibold tracking-wide">{item.text}</span>
               </div>
@@ -170,16 +172,17 @@ export default function LoginPage() {
           className={`w-full max-w-[440px] bg-white/[0.02] backdrop-blur-3xl border border-white/[0.08] p-8 sm:p-10 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
           {/* Mobile Logo */}
-          <div className="lg:hidden flex items-center justify-center gap-3 mb-8">
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-12 h-12 rounded-[1rem] bg-gradient-to-br from-[#007BFF] to-[#00B388] p-[1.5px] shadow-[0_10px_30px_rgba(0,123,255,0.3)]">
-                <div className="w-full h-full bg-[#020B1A] rounded-[0.9rem] flex items-center justify-center font-black text-white text-xl">
-                  CV
-                </div>
+          <div className="lg:hidden flex items-center justify-center mb-8">
+            <Link href="/">
+              <div className="relative w-64 h-20">
+                <Image
+                  src="/covian_logo.png"
+                  alt="CoVian Advisory"
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </div>
-              <span className="font-heading font-black text-3xl tracking-tight text-white drop-shadow-md">
-                Covian
-              </span>
             </Link>
           </div>
 
@@ -203,16 +206,16 @@ export default function LoginPage() {
                   <FormItem>
                     <label className="block text-sm font-semibold text-white/60 mb-2.5">Email Address</label>
                     <FormControl>
-                      <div className={`relative group transition-all duration-300 rounded-[1.2rem] ${focusedField === "email" ? "ring-2 ring-[#007BFF]/40" : ""}`}>
+                      <div className={`relative group transition-all duration-300 rounded-[1.2rem] ${focusedField === "email" ? "ring-2 ring-[#1E88E5]/40" : ""}`}>
                         <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10">
-                          <Mail className={`w-5 h-5 transition-colors duration-300 ${focusedField === "email" ? "text-[#007BFF]" : "text-white/25"}`} />
+                          <Mail className={`w-5 h-5 transition-colors duration-300 ${focusedField === "email" ? "text-[#1E88E5]" : "text-white/25"}`} />
                         </div>
                         <input 
                           placeholder="name@company.com" 
                           {...field}
                           onFocus={() => setFocusedField("email")}
                           onBlur={(e) => { field.onBlur(); setFocusedField(null); }}
-                          className="w-full bg-[#020B1A]/50 hover:bg-[#020B1A]/80 focus:bg-[#020B1A]/80 border border-white/[0.08] focus:border-[#007BFF]/30 rounded-[1.2rem] h-[3.5rem] pl-12 pr-4 text-white placeholder:text-white/20 text-[15px] font-medium outline-none transition-all duration-300"
+                          className="w-full bg-[#020B1A]/50 hover:bg-[#020B1A]/80 focus:bg-[#020B1A]/80 border border-white/[0.08] focus:border-[#1E88E5]/30 rounded-[1.2rem] h-[3.5rem] pl-12 pr-4 text-white placeholder:text-white/20 text-[15px] font-medium outline-none transition-all duration-300"
                         />
                       </div>
                     </FormControl>
@@ -227,14 +230,14 @@ export default function LoginPage() {
                   <FormItem>
                     <div className="flex items-center justify-between mb-2.5">
                       <label className="block text-sm font-semibold text-white/60">Password</label>
-                      <button type="button" className="text-xs font-bold text-[#007BFF] hover:text-[#00B388] transition-colors">
+                      <button type="button" className="text-xs font-bold text-[#1E88E5] hover:text-[#00A86B] transition-colors">
                         Forgot password?
                       </button>
                     </div>
                     <FormControl>
-                      <div className={`relative group transition-all duration-300 rounded-[1.2rem] ${focusedField === "password" ? "ring-2 ring-[#007BFF]/40" : ""}`}>
+                      <div className={`relative group transition-all duration-300 rounded-[1.2rem] ${focusedField === "password" ? "ring-2 ring-[#1E88E5]/40" : ""}`}>
                         <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10">
-                          <Lock className={`w-5 h-5 transition-colors duration-300 ${focusedField === "password" ? "text-[#007BFF]" : "text-white/25"}`} />
+                          <Lock className={`w-5 h-5 transition-colors duration-300 ${focusedField === "password" ? "text-[#1E88E5]" : "text-white/25"}`} />
                         </div>
                         <input
                           type={showPassword ? "text" : "password"}
@@ -242,7 +245,7 @@ export default function LoginPage() {
                           {...field}
                           onFocus={() => setFocusedField("password")}
                           onBlur={(e) => { field.onBlur(); setFocusedField(null); }}
-                          className="w-full bg-[#020B1A]/50 hover:bg-[#020B1A]/80 focus:bg-[#020B1A]/80 border border-white/[0.08] focus:border-[#007BFF]/30 rounded-[1.2rem] h-[3.5rem] pl-12 pr-12 text-white placeholder:text-white/20 text-[15px] font-medium outline-none transition-all duration-300"
+                          className="w-full bg-[#020B1A]/50 hover:bg-[#020B1A]/80 focus:bg-[#020B1A]/80 border border-white/[0.08] focus:border-[#1E88E5]/30 rounded-[1.2rem] h-[3.5rem] pl-12 pr-12 text-white placeholder:text-white/20 text-[15px] font-medium outline-none transition-all duration-300"
                         />
                         <button
                           type="button"
@@ -266,7 +269,7 @@ export default function LoginPage() {
                   className="group relative w-full h-[3.5rem] rounded-[1.2rem] font-bold text-[16px] text-white overflow-hidden transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_10px_30px_rgba(0,123,255,0.3)]"
                 >
                   {/* Gradient Background */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#007BFF] to-[#00B388] transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#1E88E5] to-[#00A86B] transition-opacity duration-300" />
                   
                   {/* Hover shimmer */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
@@ -303,7 +306,7 @@ export default function LoginPage() {
           <div className="text-center">
             <p className="text-white/40 text-sm font-medium">
               Don&apos;t have an account?{" "}
-              <Link href="/register" className="text-[#007BFF] hover:text-[#00B388] font-bold transition-colors">
+              <Link href="/register" className="text-[#1E88E5] hover:text-[#00A86B] font-bold transition-colors">
                 Create account
               </Link>
             </p>

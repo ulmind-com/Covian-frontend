@@ -1,34 +1,34 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase, Zap, ShieldCheck, Headset, MapPin } from "lucide-react";
+import { Zap, ShieldCheck, Briefcase, MapPin, CheckSquare } from "lucide-react";
 
 export function WhyChooseUs() {
   const features = [
     {
-      icon: Briefcase,
-      title: "Industry-Focused Expertise",
-      desc: "Deep domain knowledge across multiple sectors to find the perfect fit for your specialized roles.",
-    },
-    {
       icon: Zap,
-      title: "Fast Turnaround Time",
-      desc: "Accelerated hiring cycles without compromising on candidate quality or compliance.",
+      title: "Speed",
+      desc: "Accelerated hiring cycles without compromising quality — we move at the pace your business demands.",
     },
     {
       icon: ShieldCheck,
-      title: "Quality Assurance",
-      desc: "Rigorous vetting processes ensuring only top-tier professionals reach your interview desk.",
+      title: "Quality",
+      desc: "Rigorous screening, competency assessments, and cultural fit evaluation ensure every candidate is hire-ready.",
     },
     {
-      icon: Headset,
-      title: "Dedicated Support",
-      desc: "A personalized account management team available around the clock for your hiring needs.",
+      icon: Briefcase,
+      title: "Industry Expertise",
+      desc: "Deep vertical knowledge means we speak your language and understand your talent challenges from day one.",
     },
     {
       icon: MapPin,
-      title: "Pan-India Talent Network",
-      desc: "Unrestricted access to a massive pool of verified candidates across all major Indian cities.",
+      title: "Talent Network",
+      desc: "A curated, pre-vetted talent pool across industries and functions, enabling faster pipeline activation.",
+    },
+    {
+      icon: CheckSquare,
+      title: "Accountability",
+      desc: "We own outcomes. Replacement guarantees, SLA commitments, and transparent reporting are standard.",
     }
   ];
 
@@ -69,7 +69,7 @@ export function WhyChooseUs() {
             transition={{ delay: 0.2 }}
             className="text-lg text-[#475569] font-medium"
           >
-            Partner with us to transform your workforce strategy and achieve unparalleled business growth.
+            What separates CoVian Advisory from a typical staffing vendor is our commitment to outcomes — not just placements. We operate as a true talent partner, invested in the long-term success of every hire we make.
           </motion.p>
         </div>
 

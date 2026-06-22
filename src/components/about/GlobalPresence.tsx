@@ -12,9 +12,9 @@ export function GlobalPresence() {
   ];
 
   return (
-    <section className="py-24 bg-[#042B6B] text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,transparent_0%,#042B6B_100%)] opacity-80 pointer-events-none" />
-      <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-[#007BFF]/15 blur-[120px] animate-pulse pointer-events-none" />
+    <section className="py-24 bg-[#003A70] text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,transparent_0%,#003A70_100%)] opacity-80 pointer-events-none" />
+      <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-[#1E88E5]/15 blur-[120px] animate-pulse pointer-events-none" />
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none" 
            style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
       
@@ -36,10 +36,10 @@ export function GlobalPresence() {
               transition={{ delay: i * 0.1, duration: 0.5 }}
               className="bg-white/5 backdrop-blur-2xl rounded-3xl p-8 border border-white/10 hover:bg-white/10 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] hover:shadow-[0_30px_60px_-15px_rgba(0,123,255,0.2)] hover:-translate-y-2 transition-all duration-300 group"
             >
-              <div className="w-14 h-14 rounded-2xl bg-white/10 text-white flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[#00B388] transition-all shadow-inner border border-white/5">
+              <div className="w-14 h-14 rounded-2xl bg-white/10 text-white flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[#00A86B] transition-all shadow-inner border border-white/5">
                 <MapPin className="w-6 h-6" />
               </div>
-              <p className="text-[10px] font-black text-[#00B388] uppercase tracking-widest mb-2">{office.region}</p>
+              <p className="text-[10px] font-black text-[#00A86B] uppercase tracking-widest mb-2">{office.region}</p>
               <h3 className="text-2xl font-bold mb-2">{office.city}</h3>
               <p className="text-sm text-[#E8ECEF]/70 font-medium leading-relaxed">{office.address}</p>
             </motion.div>

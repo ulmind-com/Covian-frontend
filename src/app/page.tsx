@@ -2,10 +2,12 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/home/HeroSection";
 import { FeaturedJobs } from "@/components/home/FeaturedJobs";
+import { WorkforceChallenge } from "@/components/home/WorkforceChallenge";
 import { IndustriesSection } from "@/components/home/IndustriesSection";
-import { TalentSearch } from "@/components/home/TalentSearch";
+
 import { RecruitmentSolutions } from "@/components/home/RecruitmentSolutions";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
+import { EngagementModels } from "@/components/home/EngagementModels";
 import { ClientLogosMarquee } from "@/components/home/ClientLogosMarquee";
 import { ParallaxBanner } from "@/components/home/ParallaxBanner";
 import { HiringProcess } from "@/components/home/HiringProcess";
@@ -27,7 +29,9 @@ export default function Home() {
         {/* Sections before parallax */}
         <div className="relative z-10">
           <HeroSection />
+          <WorkforceChallenge />
           <WhyChooseUs />
+          <EngagementModels />
           <ClientLogosMarquee />
         </div>
 
@@ -41,7 +45,7 @@ export default function Home() {
           {/* Content that slides UP over the parallax image */}
           <div className="relative z-10 -mt-[30vh]">
             <IndustriesSection />
-            <TalentSearch />
+
             <RecruitmentSolutions />
             <FeaturedJobs />
             <HiringProcess />
