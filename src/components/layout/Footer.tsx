@@ -149,7 +149,7 @@ export function Footer() {
             </div>
             
             {/* The Map */}
-            <div className="w-full h-[320px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative group bg-[#0A1220]">
+            <div className="w-full h-[320px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative group bg-gradient-to-br from-[#0A1128] via-[#143059] to-[#0A1128]">
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14631.115865201103!2d86.1384024!3d23.630045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f423ab6306ddb3%3A0xc3f606db97dcbc19!2sChas%2C%20Bokaro%20Steel%20City%2C%20Jharkhand!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
                 width="100%" 

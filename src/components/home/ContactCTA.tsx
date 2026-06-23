@@ -27,7 +27,7 @@ const XIcon = () => (
 
 export function ContactCTA() {
   return (
-    <section className="py-24 bg-[#0A1220] relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-br from-[#0A1128] via-[#143059] to-[#0A1128] relative overflow-hidden">
       {/* Decorative Blur Backgrounds */}
       <div className="absolute top-0 right-[-10%] w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[150px] pointer-events-none" />

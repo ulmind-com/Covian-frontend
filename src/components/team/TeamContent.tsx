@@ -54,7 +54,7 @@ export function TeamContent() {
   const members = (cmsTeam && cmsTeam.length > 0) ? cmsTeam : FALLBACK_TEAM;
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#0A1220] selection:bg-blue-600 selection:text-white">
+    <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#0A1128] via-[#143059] to-[#0A1128] selection:bg-blue-600 selection:text-white">
       <Header />
 
       <main className="flex-1 w-full overflow-hidden relative">

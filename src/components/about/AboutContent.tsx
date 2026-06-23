@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { ShieldCheck, Target, Lightbulb, Users, TrendingUp, Award, Eye, ArrowRight, Briefcase, Globe, Layers, Info } from "lucide-react";
 
 export function AboutContent() {
@@ -17,7 +18,7 @@ export function AboutContent() {
   return (
     <div className="w-full">
       {/* HERO SECTION */}
-      <section className="relative min-h-[90vh] flex items-center pt-32 pb-48 lg:pb-64 overflow-hidden bg-[#0A1220]">
+      <section className="relative min-h-[90vh] flex items-center pt-32 pb-48 lg:pb-64 overflow-hidden bg-gradient-to-br from-[#0A1128] via-[#143059] to-[#0A1128]">
         {/* Abstract Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 right-[-5%] w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px]" />
@@ -40,31 +41,33 @@ export function AboutContent() {
                 <span className="text-blue-300 text-xs font-semibold tracking-widest uppercase">About Covian Advisory</span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-[60px] font-heading font-medium leading-[1.1] text-white tracking-tight">
-                Your Workforce <br className="hidden md:block"/> Partner for <br className="hidden md:block"/>
-                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500 pr-2">Sustainable</span> Growth
+              <h1 className="text-[32px] sm:text-[42px] lg:text-[48px] xl:text-[56px] whitespace-nowrap font-heading font-medium leading-[1.1] text-white tracking-tight">
+                CoVian Advisory Pvt. Ltd.
               </h1>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl text-[#94A3B8] font-medium tracking-wide">
+                Your Workforce Partner for <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500 pr-1">Sustainable</span> Growth
+              </h2>
 
               <p className="text-slate-400 text-base lg:text-lg leading-relaxed max-w-lg font-light">
                 We are a strategic workforce solutions partner committed to helping organizations build agile, high-performing teams through customized talent acquisition and staffing services.
               </p>
 
               <div className="flex flex-wrap gap-4 pt-2">
-                <button className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all shadow-[0_0_24px_rgba(59,130,246,0.4)]">
+                <Link href="/services" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all shadow-[0_0_24px_rgba(59,130,246,0.4)]">
                   Explore Services <ArrowRight className="w-4 h-4" />
-                </button>
-                <button className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white text-sm font-semibold backdrop-blur-sm transition-all">
+                </Link>
+                <Link href="/team" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white text-sm font-semibold backdrop-blur-sm transition-all">
                   Meet the Team
-                </button>
+                </Link>
               </div>
 
               <div className="grid grid-cols-3 gap-6 pt-8 mt-4 border-t border-white/10 max-w-lg">
                 <div>
-                  <h4 className="text-2xl font-heading font-medium text-white mb-1">500+</h4>
+                  <h4 className="text-2xl font-heading font-medium text-white mb-1">250+</h4>
                   <p className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Placements</p>
                 </div>
                 <div>
-                  <h4 className="text-2xl font-heading font-medium text-white mb-1">100+</h4>
+                  <h4 className="text-2xl font-heading font-medium text-white mb-1">20+</h4>
                   <p className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Clients</p>
                 </div>
                 <div>
@@ -89,7 +92,7 @@ export function AboutContent() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1220]/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/80 via-transparent to-transparent pointer-events-none" />
               </div>
 
               {/* Floating Badge - Top Left */}

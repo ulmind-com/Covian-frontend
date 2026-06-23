@@ -24,11 +24,11 @@ export function HeroSection() {
   }, [heroImages.length]);
 
   return (
-    <section className="relative min-h-[100vh] flex items-center pt-32 lg:pt-28 pb-32 lg:pb-40 overflow-hidden bg-[#0A1220]">
+    <section className="relative min-h-[100vh] flex items-center pt-32 lg:pt-28 pb-32 lg:pb-40 overflow-hidden bg-gradient-to-br from-[#0A1128] via-[#143059] to-[#0A1128]">
       {/* Background with subtle dots or gradients */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] rounded-full bg-[#1E3A8A]/30 blur-[120px]" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-[#0F172A]/50 blur-[100px]" />
+        <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] rounded-full bg-[#3B82F6]/30 blur-[120px]" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-[#2563EB]/50 blur-[100px]" />
         {/* Subtle grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]" />
       </div>
@@ -49,14 +49,14 @@ export function HeroSection() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
-                className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#0F172A] border border-[#1E293B]"
+                className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#1E40AF] border border-[#2563EB]/50"
               >
                 <div className="w-2 h-2 rounded-full bg-[#3B82F6] animate-pulse" />
                 <span className="text-[#42A5F5] text-xs font-medium tracking-wide">
                   Global Reach — Local Expertise
                 </span>
               </motion.div>
-              <div className="h-px w-8 bg-[#1E293B]" />
+              <div className="h-px w-8 bg-[#3B82F6]/50" />
               <span className="text-[#64748B] text-[10px] font-bold tracking-[0.2em] uppercase">
                 Recruitment & Staffing
               </span>
@@ -64,12 +64,18 @@ export function HeroSection() {
 
             {/* Headline */}
             <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-heading font-medium leading-[1.1] text-white tracking-tight">
-                Strategic <br />
-                Workforce & <span className="text-[#42A5F5] italic font-medium pr-2">Talent</span> <br />
-                <span className="text-[#d9a05b]">Solutions</span>
+              <h1 className="text-[32px] sm:text-[42px] lg:text-[48px] xl:text-[56px] whitespace-nowrap font-heading font-medium leading-[1.1] text-white tracking-tight">
+                CoVian Advisory Pvt. Ltd.
               </h1>
-              <p className="text-base text-[#94A3B8] max-w-[580px] leading-relaxed pt-1">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl text-[#94A3B8] font-medium tracking-wide">
+                Strategic Workforce & <span className="text-[#42A5F5] italic font-medium pr-1">Talent</span> <span className="text-[#d9a05b]">Solutions</span>
+              </h2>
+              <div className="pt-1 pb-1">
+                <span className="inline-block px-4 py-1.5 rounded bg-[#d9a05b]/10 border border-[#d9a05b]/20 text-[13px] font-bold tracking-wider text-[#d9a05b] uppercase">
+                  ISO Certified 9001:2015
+                </span>
+              </div>
+              <p className="text-base text-[#94A3B8] max-w-[580px] leading-relaxed">
                 CoVian Advisory is a full-spectrum workforce solutions partner that helps organizations attract, assess, hire, and retain the talent that drives growth. Through recruitment, staffing, executive search, and workforce advisory services, we bridge the gap between ambition and execution — delivering people strategies that scale.
               </p>
             </div>
@@ -80,7 +86,7 @@ export function HeroSection() {
                 <Briefcase className="w-5 h-5 fill-white" />
                 Hire Talent Now
               </Link>
-              <Link href="/jobs" className="h-12 px-8 rounded-full border border-[#334155] bg-transparent hover:bg-white/5 text-white font-semibold text-[15px] transition-all flex items-center justify-center gap-2">
+              <Link href="/jobs" className="h-12 px-8 rounded-full border border-[#60A5FA]/30 bg-transparent hover:bg-white/10 text-white font-semibold text-[15px] transition-all flex items-center justify-center gap-2">
                 <Search className="w-4 h-4 text-[#94A3B8]" />
                 Apply for Jobs
               </Link>
@@ -88,15 +94,15 @@ export function HeroSection() {
 
             {/* Contact Info Pills */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-2">
-              <div className="flex items-center gap-4 px-5 py-3 rounded-full bg-[#111827] border border-[#1F2937] hover:bg-[#1F2937] transition-colors cursor-pointer">
-                <Phone className="w-4 h-4 text-[#64748B]" />
+              <div className="flex items-center gap-4 px-5 py-3 rounded-full bg-[#1E40AF] border border-[#2563EB]/50 hover:bg-[#1D4ED8] transition-colors cursor-pointer">
+                <Phone className="w-4 h-4 text-[#93C5FD]" />
                 <div className="flex flex-col">
                   <span className="text-white font-semibold text-[13px] leading-tight">+91 92880 65556</span>
                   <span className="text-[#F43F5E] text-[11px] hover:underline decoration-[#F43F5E] leading-tight mt-0.5">Call or WhatsApp</span>
                 </div>
               </div>
-              <div className="flex items-center gap-4 px-5 py-3 rounded-full bg-[#111827] border border-[#1F2937] hover:bg-[#1F2937] transition-colors cursor-pointer">
-                <Mail className="w-4 h-4 text-[#64748B]" />
+              <div className="flex items-center gap-4 px-5 py-3 rounded-full bg-[#1E40AF] border border-[#2563EB]/50 hover:bg-[#1D4ED8] transition-colors cursor-pointer">
+                <Mail className="w-4 h-4 text-[#93C5FD]" />
                 <div className="flex flex-col">
                   <span className="text-white font-semibold text-[13px] leading-tight">info@covian.in</span>
                   <span className="text-[#F43F5E] text-[11px] hover:underline decoration-[#F43F5E] leading-tight mt-0.5">Email us anytime</span>
@@ -105,16 +111,16 @@ export function HeroSection() {
             </div>
 
             {/* Bottom Stats */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-[#1E293B] mt-6">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-[#3B82F6]/30 mt-6">
               <div>
                 <div className="text-[32px] font-heading font-medium text-white mb-1 leading-none tracking-tight">
-                  500<span className="text-[#d9a05b] font-sans text-2xl">+</span>
+                  250<span className="text-[#d9a05b] font-sans text-2xl">+</span>
                 </div>
-                <div className="text-[#64748B] text-[10px] font-bold uppercase tracking-wider">Placements Made</div>
+                <div className="text-[#64748B] text-[10px] font-bold uppercase tracking-wider">Placement Made</div>
               </div>
               <div>
                 <div className="text-[32px] font-heading font-medium text-white mb-1 leading-none tracking-tight">
-                  100<span className="text-[#d9a05b] font-sans text-2xl">+</span>
+                  20<span className="text-[#d9a05b] font-sans text-2xl">+</span>
                 </div>
                 <div className="text-[#64748B] text-[10px] font-bold uppercase tracking-wider">Corporate Clients</div>
               </div>
@@ -142,7 +148,7 @@ export function HeroSection() {
           >
             <div className="relative w-full max-w-[420px] aspect-[3/4]">
               {/* Inner container for image and gradient with overflow-hidden */}
-              <div className="absolute inset-0 rounded-[2rem] overflow-hidden shadow-2xl bg-[#0F172A]">
+              <div className="absolute inset-0 rounded-[2rem] overflow-hidden shadow-2xl bg-[#1E40AF]">
                 
                 <AnimatePresence>
                   <motion.div
@@ -165,7 +171,7 @@ export function HeroSection() {
                 </AnimatePresence>
                 
                 {/* Inner Gradient Overlay for text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1220] via-[#0A1220]/10 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128] via-[#0A1128]/10 to-transparent pointer-events-none" />
 
                 {/* Bottom Card Text */}
                 <div className="absolute bottom-8 left-8 right-8 z-20">
@@ -181,10 +187,10 @@ export function HeroSection() {
               <motion.div 
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-6 left-6 z-20 bg-[#1E3A8A]/80 backdrop-blur-md rounded-[1.25rem] px-5 py-4 shadow-lg border border-white/10"
+                className="absolute top-6 left-6 z-20 bg-[#2563EB]/80 backdrop-blur-md rounded-[1.25rem] px-5 py-4 shadow-lg border border-white/20"
               >
                 <div className="text-[28px] font-heading text-white leading-none mb-1 tracking-tight">
-                  500<span className="text-[#d9a05b] font-sans text-xl">+</span>
+                  250<span className="text-[#d9a05b] font-sans text-xl">+</span>
                 </div>
                 <p className="text-[10px] text-white/80 font-medium tracking-wide uppercase">Placements</p>
               </motion.div>
