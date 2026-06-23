@@ -53,7 +53,18 @@ export default function RegisterPage() {
       toast.success("Registration successful! Please sign in.");
       router.push("/login");
     } catch (error: any) {
-      toast.error(error.response?.data?.detail || "Registration failed. Please try again.");
+      let errorMessage = "Registration failed. Please try again.";
+      if (error.response?.data?.detail) {
+        const detail = error.response.data.detail;
+        if (typeof detail === "string") {
+          errorMessage = detail;
+        } else if (Array.isArray(detail) && detail[0]?.msg) {
+          errorMessage = detail[0].msg;
+        } else if (typeof detail === "object" && detail.msg) {
+          errorMessage = detail.msg;
+        }
+      }
+      toast.error(errorMessage);
     } finally {
       setIsLoading(false);
     }

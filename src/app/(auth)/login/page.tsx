@@ -41,13 +41,14 @@ export default function LoginPage() {
   async function onSubmit(values: z.infer<typeof loginSchema>) {
     setIsLoading(true);
     try {
-      // API expects URL encoded form data for OAuth2 password bearer
       const formData = new URLSearchParams();
       formData.append("username", values.username);
       formData.append("password", values.password);
 
       const { data } = await api.post("/auth/login", formData, {
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
       });
 
       localStorage.setItem("access_token", data.access_token);
@@ -73,7 +74,18 @@ export default function LoginPage() {
         router.push("/jobs");
       }
     } catch (error: any) {
-      toast.error(error.response?.data?.detail || "Invalid credentials. Please try again.");
+      let errorMessage = "Invalid credentials. Please try again.";
+      if (error.response?.data?.detail) {
+        const detail = error.response.data.detail;
+        if (typeof detail === "string") {
+          errorMessage = detail;
+        } else if (Array.isArray(detail) && detail[0]?.msg) {
+          errorMessage = detail[0].msg;
+        } else if (typeof detail === "object" && detail.msg) {
+          errorMessage = detail.msg;
+        }
+      }
+      toast.error(errorMessage);
     } finally {
       setIsLoading(false);
     }

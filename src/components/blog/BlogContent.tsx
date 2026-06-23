@@ -9,12 +9,7 @@ import { Footer } from "@/components/layout/Footer";
 import { useQuery } from "@tanstack/react-query";
 import { getPublicNews } from "@/services/admin-api";
 
-function calculateReadTime(content: string) {
-  if (!content) return "1 min read";
-  const words = content.trim().split(/\s+/).length;
-  const mins = Math.ceil(words / 200);
-  return `${mins} min read`;
-}
+
 
 function formatDate(dateString: string) {
   if (!dateString) return "Recently";
@@ -126,10 +121,7 @@ export function BlogContent() {
                             <Calendar className="w-4 h-4 text-blue-500" />{" "}
                             {formatDate(featuredPost.published_at || featuredPost.created_at)}
                           </span>
-                          <span className="flex items-center gap-1.5">
-                            <Clock className="w-4 h-4 text-blue-500" />{" "}
-                            {calculateReadTime(featuredPost.content)}
-                          </span>
+
                         </div>
 
                         <h2 className="text-3xl lg:text-4xl font-bold text-[#003A70] leading-tight mb-6 group-hover:text-blue-600 transition-colors line-clamp-3">
@@ -198,9 +190,7 @@ export function BlogContent() {
                             <span className="flex items-center gap-1.5">
                               <Calendar className="w-3.5 h-3.5" /> {formatDate(post.published_at || post.created_at)}
                             </span>
-                            <span className="flex items-center gap-1.5">
-                              <Clock className="w-3.5 h-3.5" /> {calculateReadTime(post.content)}
-                            </span>
+
                           </div>
 
                           <h4 className="text-xl font-bold text-[#003A70] leading-snug mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">

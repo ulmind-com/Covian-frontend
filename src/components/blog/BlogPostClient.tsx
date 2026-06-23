@@ -5,12 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Share2, Bookmark } from "lucide-react";
 
-function calculateReadTime(content: string) {
-  if (!content) return "1 min read";
-  const words = content.trim().split(/\s+/).length;
-  const mins = Math.ceil(words / 200);
-  return `${mins} min read`;
-}
+
 
 function formatDateFull(dateString: string) {
   if (!dateString) return "";
@@ -138,7 +133,7 @@ export function BlogPostClient({ post }: { post: any }) {
           >
             {/* Rich Text Content */}
             <div 
-              className="prose prose-lg prose-slate max-w-none 
+              className="prose prose-lg prose-slate max-w-none whitespace-pre-wrap
               prose-headings:font-black prose-headings:text-[#003A70] prose-headings:tracking-tight 
               prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
               prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4

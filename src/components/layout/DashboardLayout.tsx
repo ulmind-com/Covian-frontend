@@ -203,10 +203,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
             <Link href="/" target="_blank" className="hidden md:flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-50 transition-colors shadow-sm">
               View Site →
             </Link>
-            <button className="relative p-2 rounded-lg bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors shadow-sm">
-              <Bell className="w-4 h-4" />
-              <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 border border-white" />
-            </button>
+
           </div>
         </header>
 
