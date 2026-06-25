@@ -1,6 +1,15 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function WhatsAppButton() {
+  const pathname = usePathname();
+  
+  // Hide WhatsApp button on all admin routes
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
   // Use the standard wa.me link format for WhatsApp click-to-chat
   // Ensure the phone number includes the country code without any +, spaces, or dashes
   const phoneNumber = "919288065556"; 

@@ -143,7 +143,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
             {user.name.charAt(0).toUpperCase()}
           </div>
           <div className="overflow-hidden">
-            <p className="text-sm font-bold text-white truncate">{user.name}</p>
+            <p className="text-sm font-bold text-white truncate">{user.name === "CoreVita Administrator" ? "covian CoreVita Administrator" : user.name}</p>
             <p className="text-[10px] text-blue-400 font-semibold uppercase tracking-wider truncate">
               {user.role.replace("_", " ")}
             </p>
