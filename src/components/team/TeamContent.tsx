@@ -167,15 +167,7 @@ export function TeamContent() {
                               <LinkedInIcon className="w-4 h-4" />
                             </button>
                           )}
-                          {member.twitter_url ? (
-                            <a href={member.twitter_url} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-sky-500 hover:border-sky-500 transition-all">
-                              <TwitterIcon className="w-4 h-4" />
-                            </a>
-                          ) : (
-                            <button className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-sky-500 hover:border-sky-500 transition-all">
-                              <TwitterIcon className="w-4 h-4" />
-                            </button>
-                          )}
+
                           {member.email ? (
                             <a href={`mailto:${member.email}`} className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/20 transition-all">
                               <Mail className="w-4 h-4" />

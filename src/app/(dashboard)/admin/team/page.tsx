@@ -99,7 +99,7 @@ export default function TeamPage() {
               {m.bio && <p className="text-xs text-slate-500 mt-2 line-clamp-2">{m.bio}</p>}
               <div className="flex items-center gap-2 mt-3">
                 {m.linkedin_url && <a href={m.linkedin_url} target="_blank" className="p-1.5 rounded-lg hover:bg-blue-50 text-slate-400 hover:text-blue-600 transition-colors"><Link2 className="w-3.5 h-3.5" /></a>}
-                {m.twitter_url && <a href={m.twitter_url} target="_blank" className="p-1.5 rounded-lg hover:bg-sky-50 text-slate-400 hover:text-sky-500 transition-colors"><MessageCircle className="w-3.5 h-3.5" /></a>}
+
                 <span className={`ml-auto px-2 py-0.5 rounded-full text-[10px] font-bold border ${m.is_active ? "bg-emerald-50 text-emerald-700 border-emerald-200" : "bg-slate-100 text-slate-500 border-slate-200"}`}>
                   {m.is_active ? "Active" : "Inactive"}
                 </span>
@@ -120,9 +120,8 @@ export default function TeamPage() {
               <ImageUpload label="Photo" folder="corevita/team" value={form.photo_url} onChange={(url) => setForm({...form, photo_url: url})} />
               <div><label className="text-xs font-bold text-slate-600 mb-1 block">Bio</label><textarea className={input + " h-24 resize-none"} value={form.bio} onChange={e => setForm({...form, bio: e.target.value})} placeholder="Short bio..." /></div>
               <div><label className="text-xs font-bold text-slate-600 mb-1 block">Email</label><input className={input} value={form.email} onChange={e => setForm({...form, email: e.target.value})} placeholder="name@covian.com" /></div>
-              <div className="grid grid-cols-2 gap-3">
+              <div>
                 <div><label className="text-xs font-bold text-slate-600 mb-1 block">LinkedIn URL</label><input className={input} value={form.linkedin_url} onChange={e => setForm({...form, linkedin_url: e.target.value})} placeholder="https://linkedin.com/in/..." /></div>
-                <div><label className="text-xs font-bold text-slate-600 mb-1 block">Twitter URL</label><input className={input} value={form.twitter_url} onChange={e => setForm({...form, twitter_url: e.target.value})} placeholder="https://twitter.com/..." /></div>
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div><label className="text-xs font-bold text-slate-600 mb-1 block">Display Order</label><input type="number" className={input} value={form.display_order} onChange={e => setForm({...form, display_order: Number(e.target.value)})} /></div>
