@@ -16,7 +16,7 @@ import { BlogSection } from "@/components/home/BlogSection";
 import { CTASection } from "@/components/home/CTASection";
 
 export const metadata = {
-  title: "Covian Advisory | The #1 Enterprise Recruitment Platform",
+  title: "Covian Advisory Pvt Ltd",
   description: "Transform your workforce with AI-driven recruitment, seamless onboarding, and dynamic talent management. Build your dream team today.",
 };
 

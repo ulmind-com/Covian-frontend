@@ -168,7 +168,7 @@ export default function IndustriesPage() {
             viewport={{ once: true }}
             className="bg-gradient-to-br from-[#003A70] to-blue-900 rounded-[2.5rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl"
           >
-            <div className="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] opacity-10 mix-blend-overlay" />
+            <div className="absolute top-0 left-0 w-full h-full bg-[url(/noise.png)] opacity-10 mix-blend-overlay" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/30 rounded-full blur-[120px] pointer-events-none" />
             
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6 relative z-10 tracking-tight">Don't see your industry?</h2>

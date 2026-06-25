@@ -623,7 +623,7 @@ export function ServiceLayout({
 
         {/* ── CTA ── */}
         <section className="py-16 bg-gradient-to-br from-blue-700 to-blue-900 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/mesh-texture.png')] opacity-10 pointer-events-none" />
+          <div className="absolute inset-0 bg-[url(/mesh-texture.png)] opacity-10 pointer-events-none" />
           <div className="container mx-auto px-6 text-center relative z-10">
             <h3 className="text-2xl md:text-3xl font-heading font-bold text-white mb-3">Ready to Get Started?</h3>
             <p className="text-blue-200 text-sm mb-7 max-w-lg mx-auto">Partner with CoVian Advisory to build your future-ready workforce today.</p>

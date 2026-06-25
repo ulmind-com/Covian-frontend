@@ -284,7 +284,7 @@ export function Footer() {
             <Link href="#" className="hover:text-white transition-colors">Contact</Link>
           </div>
           <div className="flex items-center gap-1">
-            Design & Developed By <a href="https://www.ulmind.com" target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:text-blue-400 transition-colors tracking-widest ml-1">ULMIND</a>
+            Design & Developed By <a href="https://www.ulmind.com" target="_blank" rel="noopener noreferrer" className="ml-1.5 hover:opacity-80 transition-opacity flex items-center"><Image src="/ulmind_official_logo.png" alt="ULMIND" width={60} height={16} className="h-4 w-auto object-contain" /></a>
           </div>
         </div>
       </div>

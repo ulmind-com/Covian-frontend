@@ -17,7 +17,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "CoVian Advisory | Strategic Workforce & Talent Solutions",
+  title: "Covian Advisory Pvt Ltd",
   description: "CoVian Advisory Pvt Ltd — Professional, reliable, modern and client-centric HR consulting partner focused on quality talent and long-term business relationships.",
   icons: {
     icon: "/favicon.png",
