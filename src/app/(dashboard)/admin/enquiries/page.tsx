@@ -66,7 +66,7 @@ export default function EnquiriesPage() {
           <h1 className="text-2xl font-black text-slate-800">Enquiries</h1>
           <p className="text-sm text-slate-500 mt-0.5">View and manage all contact form submissions.</p>
         </div>
-        <a href={`${process.env.NODE_ENV === "production" ? "https://project-for-prem-backend.onrender.com/api/v1" : "http://localhost:8000/api/v1"}/content/enquiries/export-csv`}
+        <a href={`${process.env.NODE_ENV === "production" ? "https://covian-backend.onrender.com/api/v1" : "http://localhost:8000/api/v1"}/content/enquiries/export-csv`}
           className="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold rounded-xl shadow-sm transition-colors">
           <Download className="w-4 h-4" /> Export CSV
         </a>

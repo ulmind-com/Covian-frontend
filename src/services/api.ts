@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const isProd = process.env.NODE_ENV === 'production';
-const API_URL = isProd ? 'https://project-for-prem-backend.onrender.com/api/v1' : 'http://localhost:8000/api/v1';
+const API_URL = isProd ? 'https://covian-backend.onrender.com/api/v1' : 'http://localhost:8000/api/v1';
 
 export const api = axios.create({
   baseURL: API_URL,

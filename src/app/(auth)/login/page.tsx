@@ -225,6 +225,7 @@ export default function LoginPage() {
                         <input 
                           placeholder="name@company.com" 
                           {...field}
+                          autoComplete="off"
                           onFocus={() => setFocusedField("email")}
                           onBlur={(e) => { field.onBlur(); setFocusedField(null); }}
                           className="w-full bg-[#020B1A]/50 hover:bg-[#020B1A]/80 focus:bg-[#020B1A]/80 border border-white/[0.08] focus:border-[#1E88E5]/30 rounded-[1.2rem] h-[3.5rem] pl-12 pr-4 text-white placeholder:text-white/20 text-[15px] font-medium outline-none transition-all duration-300"
@@ -255,6 +256,7 @@ export default function LoginPage() {
                           type={showPassword ? "text" : "password"}
                           placeholder="Enter your password"
                           {...field}
+                          autoComplete="new-password"
                           onFocus={() => setFocusedField("password")}
                           onBlur={(e) => { field.onBlur(); setFocusedField(null); }}
                           className="w-full bg-[#020B1A]/50 hover:bg-[#020B1A]/80 focus:bg-[#020B1A]/80 border border-white/[0.08] focus:border-[#1E88E5]/30 rounded-[1.2rem] h-[3.5rem] pl-12 pr-12 text-white placeholder:text-white/20 text-[15px] font-medium outline-none transition-all duration-300"

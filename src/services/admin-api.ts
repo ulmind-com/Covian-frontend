@@ -6,7 +6,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 const isProd = process.env.NODE_ENV === "production";
-const BASE_URL = isProd ? "https://project-for-prem-backend.onrender.com/api/v1" : "http://localhost:8000/api/v1";
+const BASE_URL = isProd ? "https://covian-backend.onrender.com/api/v1" : "http://localhost:8000/api/v1";
 
 function getToken(): string | null {
   if (typeof window === "undefined") return null;

@@ -10,7 +10,7 @@ import successAnimation from "../../../public/Lottie/Verified Icon Animation.jso
 
 // We use the same hardcoded BASE_URL as admin-api.ts for simplicity
 const isProd = process.env.NODE_ENV === "production";
-const BASE_URL = isProd ? "https://project-for-prem-backend.onrender.com/api/v1" : "http://localhost:8000/api/v1";
+const BASE_URL = isProd ? "https://covian-backend.onrender.com/api/v1" : "http://localhost:8000/api/v1";
 
 export function ContactContent() {
   const [formData, setFormData] = useState({

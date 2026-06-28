@@ -5,7 +5,7 @@ import { useState, useRef } from "react";
 import { Upload, X, Loader2, Image as ImageIcon } from "lucide-react";
 
 const isProd = process.env.NODE_ENV === "production";
-const BASE_URL = isProd ? "https://project-for-prem-backend.onrender.com/api/v1" : "http://localhost:8000/api/v1";
+const BASE_URL = isProd ? "https://covian-backend.onrender.com/api/v1" : "http://localhost:8000/api/v1";
 
 interface ImageUploadProps {
   value: string;

@@ -7,7 +7,7 @@ import { ChevronRight, FileText } from "lucide-react";
 
 async function getPageData(slug: string) {
   try {
-    const res = await fetch(`https://project-for-prem-backend.onrender.com/api/v1/cms/pages/${slug}`, {
+    const res = await fetch(`https://covian-backend.onrender.com/api/v1/cms/pages/${slug}`, {
       next: { revalidate: 60 }
     });
     
