@@ -167,120 +167,60 @@ export default function PrivacyPolicyPage() {
         </section>
 
         {/* Content */}
-        <section className="relative py-16 md:py-24">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="flex flex-col lg:flex-row gap-12">
-              {/* Sidebar TOC */}
-              <aside className="lg:w-72 shrink-0">
-                <div className="lg:sticky lg:top-28">
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#003A70]/40 mb-4">
-                    Contents
-                  </p>
-                  <nav className="flex flex-col gap-1">
-                    {sections.map((s) => (
-                      <a
-                        key={s.id}
-                        href={`#${s.id}`}
-                        className={`group flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${
-                          activeSection === s.id
-                            ? "bg-[#1E88E5]/10 text-[#1E88E5] border border-[#1E88E5]/20"
-                            : "text-[#003A70]/50 hover:text-[#003A70] hover:bg-[#003A70]/5"
-                        }`}
-                      >
-                        <span
-                          className={`text-[10px] font-black transition-colors ${
-                            activeSection === s.id ? "text-[#1E88E5]" : "text-[#003A70]/25"
-                          }`}
-                        >
-                          {s.number}
-                        </span>
-                        {s.title}
-                      </a>
-                    ))}
-                  </nav>
-                </div>
-              </aside>
-
-              {/* Main Content Cards */}
-              <div className="flex-1 flex flex-col gap-8">
+        <section className="relative py-16 md:py-24 bg-white">
+          <div className="max-w-4xl mx-auto px-6">
+            <div className="prose prose-lg prose-slate max-w-none text-[#003A70]/80">
+              <div className="space-y-12">
                 {sections.map((section, idx) => (
-                  <div
-                    key={section.id}
-                    id={section.id}
-                    className={`group relative bg-white rounded-[1.5rem] border border-[#003A70]/[0.06] p-8 md:p-10 shadow-[0_4px_24px_rgba(0,58,112,0.04)] hover:shadow-[0_8px_40px_rgba(0,58,112,0.08)] transition-all duration-500 ${
-                      mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                    }`}
-                    style={{ transitionDelay: `${idx * 80}ms` }}
-                  >
-                    {/* Accent bar */}
-                    <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#1E88E5]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                    <div className="flex items-start gap-5 mb-6">
-                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#1E88E5]/10 to-[#00A86B]/10 flex items-center justify-center shrink-0 border border-[#1E88E5]/10">
-                        <section.icon className="w-5 h-5 text-[#1E88E5]" />
-                      </div>
-                      <div>
-                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#1E88E5]/50 block mb-1">
-                          Section {section.number}
-                        </span>
-                        <h2 className="text-xl md:text-2xl font-heading font-bold text-[#003A70] tracking-tight">
-                          {section.title}
-                        </h2>
-                      </div>
-                    </div>
-
-                    <p className="text-[#003A70]/60 leading-relaxed text-[15px] font-medium">
+                  <div key={section.id} id={section.id} className="scroll-mt-24">
+                    <h2 className="text-2xl md:text-3xl font-heading font-bold text-[#003A70] mb-4">
+                      {section.number}. {section.title}
+                    </h2>
+                    <p className="text-[16px] leading-relaxed mb-4 font-medium">
                       {section.content}
                     </p>
-
                     {section.bullets && (
-                      <ul className="mt-5 flex flex-col gap-3">
+                      <ul className="list-none pl-0 space-y-3 mb-6">
                         {section.bullets.map((bullet, i) => (
                           <li key={i} className="flex items-start gap-3">
-                            <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-[#1E88E5] to-[#00A86B] mt-2 shrink-0" />
-                            <span className="text-[#003A70]/55 text-[15px] font-medium leading-relaxed">
+                            <div className="w-1.5 h-1.5 rounded-full bg-[#1E88E5] mt-2.5 shrink-0" />
+                            <span className="text-[16px] leading-relaxed font-medium">
                               {bullet}
                             </span>
                           </li>
                         ))}
                       </ul>
                     )}
-
                     {section.note && (
-                      <div className="mt-5 px-4 py-3 rounded-xl bg-[#1E88E5]/[0.04] border border-[#1E88E5]/10">
-                        <p className="text-sm text-[#1E88E5]/80 font-semibold">{section.note}</p>
-                      </div>
+                      <p className="text-[15px] font-semibold text-[#1E88E5] mt-4">
+                        {section.note}
+                      </p>
                     )}
                   </div>
                 ))}
+              </div>
+            </div>
 
-                {/* Contact Card */}
-                <div className="relative bg-gradient-to-br from-[#001a3a] via-[#003A70] to-[#00264d] rounded-[1.5rem] p-8 md:p-10 text-white overflow-hidden">
-                  <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-[-50%] right-[-30%] w-[400px] h-[400px] rounded-full bg-[#1E88E5]/15 blur-[100px]" />
-                  </div>
-                  <div className="relative z-10">
-                    <h3 className="text-2xl font-heading font-bold mb-3 tracking-tight">
-                      Questions About Our Privacy Policy?
-                    </h3>
-                    <p className="text-white/50 text-[15px] font-medium mb-6 max-w-lg">
-                      If you have any concerns about your data or privacy, our team is always available to help.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/[0.06] border border-white/[0.1]">
-                        <Mail className="w-4 h-4 text-[#1E88E5]" />
-                        <span className="text-sm font-semibold text-white/70">info@covian.in</span>
-                      </div>
-                      <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/[0.06] border border-white/[0.1]">
-                        <Phone className="w-4 h-4 text-[#00A86B]" />
-                        <span className="text-sm font-semibold text-white/70">9288065556</span>
-                      </div>
-                      <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/[0.06] border border-white/[0.1]">
-                        <Globe className="w-4 h-4 text-[#1E88E5]" />
-                        <span className="text-sm font-semibold text-white/70">www.covian.in</span>
-                      </div>
-                    </div>
-                  </div>
+            {/* Contact Card */}
+            <div className="mt-16 relative bg-[#f8fafc] rounded-2xl border border-slate-200 p-8 md:p-10">
+              <h3 className="text-2xl font-heading font-bold text-[#003A70] mb-3">
+                Questions About Our Privacy Policy?
+              </h3>
+              <p className="text-slate-500 text-[16px] mb-8 max-w-lg">
+                If you have any concerns about your data or privacy, our team is always available to help.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6">
+                <div className="flex items-center gap-3">
+                  <Mail className="w-5 h-5 text-[#1E88E5]" />
+                  <span className="text-[16px] font-semibold text-[#003A70]">info@covian.in</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Phone className="w-5 h-5 text-[#00A86B]" />
+                  <span className="text-[16px] font-semibold text-[#003A70]">9288065556</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Globe className="w-5 h-5 text-[#1E88E5]" />
+                  <span className="text-[16px] font-semibold text-[#003A70]">www.covian.in</span>
                 </div>
               </div>
             </div>
