@@ -278,10 +278,8 @@ export function Footer() {
             <p>© {new Date().getFullYear()} <strong className="text-white font-medium">CoVian Advisory Pvt Ltd</strong>. All rights reserved.</p>
           </div>
           <div className="flex gap-6">
-            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white transition-colors">Terms of Use</Link>
-            <Link href="#" className="hover:text-white transition-colors">Sitemap</Link>
-            <Link href="#" className="hover:text-white transition-colors">Contact</Link>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-use" className="hover:text-white transition-colors">Terms of Use</Link>
           </div>
           <div className="flex items-center gap-0">
             Design & Developed By <a href="https://www.ulmind.com" target="_blank" rel="noopener noreferrer" className="-ml-2 hover:opacity-80 transition-opacity flex items-center"><Image src="/ulmind_official_logo.png" alt="ULMIND" width={180} height={48} className="h-12 w-auto object-contain" /></a>
